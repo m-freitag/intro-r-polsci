@@ -17,4 +17,4 @@ You can download the `.pdf` [here](https://raw.githack.com/m-freitag/intro-r-pol
 
 ## Further Reading
 
-TBD
+TBD.
