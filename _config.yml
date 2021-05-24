@@ -19,7 +19,7 @@ description: Workshop held [@GSI](https://www.gsi.uni-muenchen.de/aktuelles/seme
 author: Markus Freitag
 baseurl: '/intro-r-polsci' # the subpath of your site, e.g. /blog
 url: 'https://m-freitag.github.io' # the base hostname & protocol for your site, e.g. http://example.com
-exclude: ["Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
+exclude: ["Gemfile", "Gemfile.lock", "LICENSE", "README.md", "_lessons/Slides"]
 
 # Theme settings
 remote_theme: pdmosses/just-the-docs@pages-and-collections
