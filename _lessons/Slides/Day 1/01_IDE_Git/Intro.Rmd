@@ -652,4 +652,7 @@ name: intro
  pagedown::chrome_print("./Intro.html")
 
 ```
- 
+
+```{r xaringanExtra-share-again, echo=FALSE}
+xaringanExtra::use_share_again()
+```
