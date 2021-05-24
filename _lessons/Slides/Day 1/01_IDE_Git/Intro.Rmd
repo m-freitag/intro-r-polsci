@@ -105,7 +105,7 @@ class: inverse, center, title-slide, middle
 
 <br /> 
 
-## .handw[]
+## Session 1: R-Studio and Version Control
 
 ### Markus Freitag
 

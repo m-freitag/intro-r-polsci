@@ -4,9 +4,9 @@
 <script>
   
 const handw = new Vara('.handw', "https://raw.githubusercontent.com/akzhy/Vara/master/fonts/Shadows-Into-Light/shadows-into-light.json", [{
-    text:"Session 1: R-Studio and Version Control"
+    text:"                Session 1: R-Studio and Version Control"
   }],{
-    fontSize:30,
+    fontSize:55,
     color:"#415564",
     strokeWidth:2,
     textAlign:"center",
