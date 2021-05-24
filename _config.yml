@@ -51,6 +51,16 @@ defaults:
     values:
       layout: staffer
       subpath: '/assets/images/'
+  - scope:
+      path: ''
+      type: lessons
+    values:
+      layout: page
+# Configure collections for Just the Docs
+just_the_docs:
+  collections:
+    lessons:
+      name: Lessons
 
 
 compress_html:
