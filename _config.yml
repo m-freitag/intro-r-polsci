@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Home
+title: PolSciR
 tagline: Introduction to R for Political Scientists
 description: Workshop held [@GSI](https://www.gsi.uni-muenchen.de/aktuelles/semesterinfos/intro_to_r/index.html), Summer 2021
 author: Markus Freitag
@@ -28,8 +28,6 @@ search_enabled: true
 heading_anchors: true
 permalink: pretty
 aux_links:
-  Markus Freitag:
-    - 'https://markusfreitag.netlify.app/'
   Course Materials on GitHub:
     - 'https://github.com/kevinlin1/just-the-class'
 footer_content:
@@ -52,6 +50,13 @@ defaults:
       type: announcements
     values:
       layout: announcement
+ - scope:
+      path: ''
+      type: staffers
+    values:
+      layout: staffer
+      subpath: '/assets/images/'
+
 
 compress_html:
   clippings: all
