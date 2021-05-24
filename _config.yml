@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: Home
 tagline: Introduction to R for Political Scientists
-description: 
+description: Workshop held [@GSI](https://www.gsi.uni-muenchen.de/aktuelles/semesterinfos/intro_to_r/index.html), Summer 2021
 author: Markus Freitag
 baseurl: '/intro-r-polsci' # the subpath of your site, e.g. /blog
 url: 'https://m-freitag.github.io' # the base hostname & protocol for your site, e.g. http://example.com
