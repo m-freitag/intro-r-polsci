@@ -5,7 +5,7 @@ description: >-
     Course policies and information.
 ---
 
-# About
+# Syllabus
 {:.no_toc}
 
 ## Table of contents
@@ -20,6 +20,8 @@ description: >-
 
 R is a programming language and free software environment for statistical computing: for data analysis, data manipulation and data visualization. Always a cornerstone in statistics, R has also become the "lingua franca" of quantitative political science in recent years. Moreover, it has become increasingly popular in industry. This course will introduce political scientists to R, with an emphasis on programming (as compared to statistical analysis) and reproducible workflows including version control with GitHub. Starting with "Base R", the course will also cover various recently popular packages for data manipulation and viszualization (e.g. from the tidyverse). The objective of this course is to lay the foundations for conducting rigorous and reproducible quantitative research in R.
 
+A .pdf version of the syllabus can be found [here](https://raw.githubusercontent.com/m-freitag/Syllabus_R2021/main/Syllabus_Introduction-to-Programming-with-R.pdf).
+
 ## Learning Objectives
 
 1.  Using the R-Studio IDE and version control with GitHub
@@ -33,47 +35,6 @@ R is a programming language and free software environment for statistical comput
 ## Prerequisite Knowledge
 
 This course is intended for advanced B.A. students, M.A. students and junior faculty who want to work with R or switch to R from another programming language (e.g., Stata). No prior experience with R is required. However, basic knowledge of statistics is necessary to follow the (practical) examples of this course (BA students must have completed "Methoden der Politikwissenschaft II"). Proficiency in another programming language (e.g. Stata or Python) may decrease the learning curve.
-
-
-
-## Class Schedule
-
-The course will take the format of an intense 2 day workshop with "chalk and talk" blocks as well as breakout sessions in which groups of participants work together on problem sets.
-
-| **Topics**                            |                                                | **Time-Schedule** |
-|---------------------------------------|------------------------------------------------|-------------------|
-|                                       |                                                |                   |
-| **Day 1 (12.07.2021)**                |                                                |                   |
-|                                       |                                                |                   |
-| Kick-Off and First Steps              |                                                |                   |
-|                                       | R Studio IDE and version control with github   | 09:00 - 10:30     |
-|                                       |                                                |                   |
-| *Break*                               |                                                | 10:30 - 10:45     |
-|                                       |                                                |                   |
-| Base R and into the Tidyverse         |                                                |                   |
-|                                       | Base R & Tidyverse Basics                      | 10:45 - 11:45     |
-|                                       | *breakout session 1*                           | 11:45 - 12:30     |
-|                                       |                                                |                   |
-| *Break*                               |                                                | 12:30 - 13:00     |
-|                                       |                                                |                   |
-|                                       | Data Wrangling I                               | 13:00 - 14:00     |
-|                                       | *breakout session 2*                           | 14:00 - 14:30     |
-|                                       |                                                |                   |
-|                                       | Data Wrangling II: Advanced data manipulations | 14:30 - 15:30     |
-|                                       | *breakout session 3*                           | 15:30 - 16:15     |
-|                                       |                                                |                   |
-| **Day 2 (13.07.2021)**                |                                                |                   |
-|                                       |                                                |                   |
-| Data Visualization                    |                                                | 09:00 - 10:30     |
-|                                       | *breakout session 1*                           | 10:30 - 12:15     |
-|                                       |                                                |                   |
-| *Break*                               |                                                | 12:15 - 12:45     |
-|                                       |                                                |                   |
-| Writing functions (and clean code)    |                                                | 12:45 - 13:45     |
-|                                       | *breakout session 2*                           | 13:45 - 15:00     |
-|                                       |                                                |                   |
-| A complete scientific workflow with R |                                                | 15:00 - 16:15     |
-|                                       | *Wrap-up*                                      |                   |
 
 ## Preparation
 
