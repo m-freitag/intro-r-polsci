@@ -52,12 +52,6 @@ defaults:
       layout: staffer
       subpath: '/assets/images/'
 
-just_the_docs:
-  collections:
-    lessons:
-      name: Sessions
-
-
 
 compress_html:
   clippings: all
