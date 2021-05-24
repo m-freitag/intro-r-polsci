@@ -1,6 +1,6 @@
 ---
-title: "Lys"
-subtitle: "goes Xaringan"  
+title: "Intro, (Git)Hub and R-Studio"
+subtitle: ""  
 author: 
   - "Markus Freitag"
 date: '`r Sys.Date()`'
