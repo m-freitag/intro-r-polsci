@@ -12,7 +12,7 @@ The course will take the format of an intense 2 day workshop with "chalk and tal
 |---------------------------------------|------------------------------------------------|-------------------|
 | **Day 1 (12.07.2021)**                |                                                |                   |
 | Kick-Off and First Steps              |                                                |                   |
-|                                       | R Studio IDE and version control with github   | 09:00 - 10:30     |
+|                                       | [R Studio IDE and version control with (Git)Hub](https://m-freitag.github.io/intro-r-polsci/Intro_Rst_Git/) | 09:00 - 10:30     |
 | *Break*                               |                                                | 10:30 - 10:45     |
 | Base R and into the Tidyverse         |                                                |                   |
 |                                       | Base R & Tidyverse Basics                      | 10:45 - 11:45     |
