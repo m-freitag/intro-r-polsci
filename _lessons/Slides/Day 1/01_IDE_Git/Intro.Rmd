@@ -364,11 +364,11 @@ An Rmarkdown file consists of mainly three things:
 1. **YAML header** (Yet Another Markdown Language). Specifies meta info (e.g. author, date, document format, etc.):
 
     ```{r, eval = FALSE}
----
-title: "Untitled"
-author: Markus
-output: html_document
----
+    ---
+    title: "Untitled"
+    author: Markus
+    output: html_document
+    ---
 
     ```
 
