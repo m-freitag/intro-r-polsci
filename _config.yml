@@ -50,7 +50,7 @@ defaults:
       type: announcements
     values:
       layout: announcement
- - scope:
+  - scope:
       path: ''
       type: staffers
     values:
