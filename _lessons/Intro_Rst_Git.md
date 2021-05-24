@@ -1,6 +1,6 @@
 ---
 title: Intro, (Git)Hub & R-Studio
-parent: Autocomplete
+parent: Day 1
 nav_order: 2
 summary: 
 ---
