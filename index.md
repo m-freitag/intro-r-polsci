@@ -1,10 +1,10 @@
 ---
 layout: home
-title: PolSciR
+title: PolSciR'21
 nav_exclude: true
 seo:
   type: Course
-  name: PolSciR
+  name: PolSciR'21
 ---
 
 # {{ site.tagline }}

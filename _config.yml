@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: PolSciR
+title: PolSciR'21
 tagline: Introduction to R for Political Scientists
 description: Workshop held [@GSI](https://www.gsi.uni-muenchen.de/aktuelles/semesterinfos/intro_to_r/index.html), Summer 2021
 author: Markus Freitag
