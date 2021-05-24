@@ -13,12 +13,12 @@
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Intro to R for Political Scientists
+title: Introduction to R for Political Scientists
 tagline: A Jekyll template for course websites
 description: 
 author: Markus Freitag
 baseurl: '/intro-r-polsci' # the subpath of your site, e.g. /blog
-url: 'https://kevinl.info' # the base hostname & protocol for your site, e.g. http://example.com
+url: 'https://m-freitag.github.io' # the base hostname & protocol for your site, e.g. http://example.com
 exclude: ["Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
 
 # Theme settings
@@ -30,7 +30,7 @@ permalink: pretty
 aux_links:
   Markus Freitag:
     - 'https://markusfreitag.netlify.app/'
-  Class on GitHub:
+  Course Materials on GitHub:
     - 'https://github.com/kevinlin1/just-the-class'
 footer_content:
 
