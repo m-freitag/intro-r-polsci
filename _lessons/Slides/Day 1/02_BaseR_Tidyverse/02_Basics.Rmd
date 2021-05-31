@@ -122,44 +122,94 @@ class: inverse, center, title-slide, middle
 class: inverse, center, middle
 name: intro
 
-# Intro
+# CalculatoR
 
 
 ---
 
-# Welcome Young Padawans 
+# CalculatoR
 
-**Why this course?**
+```{r}
 
- - Intro to R with a focus on programming (<-> standard pol sci quant training).
- 
- - Set some good programming/workflow habits to make your life easier later on.
- 
-> *"I want to give a short (crash) course that provides you with some basic practical skills necessary to get serious about (political) sciencing."*
+7+5 # [n] stands for the nth element printed to the console. 
 
- - There are tons of awesome & free materials from the best R Gurus of the world out there.
- 
- - Take this course as a humble starting point to see through the thickit.
+```
+
+```{r}
+
+4*5+2/3^3 # Multiplication and division first, then addition and subtraction
+
+# Modulo Operators:
+
+10 %/% 3 # Integer division
+
+10 %% 3 # Remainder ("Rest")
+```
+
+---
+
+# CalculatoR
+
+```{r}
+# Relational and logical operators
+
+3 < 4
+
+2 == 1 & 4 > 2  # == "equal to"; & "element wise logical AND"
+
+2 == 1 | 4 > 2 # | "element wise logical or"
+
+3 != 4 # != "not equal"
+
+7 %in% 300:500 # %in% can be used to evaluate matches in objects
+
+# Take care about the order of precedence...
+
+```
+
+---
+# CalculatoR
+
+.pull-left[
+```{r}
+
+# Floating Points
+
+0.1 + 0.2
+
+0.1 + 0.2 == 0.3
+
+```
+
+Why?!
+
+> [Because internally, computers use a format (binary floating-point) that cannot accurately represent a number like 0.1, 0.2 or 0.3 at all.](https://floating-point-gui.de/basic/)
+
+
+]
+
+.pull-right[
+
+```{r, echo=FALSE, fig.align='center', out.width= "60%"}
+knitr::include_graphics("Figs/robot.png")
+```
+
+] 
+
+---
+
+class: inverse, center, middle
+name: intro
+
+# A Primer on OOP ("Object Oriented Programming")
 
 
 ---
 
-# Welcome Young Padawans 
+# Object Oriented Programming
 
-**Who am I?**
+> Everything is an object and everything has a name.
 
-- Soon™ PhD student. Likes stats and pol sci. Also likes cooking and (board) gaming. 
-
-- Web: [`r icons::icon_style(icons::fontawesome("globe"), fill = "#415564")`](https://markusfreitag.netlify.app/)
-
-
-**Who are you?**
-
-I hate online introductory rounds. 
-
-Let's do a break-out session instead so you get to know a few people. 
-
-This will also be your team for the problem sets. 
 
 
 ```{r print pdf, include=FALSE}
