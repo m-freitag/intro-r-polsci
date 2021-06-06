@@ -25,12 +25,12 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 
 knitr::opts_chunk$set(
-  fig.align="center", 
+  fig.align = "center",
   fig.retina = 2,
-  cache=F#, echo=F, warning=F, message=F
+  cache = F#, echo=F, warning=F, message=F
   )
 
-#knitr::opts_chunk$set(fig.dim=c(4.8, 4.5), fig.retina=2, out.width="100%")
+# knitr::opts_chunk$set(fig.dim=c(4.8, 4.5), fig.retina=2, out.width="100%")
 
 # install package management tool pacman
 # install.packages("pacman")
@@ -48,12 +48,12 @@ pacman::p_load(
 )
 
 
-font_add_google(
-  name = "IBM Plex Sans",
-  family = "plex"
-)
+# font_add_google(
+#   name = "IBM Plex Sans",
+#   family = "plex"
+# )
 
-showtext_auto()
+# showtext_auto()
 
 
 
@@ -140,22 +140,28 @@ class: inverse, center, title-slide, middle
 
 # Trivia
 
-- R builds upon the S programming language
+- R was designed in 1993 by Ross Ihaka and Robert Gentleman
 
-```{r, echo = FALSE}
+- Builds upon the S programming language by John Chambers
 
-pkgs <- read_html("https://cran.r-project.org/web/packages/available_packages_by_name.html")
-mylines <- pkgs %>% 
-    html_nodes("tr") %>%
-    xml_text()
+    - Named R as a play on S and bc of the first names of the authors
 
-nb_pkgs <- length(which(sapply(mylines, nchar)>5))
+```{r, echo = FALSE, results='hide'}
+
+CRANpackages <- available.packages()
+nrow(CRANpackages)
+
+nb_pkgs <- nrow(CRANpackages)
 ```
 
 - There are `r nb_pkgs` packages available on [CRAN](https://cran.r-project.org/) as of `r Sys.Date()`.
 
-- 
+- [R-Studio](https://www.rstudio.com/about/) $\neq$ [R-Core Team](https://www.r-project.org/contributors.html); the former is a mix of a for-profit and a non-profit company; highly committed to produce free & open-source products; has some business solutions
 
+```{r, echo=FALSE, fig.align='center', out.width= "25%"}
+knitr::include_graphics("Figs/devs.png")
+```
+.center[.font50[[Image source and more R-History trivia](https://rss.onlinelibrary.wiley.com/doi/epdf/10.1111/j.1740-9713.2018.01169.x)]]
 ---
 
 class: inverse, center, middle
@@ -242,7 +248,6 @@ name: intro
 
 # A Primer on OOP ("Object Oriented Programming")
 
-
 ---
 
 # Object Oriented Programming
@@ -252,6 +257,116 @@ name: intro
 ```{r, echo=FALSE, fig.align='center', out.width= "80%"}
 knitr::include_graphics("Classes.svg")
 ```
+
+
+---
+
+# Functions
+
+
+
+---
+
+# Making Objects: Assignment
+.pull-left[
+- You can use `<-` or `=` for assignment
+
+- For instance, 
+```{r}
+a <- 3 # Or a = 3; under the hood, assignment works more like a -> 3
+```
+assigns the name `x` to an object of type/mode numeric. I.e. binds an object to a name.
+
+Simplification:
+> creates an object named `a`, containing the value `3`.
+]
+
+.pull-right[
+-Using
+```{r, results= "hide"}
+class(a)
+mode(a)
+```  
+gives you information about the class/type of the object. `class()` gives the 
+class of the object from an OOP POV, `typeof()` the base type.  
+
+- In this case, this is not very interesting as we created an **atomic** numeric vector. 
+]
+---
+
+# Making Objects: Assignment
+
+- Using `=` is legal as per the man, the myth, the legend Ross Ihaka himself:
+
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/88TftllIjaY?start=2100" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+
+
+---
+
+# Naming Conventions
+
+
+---
+
+# Workspace & Environment
+
+- In contrast to Stata, R can hold multiple 
+
+
+---
+
+# Vectors
+
+
+
+
+---
+
+
+# Matrices
+
+---
+
+# Lists
+
+---
+
+# Factors
+
+
+---
+
+# Data Frames
+
+
+---
+
+# Some Indexing Basics
+
+
+
+
+---
+
+# Loading Packages
+
+
+---
+
+# The Tidyverse
+
+---
+
+# The Tidyverse
+
+
+
+---
+
+# Summary
+
+
+
 
 ```{r print pdf, include=FALSE}
 
