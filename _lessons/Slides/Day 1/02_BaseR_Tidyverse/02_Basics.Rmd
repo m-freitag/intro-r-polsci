@@ -162,6 +162,27 @@ nb_pkgs <- nrow(CRANpackages)
 knitr::include_graphics("Figs/devs.png")
 ```
 .center[.font50[[Image source and more R-History trivia](https://rss.onlinelibrary.wiley.com/doi/epdf/10.1111/j.1740-9713.2018.01169.x)]]
+
+---
+  
+ # Workflow
+
+- You forked and cloned the course repo.
+
+- Navigate to `Session Scripts > Session 2` and open `Session_2_script.R`.
+
+- You will see a pre-formatted Script containing some useful information on comments 
+and formatting. 
+
+- The script is otherwise empty. Fill it with the stuff I will discuss on the slides.
+
+- Make comments for yourself. Learn as you write. Explore. Stage, commit and push. 
+
+<center><img src= "https://www.cs.cmu.edu/~cangiuli/img/angry.gif"></center>
+
+- If you have a second monitor, great! If not, split your screen. 
+
+
 ---
 
 class: inverse, center, middle
@@ -263,11 +284,49 @@ knitr::include_graphics("Classes.svg")
 
 # Functions
 
+- [Functions](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Function-objects) are objects; we will discuss them in more detail in session x
 
+- For now, just think of them in the usual mathematical sense, where we pass some argument and get back a value. E.g. $f(x) = \frac{2x + 3}{\sqrt{3}}$.
+
+- In R, one or multiple arguments get passed to the function body (where the function is defined) and you get back some results.
+
+--
+
+- For instance, to define the above function and call it, we specify the following:
+```{r}
+f <- function(x) {
+  (2*x + 3)/sqrt(3)
+} 
+
+f(3)
+```
 
 ---
 
-# Making Objects: Assignment
+# Functions
+
+- There are many functions in R, some are written by users and 
+scientists and put into some package, some are built-in functions of "base" R.<sup>.font70[[1]]</sup> 
+
+- A really helpful built-in function - fin the literal sense - is the... `help()` function.
+
+- Gives you more information about the usage and arguments of a built-in/user-written function.
+  
+We can also call `help()` to get help about help:
+```{r, results = "hide"}
+# help(help)
+# Or for short:
+?help
+```
+
+
+- But let's not get ahead of ourselves... what did this arrow (`<-`) thing do?
+
+.font70[<sup>[1]</sup>.hl[Fine Point:] The arithmetic, logical and relational operators we met are actually also function calls.]
+
+---
+
+# Making Objects: Assignment (Operators)
 .pull-left[
 - You can use `<-` or `=` for assignment
 
@@ -275,12 +334,14 @@ knitr::include_graphics("Classes.svg")
 ```{r}
 a <- 3 # Or a = 3; under the hood, assignment works more like a -> 3
 ```
-assigns the name `x` to an object of type/mode numeric. I.e. binds an object to a name.
+assigns the name `x` to an object of type/mode numeric holding the value 3. I.e. binds an object to a name.
 
 Simplification:
 > creates an object named `a`, containing the value `3`.
 ]
 
+--
+  
 .pull-right[
 -Using
 ```{r, results= "hide"}
@@ -291,43 +352,103 @@ gives you information about the class/type of the object. `class()` gives the
 class of the object from an OOP POV, `typeof()` the base type.  
 
 - In this case, this is not very interesting as we created an **atomic** numeric vector. 
+
+- What is the class/type  of `b <- 3 > 2` and `c <- "string"`?
+
 ]
+
 ---
 
-# Making Objects: Assignment
+# Making Objects: Assignment (Operators)
 
 - Using `=` is legal as per the man, the myth, the legend Ross Ihaka himself:
 
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/88TftllIjaY?start=2100" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
 
+- But there are also some sensible arguments to stick mostly to `->`in casual settings (e.g. readability: easier to discriminate from arguments)
+
+- Bottom line: **be consistent**.
 
 ---
 
 # Naming Conventions
 
+- For readability, we want names of/bound to objects to be meaningful.
+
+- Pretty easy to do when working with "real" data; laziness pretty much the only obstacle ;)
+
+- There are several naming conventions. I like `snake_case` and `camelCase` the most. We will use snake cases in this course.
+
+- Be consistent.
+
+- There are some ["forbidden"/"reserved" words](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html) 
+that cannot be assigned as names. E.g. `NA` (logical constant indicating 
+missing values), `if`, `else`, `break`. 
 
 ---
 
-# Workspace & Environment
+# Workspace/Environment
 
-- In contrast to Stata, R can hold multiple 
+- In contrast to Stata, R can hold multiple objects at a time.
 
+- This is very convenient; you can copy, modify etc. R also copies **ALOT** internally (one reason why its sort of a slow language).
+
+- The global environment is the interactive workspace you usually work with.
+
+- In R-Studio you can inspect some objects by clicking on them (equivalent to calling `View()`)
+
+--
+  
+- We won't go into the details of environments but see [here](https://adv-r.hadley.nz/environments.html)
+for an advanced treatment.
+
+- This will get more intuitive soon (e.g. when we take on different data structures on the next few slided)
 
 ---
 
 # Vectors
 
+- Vectors are the most fundamental data structure in R.
 
+- As vectors in R have to be of the same type (e.g. numeric), they 
+are often called **atomic** vectors
 
+- *[Technical Fine Point:](https://adv-r.hadley.nz/vectors-chap.html)* Vectors have attributes, importantly dimension and class. 
+With the dimension attribute, vectors can become arrays and matrices. With the class 
+attribute, we can built an S3 object on top of the base type (compare to this slide).
 
----
+--
 
+We can build longer vectors by concenating shorter ones using the `c()` function:
 
-# Matrices
+```{r, results= "hide"}
+chr_var <- c("a","b","c","d") # A 4-element atomic vector of type character
+``` 
+Indexing:
+```{r, results= "hide"}
+chr_var[3] # Returns the third element of object "chr_var".
+```
 
 ---
 
 # Lists
+
+- Objects of type list are highly versatile. They are vectors but more "generic".
+
+- I.e. elements of a list can have different types.<sup>.font70[[2]]</sup>
+
+For example:
+```{r, results= "hide"}
+list_a <- list(
+  5:7,
+  "string",
+  c(TRUE, TRUE),
+  c(1.23, 4.20)
+)
+```
+constructs a list using the function `list()`.  
+
+.font70[<sup>[1]</sup>.hl[Fine Point:] A list does not store objects of different types, it references to them.]
 
 ---
 
@@ -338,12 +459,10 @@ class of the object from an OOP POV, `typeof()` the base type.
 
 # Data Frames
 
+- Data frames are special lists: lists of evenly sized vectors.
 
----
-
-# Some Indexing Basics
-
-
+- You likely already have a grasp for their structure from Stata or other software; they are 
+crucial for data analysis --> the rectangle we love.
 
 
 ---
@@ -355,10 +474,10 @@ class of the object from an OOP POV, `typeof()` the base type.
 
 # The Tidyverse
 
+
 ---
 
 # The Tidyverse
-
 
 
 ---
