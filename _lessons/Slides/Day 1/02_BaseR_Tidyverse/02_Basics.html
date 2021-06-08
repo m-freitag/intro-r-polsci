@@ -468,7 +468,7 @@ list_a &lt;- list(
 ```
 constructs a list using the function `list()`.
 
-.font70[&lt;sup&gt;[1]&lt;/sup&gt;.hl[Fine Point:] A list does not store objects of
+.font70[&lt;sup&gt;[2]&lt;/sup&gt;.hl[Fine Point:] A list does not store objects of
 different types, it references to them.]
 
 ---
@@ -685,11 +685,11 @@ type "language" and important for many stats applications.]
 
 In most cases, we can also convert an object to another type. Sometimes this has side-effects.
 
-.code70[
+.pull-left[.code70[
 
 ```r
 df_langs_m &lt;- as.matrix(df_langs) # convert data.frame to matrix
-df_langs_m
+print(df_langs_m)
 ```
 
 ```
@@ -700,20 +700,31 @@ df_langs_m
 ## [4,] "Stata"    " 2.0281678"
 ## [5,] "R"        "-2.2168745"
 ```
+]
+]
+
+.pull-right[.code70[
 
 ```r
-typeof(df_langs_m[2,1])
+typeof(df_langs_m[2, 1])
 ```
 
 ```
 ## [1] "character"
 ```
 ]
+]
+
 - As matrices are atomic, an implicit coercion happened.&lt;sup&gt;.font70[[4]]&lt;/sup&gt;
 
-- If stuff cannot get converted, you get `NA`s.
+- If stuff cannot get converted, you get NAs.
 
-.font70[&lt;sup&gt;[4]&lt;/sup&gt;.hl[Fine Point:] Coercion order is character &gt; double &gt; integer &gt; logical.]
+.font70[&lt;sup&gt;[4]&lt;/sup&gt;.hl[Fine Point:] Coercion order is character &gt; 
+double &gt; integer &gt; logical.]
+
+
+
+
 
 ---
   
@@ -742,19 +753,18 @@ pacman::p_load(
 
 # Loading/Installing Packages
 
-- As mentioned, R comes with 17661 to date.
+- As mentioned, R comes with 17661 packages on CRAN up to date.
 
     - This is both a blessing and a [curse](https://en.wikipedia.org/wiki/Dependency_hell).
 
     - Many useful packages also live only on Github
     
     - Escaping package/library dependency hell is a bit of a pain in R (much easier 
-    in Python and Julia).&lt;sup&gt;.font70[[5]]&lt;/sup&gt;
+    in Python and Julia).&lt;sup&gt;[5]&lt;/sup&gt;
 
 - To take it to another level, [Dockers](https://environments.rstudio.com/docker) expand 
 reproducibility by providing a full runtime environment (and they work well with R). 
 
-- 
 
 .font70[&lt;sup&gt;[5]&lt;/sup&gt;.hl[NOTE:] The [packrat](https://github.com/rstudio/packrat) 
 package is one option. [renv](https://rstudio.github.io/renv/articles/renv.html) is much better. 
@@ -766,7 +776,7 @@ You should definitely use it if you work on a larger project]
 
 &gt; "The tidyverse is an opinionated collection of R 
 packages designed for data science. All packages share an underlying 
-design philosophy, grammar, and data structures." ([tidyverse website])(https://www.tidyverse.org/)
+design philosophy, grammar, and data structures." [tidyverse website](https://www.tidyverse.org/)
 
 - Developed by [Hadley Wickham](https://en.wikipedia.org/wiki/Hadley_Wickham), supported by RStudio
 
