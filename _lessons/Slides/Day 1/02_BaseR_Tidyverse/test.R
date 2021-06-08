@@ -1,7 +1,27 @@
-library(tidyverse)
+# ANCHOR HEADER --------------------------------------
+#
+# Author: Markus Freitag
+# GitHub: https://github.com/m-freitag
+# Date: 2021-06-07
+#
+# Script Name:
+#
+# Script Description:
+#
+#
+# Notes:
+#
+#
 
-df <- cars
-plot(cars)
+# INSTALL PACKAGES & LOAD LIBRARIES -----------------
 
-help(cars)
+pacman::p_load(
+  tidyverse,
+  patchwork,
+  rio,
+  data.table
+)
+
+# GitHub Packages
+
 

@@ -1,7 +1,7 @@
 ---
 title: "Lys"
-subtitle: "goes Xaringan"  
-author: 
+subtitle: "goes Xaringan"
+author:
   - "Markus Freitag"
 date: '`r Sys.Date()`'
 output:
@@ -19,7 +19,6 @@ output:
 ---
 
 
-
 ```{r setup, include=FALSE}
 
 knitr::opts_chunk$set(echo = TRUE)
@@ -27,8 +26,8 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(
   fig.align = "center",
   fig.retina = 2,
-  cache = F#, echo=F, warning=F, message=F
-  )
+  cache = F # , echo=F, warning=F, message=F
+)
 
 # knitr::opts_chunk$set(fig.dim=c(4.8, 4.5), fig.retina=2, out.width="100%")
 
@@ -61,7 +60,6 @@ knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE
 )
-
 ```
 
 
@@ -69,21 +67,20 @@ knitr::opts_chunk$set(
 
 theme_set(theme_classic() +
   theme(
-    text = element_text(family = "plex", size = 25, colour="#415564"),
-    panel.background = element_rect(fill = "#f6f3f2"), 
-    plot.background = element_rect(fill = "#f6f3f2", color = "#f6f3f2"), 
-    panel.grid.major = element_line(colour="#e8e8e8"),
-    panel.grid.minor = element_blank(), 
-    legend.background = element_rect(fill = "#f6f3f2"), 
-    legend.box.background = element_rect(fill = "#f6f3f2"), 
-    axis.text = element_text(colour="#415564"),
-    axis.line = element_line(colour="#415564"),
-    axis.title = element_text(colour="#415564"),
-    axis.ticks = element_line(colour="#415564"),
+    text = element_text(family = "plex", size = 25, colour = "#415564"),
+    panel.background = element_rect(fill = "#f6f3f2"),
+    plot.background = element_rect(fill = "#f6f3f2", color = "#f6f3f2"),
+    panel.grid.major = element_line(colour = "#e8e8e8"),
+    panel.grid.minor = element_blank(),
+    legend.background = element_rect(fill = "#f6f3f2"),
+    legend.box.background = element_rect(fill = "#f6f3f2"),
+    axis.text = element_text(colour = "#415564"),
+    axis.line = element_line(colour = "#415564"),
+    axis.title = element_text(colour = "#415564"),
+    axis.ticks = element_line(colour = "#415564"),
   ))
 
 purple <- "#644155"
-
 ```
 
 
@@ -94,15 +91,13 @@ xaringanExtra::use_scribble(pen_color = purple)
 
 class: inverse, center, title-slide, middle
 
-<style>
-.title-slide .remark-slide-number {
+<style> .title-slide .remark-slide-number {
   display: none;
-}
-</style>
+} </style>
 
 # .title-wrap[Intro to Programming with R for Political Scientists]
 
-<br /> 
+<br />
 
 ## .handw[]
 
@@ -115,7 +110,27 @@ class: inverse, center, title-slide, middle
 
 ### `r Sys.Date()`
 
-<a href="https://github.com/m-freitag" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#415564; color:#f6f3f2; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<a href="https://github.com/m-freitag" class="github-corner" aria-label="View
+source on Github"><svg width="80" height="80" viewBox="0 0 250 250"
+style="fill:#415564; color:#f6f3f2; position: absolute; top: 0; border: 0;
+right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250
+L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6
+C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9
+125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor"
+style="transform-origin: 130px 106px;" class="octo-arm"></path><path
+d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2
+139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2
+159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2
+C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2
+216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4
+203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9
+156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+fill="currentColor"
+class="octo-body"></path></svg></a><style>.github-corner:hover
+.octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes
+octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media
+(max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner
+.octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
 ---
 # Overview
@@ -137,7 +152,6 @@ class: inverse, center, title-slide, middle
 8. .hl[A complete scientific workflow with R]
 
 ---
-
 # Trivia
 
 - R was designed in 1993 by Ross Ihaka and Robert Gentleman
@@ -161,32 +175,32 @@ nb_pkgs <- nrow(CRANpackages)
 ```{r, echo=FALSE, fig.align='center', out.width= "25%"}
 knitr::include_graphics("Figs/devs.png")
 ```
-.center[.font50[[Image source and more R-History trivia](https://rss.onlinelibrary.wiley.com/doi/epdf/10.1111/j.1740-9713.2018.01169.x)]]
+.center[.font50[[Image source and more R-History
+trivia](https://rss.onlinelibrary.wiley.com/doi/epdf/10.1111/j.1740-9713.2018.01169.x)]]
 
 ---
-  
- # Workflow
+
+# Workflow
+[//]: # (ANCHOR Workflow)
 
 - You forked and cloned the course repo.
 
 - Navigate to `Session Scripts > Session 2` and open `Session_2_script.R`.
 
-- You will see a pre-formatted Script containing some useful information on comments 
-and formatting. 
+- You will see a pre-formatted Script containing some useful information on comments and formatting.
 
 - The script is otherwise empty. Fill it with the stuff I will discuss on the slides.
 
-- Make comments for yourself. Learn as you write. Explore. Stage, commit and push. 
+- Make comments for yourself. Learn as you write. Explore. Stage, commit and push.
 
 <center><img src= "https://www.cs.cmu.edu/~cangiuli/img/angry.gif"></center>
 
-- If you have a second monitor, great! If not, split your screen. 
+- If you have a second monitor, great! If not, split your screen.
 
 
 ---
 
-class: inverse, center, middle
-name: intro
+class: inverse, center, middle name: intro
 
 # CalculatoR
 
@@ -197,13 +211,12 @@ name: intro
 
 ```{r}
 
-7+5 # [n] stands for the nth element printed to the console. 
-
+7 + 5 # [n] stands for the nth element printed to the console.
 ```
 
 ```{r}
 
-4*5+2/3^3 # Multiplication and division first, then addition and subtraction
+4 * 5 + 2 / 3^3 # Multiplication and division first, then addition and subtraction
 
 # Modulo Operators:
 
@@ -221,7 +234,7 @@ name: intro
 
 3 < 4
 
-2 == 1 & 4 > 2  # == "equal to"; & "element wise logical AND"
+2 == 1 & 4 > 2 # == "equal to"; & "element wise logical AND"
 
 2 == 1 | 4 > 2 # | "element wise logical or"
 
@@ -230,7 +243,6 @@ name: intro
 7 %in% 300:500 # %in% can be used to evaluate matches in objects
 
 # Take care about the order of precedence...
-
 ```
 
 ---
@@ -244,7 +256,6 @@ name: intro
 0.1 + 0.2
 
 0.1 + 0.2 == 0.3
-
 ```
 
 Why?!
@@ -260,12 +271,11 @@ Why?!
 knitr::include_graphics("Figs/robot.png")
 ```
 
-] 
+]
 
 ---
 
-class: inverse, center, middle
-name: intro
+class: inverse, center, middle name: intro
 
 # A Primer on OOP ("Object Oriented Programming")
 
@@ -295,8 +305,8 @@ knitr::include_graphics("Classes.svg")
 - For instance, to define the above function and call it, we specify the following:
 ```{r}
 f <- function(x) {
-  (2*x + 3)/sqrt(3)
-} 
+  (2 * x + 3) / sqrt(3)
+}
 
 f(3)
 ```
@@ -305,15 +315,14 @@ f(3)
 
 # Functions
 
-- There are many functions in R, some are written by users and 
-scientists and put into some package, some are built-in functions of "base" R.<sup>.font70[[1]]</sup> 
+- There are many functions in R, some are written by users and scientists and put into some package, some are built-in functions of "base" R.<sup>.font70[[1]]</sup>
 
 - A really helpful built-in function - fin the literal sense - is the... `help()` function.
 
 - Gives you more information about the usage and arguments of a built-in/user-written function.
-  
+
 We can also call `help()` to get help about help:
-```{r, results = "hide"}
+```{r, results = "hide", eval=FALSE}
 # help(help)
 # Or for short:
 ?help
@@ -322,36 +331,40 @@ We can also call `help()` to get help about help:
 
 - But let's not get ahead of ourselves... what did this arrow (`<-`) thing do?
 
-.font70[<sup>[1]</sup>.hl[Fine Point:] The arithmetic, logical and relational operators we met are actually also function calls.]
+.font70[<sup>[1]</sup>.hl[Fine Point:] The arithmetic, logical and relational
+operators we met are actually also function calls.]
 
 ---
 
 # Making Objects: Assignment (Operators)
+
 .pull-left[
 - You can use `<-` or `=` for assignment
 
-- For instance, 
+- For instance,
 ```{r}
 a <- 3 # Or a = 3; under the hood, assignment works more like a -> 3
 ```
-assigns the name `x` to an object of type/mode numeric holding the value 3. I.e. binds an object to a name.
+assigns the name `x` to an object of type/mode numeric holding the value 3.
+I.e. binds an object to a name.
 
 Simplification:
 > creates an object named `a`, containing the value `3`.
 ]
 
 --
-  
+
 .pull-right[
+
 -Using
 ```{r, results= "hide"}
 class(a)
 mode(a)
-```  
-gives you information about the class/type of the object. `class()` gives the 
-class of the object from an OOP POV, `typeof()` the base type.  
+```
+gives you information about the class/type of the object. `class()` gives the
+class of the object from an OOP POV, `typeof()` the base type.
 
-- In this case, this is not very interesting as we created an **atomic** numeric vector. 
+- In this case, this is not very interesting as we created an **atomic** numeric vector.
 
 - What is the class/type  of `b <- 3 > 2` and `c <- "string"`?
 
@@ -363,7 +376,11 @@ class of the object from an OOP POV, `typeof()` the base type.
 
 - Using `=` is legal as per the man, the myth, the legend Ross Ihaka himself:
 
-<center><iframe width="560" height="315" src="https://www.youtube.com/embed/88TftllIjaY?start=2100" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+<center><iframe width="560" height="315"
+src="https://www.youtube.com/embed/88TftllIjaY?start=2100" title="YouTube video
+player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen></iframe></center>
 
 - But there are also some sensible arguments to stick mostly to `->`in casual settings (e.g. readability: easier to discriminate from arguments)
 
@@ -381,9 +398,9 @@ class of the object from an OOP POV, `typeof()` the base type.
 
 - Be consistent.
 
-- There are some ["forbidden"/"reserved" words](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html) 
-that cannot be assigned as names. E.g. `NA` (logical constant indicating 
-missing values), `if`, `else`, `break`. 
+- There are some ["forbidden"/"reserved" words](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html)
+that cannot be assigned as names. E.g. `NA` (logical constant indicating
+missing values), `if`, `else`, `break`.
 
 ---
 
@@ -398,7 +415,7 @@ missing values), `if`, `else`, `break`.
 - In R-Studio you can inspect some objects by clicking on them (equivalent to calling `View()`)
 
 --
-  
+
 - We won't go into the details of environments but see [here](https://adv-r.hadley.nz/environments.html)
 for an advanced treatment.
 
@@ -408,25 +425,29 @@ for an advanced treatment.
 
 # Vectors
 
+
 - Vectors are the most fundamental data structure in R.
 
-- As vectors in R have to be of the same type (e.g. numeric), they 
+- As vectors in R have to be of the same type (e.g. numeric), they
 are often called **atomic** vectors
 
-- *[Technical Fine Point:](https://adv-r.hadley.nz/vectors-chap.html)* Vectors have attributes, importantly dimension and class. 
-With the dimension attribute, vectors can become arrays and matrices. With the class 
-attribute, we can built an S3 object on top of the base type (compare to this slide).
+- *[Technical Fine Point:](https://adv-r.hadley.nz/vectors-chap.html)* Vectors have attributes, importantly dimension and class.
+With the dimension attribute, vectors can become arrays and matrices. With the
+class attribute, we can built an S3 object on top of the base type (see e.g.
+factor type).
 
 --
 
-We can build longer vectors by concenating shorter ones using the `c()` function:
+We can build longer vectors by concenating shorter ones using the `c()`
+function:
 
 ```{r, results= "hide"}
-chr_var <- c("a","b","c","d") # A 4-element atomic vector of type character
-``` 
+chr_var <- c("a", "b", "c", "d") # A 4-element atomic vector of type character
+```
 Indexing:
 ```{r, results= "hide"}
 chr_var[3] # Returns the third element of object "chr_var".
+chr_var[1:3] # Returns the 1st three.
 ```
 
 ---
@@ -445,15 +466,83 @@ list_a <- list(
   c(TRUE, TRUE),
   c(1.23, 4.20)
 )
-```
-constructs a list using the function `list()`.  
 
-.font70[<sup>[1]</sup>.hl[Fine Point:] A list does not store objects of different types, it references to them.]
+```
+constructs a list using the function `list()`.
+
+.font70[<sup>[1]</sup>.hl[Fine Point:] A list does not store objects of
+different types, it references to them.]
 
 ---
 
+# Lists
+
+- Indexing:
+
+.pull-left[
+```{r}
+list_a[3] # This returns a list with element four.
+list_a[[4]] # We need double brackets to index a list element.
+
+# Index within a list element:
+list_a[[4]][2]
+```
+]
+
+.pull-right[
+```{r}
+# For named lists, we can index with $:
+names(list_a) <- c("a", "b", "c", "d") # We can also name elements directly: list(x = 1, y = 2)
+list_a$b
+list_a$d[1]
+```
+]
+
+---
+  
 # Factors
 
+- To represent categorical variables, we often use factor objects in R (e.g. 
+makes it easier to get counts of all categories).
+
+- They are build on top of integer vectors and come with a levels attribute.
+
+.code70[
+```{r}
+backgrounds_char <- c("none", "Stata", "Stata", "Stata", "R") # Student's prog. backgrounds
+backgrounds_fac <- factor(backgrounds_char, levels = c("none", "Stata", "R")) # Or:
+# backgrounds_fac <- factor(c("none", "Stata", "Stata", "Stata", "R"))
+```
+]
+
+.code70[
+.pull-left[
+```{r}
+class(backgrounds_fac)
+```
+]
+]
+
+.code70[
+.pull-right[
+```{r}
+typeof(backgrounds_fac)
+```
+]
+]
+.code70[
+.pull-left[
+```{r chunka, eval=FALSE}
+table(backgrounds_fac)
+```
+]
+]
+.code70[
+.pull-right[
+```{r chunka-out, ref.label="chunka", echo=FALSE}
+```
+]
+]
 
 ---
 
@@ -461,35 +550,157 @@ constructs a list using the function `list()`.
 
 - Data frames are special lists: lists of evenly sized vectors.
 
-- You likely already have a grasp for their structure from Stata or other software; they are 
-crucial for data analysis --> the rectangle we love.
+- You likely already have a grasp for their structure from 
+Stata or other software; they are crucial for data analysis 
+--> the rectangle we love.
 
+.code60[
+.pull-left[
+```{r chunkb, eval=FALSE}
+set.seed(666)
+df_langs <- data.frame(
+  background = factor(c(
+    "Python",
+    "Stata", "Stata", "Stata",
+    "R"
+  )),
+  skill = rnorm(5)
+)
+# View(df_langs)
+head(df_langs) # print first few lines of an object (6 by default)
+# Indexing
+df_langs[2, 2] # Second row of second column 
+df_langs$background[1] 
+```
+]
+]
+
+.code60[
+.pull-right[
+```{r chunkb-out, ref.label="chunkb", echo=FALSE}
+```
+]
+]
 
 ---
 
-# Loading Packages
+# Data Frames
 
+- When passing columns of a data frame we need need to take care that the
+named references to them "live" inside the data frame and not in the global
+environment.
+
+.code60[
+```{r, eval = FALSE}
+# Throws an error:
+lm(skill ~ background) # [3]; the lm object is of type list
+
+```
+]
+
+.code60[
+```{r}
+lm(df_langs$skill ~ df_langs$background) # Or: lm(skill ~ background, df_langs)
+
+
+```
+]
+.font70[<sup>[3]</sup>.hl[NOTE:] The formula object/class is built on the base 
+type "language" and important for many stats applications.]
+
+---
+  
+# Type Conversion  
+
+In most cases, we can also convert an object to another type. Sometimes this has side-effects.
+
+.code70[
+```{r}
+df_langs_m <- as.matrix(df_langs) # convert data.frame to matrix
+df_langs_m
+
+typeof(df_langs_m[2,1])
+
+```
+]
+- As matrices are atomic, an implicit coercion happened.<sup>.font70[[4]]</sup>
+
+- If stuff cannot get converted, you get `NA`s.
+
+.font70[<sup>[4]</sup>.hl[Fine Point:] Coercion order is character > double > integer > logical.]
+
+---
+  
+# Loading/Installing Packages
+
+Classic:
+```{r, eval = FALSE}
+install.packages("tidyverse")
+library(tidyverse)
+```
+If you are lazy (...for CRAN packages; recommended only for smaller projects/problem sets):
+```{r, eval = FALSE}
+install.packages("pacman")
+
+pacman::p_load(
+  tidyverse,
+  patchwork,
+  rio,
+  data.table
+)
+```
+
+---
+
+# Loading/Installing Packages
+
+- As mentioned, R comes with `r nb_pkgs` to date.
+
+    - This is both a blessing and a [curse](https://en.wikipedia.org/wiki/Dependency_hell).
+
+    - Many useful packages also live only on Github
+    
+    - Escaping package/library dependency hell is a bit of a pain in R (much easier 
+    in Python and Julia).<sup>.font70[[5]]</sup>
+
+- To take it to another level, [Dockers](https://environments.rstudio.com/docker) expand 
+reproducibility by providing a full runtime environment (and they work well with R). 
+
+- 
+
+.font70[<sup>[5]</sup>.hl[NOTE:] The [packrat](https://github.com/rstudio/packrat) 
+package is one option. [renv](https://rstudio.github.io/renv/articles/renv.html) is much better. 
+You should definitely use it if you work on a larger project]
 
 ---
 
 # The Tidyverse
 
+> "The tidyverse is an opinionated collection of R 
+packages designed for data science. All packages share an underlying 
+design philosophy, grammar, and data structures." ([tidyverse website])(https://www.tidyverse.org/)
+
+- Developed by [Hadley Wickham](https://en.wikipedia.org/wiki/Hadley_Wickham), supported by RStudio
+
+  - Packages that are easy to learn, that have a similar syntax, and are convenient
+
+- There are alternatives... base R is still stable and useful; data.table is fast
+
+- In my opinion, the tidyverse is a bit verbose/wordy. Alot of functions doing one particular thing.
+
+- You will always end up googling alot. But that's something you will do alot anyways
+(I do too!) 
+
 
 ---
 
-# The Tidyverse
+class: inverse, center, middle name: intro
 
-
----
-
-# Summary
-
+# Next up: Data Wrangling
 
 
 
 ```{r print pdf, include=FALSE}
 
-  pagedown::chrome_print("./02_Basics.html")
-
+pagedown::chrome_print("./02_Basics.html")
 ```
- 
