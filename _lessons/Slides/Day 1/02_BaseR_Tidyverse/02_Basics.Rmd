@@ -43,7 +43,8 @@ pacman::p_load(
   ggdag,
   data.table,
   patchwork,
-  rvest
+  rvest,
+  modelsummary
 )
 
 
@@ -193,7 +194,7 @@ trivia](https://rss.onlinelibrary.wiley.com/doi/epdf/10.1111/j.1740-9713.2018.01
 
 - Make comments for yourself. Learn as you write. Explore. Stage, commit and push.
 
-<center><img src= "https://www.cs.cmu.edu/~cangiuli/img/angry.gif"></center>
+- Hopefully not you &rightarrow; <img src= "https://www.cs.cmu.edu/~cangiuli/img/angry.gif" ALIGN=”right”>
 
 - If you have a second monitor, great! If not, split your screen.
 
@@ -586,11 +587,11 @@ df_langs$background[1]
 
 # Data Frames
 
-- When passing columns of a data frame we need need to take care that the
+- When passing columns of a data frame (or lists etc.) we need need to take care that the
 named references to them "live" inside the data frame and not in the global
 environment.
 
-.code60[
+.code50[
 ```{r, eval = FALSE}
 # Throws an error:
 lm(skill ~ background) # [3]; the lm object is of type list
@@ -598,16 +599,43 @@ lm(skill ~ background) # [3]; the lm object is of type list
 ```
 ]
 
-.code60[
+.code50[
 ```{r}
-lm(df_langs$skill ~ df_langs$background) # Or: lm(skill ~ background, df_langs)
-
+m1 <- lm(df_langs$skill ~ df_langs$background) # Or: lm(skill ~ background, df_langs)
+summary(m1) # generic function used to produce result summaries of the results of various model fitting functions
 
 ```
 ]
 .font70[<sup>[3]</sup>.hl[NOTE:] The formula object/class is built on the base 
 type "language" and important for many stats applications.]
 
+---
+
+# Data Frames
+
+- This is the time to also plug Vincent Arel-Bundocks' nice package 
+[modelsummary](https://github.com/vincentarelbundock/modelsummary). 
+
+- Makes perfectly formated regression tables/coef. plots for HTML/MD/LaTeX/Word/etc. a one-liner.
+
+- Also has nice data summary functions which we will use next session. 
+
+---
+
+# Data Frames
+
+```{r, echo = FALSE, out.width = "50%"}
+m1 <- lm(skill ~ background, df_langs)
+add_rows <- data.frame(coefficient = "Python (reference)", model = NA)
+attr(add_rows, "position") <- 2
+
+modelsummary(m1,
+  add_rows = add_rows,
+  coef_rename = c("backgroundR" = "R", "backgroundStata" = "Stata"),
+  estimate = "{estimate} ({std.error})",
+  statistic = NULL
+)
+```
 ---
   
 # Type Conversion  
@@ -684,6 +712,29 @@ You should definitely use it if you work on a larger project]
 
 ---
 
+  # Loading/Installing Packages: Namespace Conflicts
+
+  - As we assign names to objects and there are as many packages (and many more functions) 
+  as a native english speaker has in his [vocabulary](https://en.wikipedia.org/wiki/Vocabulary#Vocabulary_size),
+  we naturally get some overlap.
+
+  - Diving deep into environments, package [namespaces](https://r-pkgs.org/namespace.html), etc. can take you down a 
+  [rabbit hole](http://blog.obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/).
+    
+  - We will keep this very surface-level. 
+
+  - R warns you about namespace conflicts when loading some package, e.g. by telling you that 
+  some objects are `masked from package: base`.
+
+  - The package loaded last "wins", i.e. function `a` of package 2 masks function 
+  `a` of package 1
+
+  - If you only need the mask function a few times, use `package1::functiona()`.
+  Else, overwrite it `functiona <- package1::functiona()`.
+  
+
+---
+
 # The Tidyverse
 
 > "The tidyverse is an opinionated collection of R 
@@ -694,13 +745,13 @@ design philosophy, grammar, and data structures." [tidyverse website](https://ww
 
   - Packages that are easy to learn, that have a similar syntax, and are convenient
 
-- There are alternatives... base R is still stable and useful; data.table is fast
+- There are alternatives... base R is still stable and useful; data.table is fast; 
+[collapse](https://raw.githubusercontent.com/SebKrantz/cheatsheets/master/collapse.pdf)(brand new) is even faster
 
 - In my opinion, the tidyverse is a bit verbose/wordy. Alot of functions doing one particular thing.
 
 - You will always end up googling alot. But that's something you will do alot anyways
 (I do too!) 
-
 
 ---
 

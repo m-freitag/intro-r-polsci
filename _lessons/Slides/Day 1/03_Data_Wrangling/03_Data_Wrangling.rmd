@@ -38,12 +38,9 @@ knitr::opts_chunk$set(
 
 pacman::p_load(
   tidyverse,
-  showtext,
-  dagitty,
-  ggdag,
   data.table,
-  patchwork,
-  rvest
+  rio,
+  patchwork
 )
 
 
@@ -134,12 +131,6 @@ octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80
 
 ---
 
-layout:true
-
-<div class="my-footer"><span>Session 3: Data Wrangling</span></div>
-
----
-
 # Overview
 
 1. Intro
@@ -158,15 +149,109 @@ layout:true
 
 ---
 
-# Importing Data
+# Workflow
+
+- Navigate to `Session Scripts > Session 3` and open `Session_3_script.R`.
+
+- You will see a pre-formatted Script.
+
+- The script is otherwise empty. Fill it with the stuff I will discuss on the slides.
+
+- Make comments for yourself. Learn as you write. Explore. Stage, commit and push.
+
+- Hopefully not you &rightarrow; <img src= "https://www.cs.cmu.edu/~cangiuli/img/angry.gif" ALIGN=”right”>
+
+- If you have a second monitor, great! If not, split your screen.
+
+---
+
+# Tidyverse Packages
 
 
 
+---
+
+# Importing/Exporting Data
+
+- R comes with it's own two file formats, `.rds` (single objects) and `.rda` (multiple
+    objects/tabular data).
+
+- However, for saving the latter you will (and should) use `.csv` or `.json` (human readable) most of the time.
+
+- For R novices, importing and exporting can be a bit of a pain.
+
+    - There are different functions/packages for reading different file formats (haven, data.table, readxl etc.).
+
+- Thankfully, the [rio](https://github.com/leeper/rio) package by Thomas Leeper and Chung-hong Chan et al. makes our life easier.
+
+- Provides `export()` and `import` as wrappers fot the above mentioned packages.
+
+```{r, eval = FALSE}
+install.packages("rio")
+``` 
+
+---
+
+# Importing/Exporting Data
+
+```{r, eval = FALSE, resu}
+library(rio)
+# Export
+export(mtcars, "mtcars.csv") # R's built-in mtcars data-set.
+export(mtcars, "mtcars.rds") # R serialized
+export(mtcars, "mtcars.dta") # Stata
+export(mtcars, "mtcars.json")
+
+# Import
+W <- import("mtcars.csv")
+X <- import("mtcars.rds")
+Y <- import("mtcars.dta")
+Z <- import("mtcars.json")
+
+```
+---
+
+# Importing/Exporting Data
+
+.code70[
+```{r}
+# Exporting/importing several data frames: export_list()/import_list()
+
+# Make a list of two built-in data sets.
+# tibble::lst() automatically names the elements:
+df_list <- tibble::lst(mtcars, iris)
+
+export_list(df_list, file = paste0(names(df_list), ".csv"))
+# export_file takes a character vector; hence, we build one from the names of our element
+# With the paste0() we paste ".csv" to every element of the character vector
+# produced by names(df_list).
+
+Z <- import_list(dir(pattern = "csv$"))
+# import_file takes achr vector holding file paths/files.
+# With dir() we get all names of the files that match a specific pattern (regular expression). 
+# In this case, all files that end with csv ($ matches the end of the string).[1]
+```
+]
+
+.font70[<sup>[1]</sup> .hl[Fine Point:] [Regular expressions](https://en.wikipedia.org/wiki/Regular_expression) were developed in computer
+science to specify search patterns/make character matching possible. They are very useful (e.g. for manipulating/cleaning textual data) but pretty hard to memorize. Even if you know the basics, you will google alot.
+In R, I recommend the [stringi/stringr](https://cran.r-project.org/web/packages/stringr/vignettes/regular-expressions.html) packages.]
+
+---
+
+#  Pipes: %>% and |>
+
+- Instead of 
+
+---
+
+# The Data
 
 
 
-
-
+---
+    
+# Tidyverse's Wrangling "Wunderkind": dplyr
 
 
 
