@@ -5,7 +5,7 @@ body {
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
-.remark-code, .remark-inline-code {
+.remark-code, .remark-inline-code, .remark-inline-output {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 80%;
 }

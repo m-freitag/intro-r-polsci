@@ -587,6 +587,35 @@ df_langs$background[1]
 
 # Data Frames
 
+- So we have an $\color{#e59e34}n$ (num. of obs.) $\times$ $\color{#5cb194}k$ 
+(num. of vars) matrix observation with observation $\color{#e59e34}i \in \{\color{#e59e34}{1,\dots,n}\}$ and 
+variable $\color{#5cb194}j \in \{\color{#5cb194}{1,\dots,k}\}$.
+
+```{r, eval = FALSE}
+dim(df_langs)
+```
+.remark-inline-output[\#\# [1] .hl[5] .hl2[2]]
+
+$$
+\begin{align}
+  \mathbf{X} =
+  \begin{bmatrix}
+    x_{\color{#e59e34}{1},\color{#5cb194}{1}} & x_{\color{#e59e34}{1},\color{#5cb194}{2}} & \cdots & x_{\color{#e59e34}{1},\color{#5cb194}{k}} \\
+    x_{\color{#e59e34}{2},\color{#5cb194}{1}} & x_{\color{#e59e34}{2},\color{#5cb194}{2}} & \cdots & x_{\color{#e59e34}{2},\color{#5cb194}{k}} \\
+    \vdots  & \vdots  & \ddots & \vdots \\
+    x_{\color{#e59e34}{n},\color{#5cb194}{1}} & x_{\color{#e59e34}{n},\color{#5cb194}{2}} & \cdots & x_{\color{#e59e34}{n},\color{#5cb194}{k}}
+  \end{bmatrix}
+\end{align}
+$$
+
+- `nrow(df_langs)` = .remark-inline-output[\#\# [1] .hl[5]]; `ncol(df_langs)` = .remark-inline-output[\#\# [1] .hl2[2]]
+- `df_langs[1,2]`: $\left( \color{#e59e34}{i = 1} \right)$ and $\left( \color{#5cb194}{j = 2} \right)$
+
+
+---
+
+# Data Frames
+
 - When passing columns of a data frame (or lists etc.) we need need to take care that the
 named references to them "live" inside the data frame and not in the global
 environment.
@@ -601,7 +630,7 @@ lm(skill ~ background) # [3]; the lm object is of type list
 
 .code50[
 ```{r}
-m1 <- lm(df_langs$skill ~ df_langs$background) # Or: lm(skill ~ background, df_langs)
+m1 <- lm(df_langs$skill ~ df_langs$background) # Or: lm(skill ~ background, data = df_langs)
 summary(m1) # generic function used to produce result summaries of the results of various model fitting functions
 
 ```
@@ -622,7 +651,9 @@ type "language" and important for many stats applications.]
 
 ---
 
-# Data Frames
+  # Data Frames
+
+  Result:
 
 ```{r, echo = FALSE, out.width = "50%"}
 m1 <- lm(skill ~ background, df_langs)
@@ -634,7 +665,7 @@ modelsummary(m1,
   coef_rename = c("backgroundR" = "R", "backgroundStata" = "Stata"),
   estimate = "{estimate} ({std.error})",
   statistic = NULL
-)
+)  %>%  kableExtra::kable_styling(font_size = 19)
 ```
 ---
   
@@ -708,7 +739,7 @@ reproducibility by providing a full runtime environment (and they work well with
 
 .font70[<sup>[5]</sup>.hl[NOTE:] The [packrat](https://github.com/rstudio/packrat) 
 package is one option. [renv](https://rstudio.github.io/renv/articles/renv.html) is much better. 
-You should definitely use it if you work on a larger project]
+You should definitely use it if you work on a larger project.]
 
 ---
 
@@ -727,7 +758,7 @@ You should definitely use it if you work on a larger project]
   some objects are `masked from package: base`.
 
   - The package loaded last "wins", i.e. function `a` of package 2 masks function 
-  `a` of package 1
+  `a` of package 1.
 
   - If you only need the mask function a few times, use `package1::functiona()`.
   Else, overwrite it `functiona <- package1::functiona()`.
@@ -751,7 +782,7 @@ design philosophy, grammar, and data structures." [tidyverse website](https://ww
 - In my opinion, the tidyverse is a bit verbose/wordy. Alot of functions doing one particular thing.
 
 - You will always end up googling alot. But that's something you will do alot anyways
-(I do too!) 
+(I do too!).
 
 ---
 

@@ -1,0 +1,265 @@
+type,title,latitude,longitude,description,photo_url,photo_credit,url_website
+bruecke,Braunauer Eisenbahnbrücke,48.118377,11.561661,"Wurde für die Eisenbahnlinie zwischen München und Braunau von der Königlichen Eisenbahngesellschaft in Auftrag gegeben. Die Gitterträger sind aus Eisen.<br />
+<br />
+Baujahr: 1869-1871<br />
+Entwurf: Heinrich Gerber<br />
+Spannweiten: 48<br />
+Gesamtbreite: 150<br />
+Tragwerk: 3 Einzelfeldträger Vollwand-Durchlaufträger",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/braunauer-eisenbahnbr.jpg,Baureferat,http://orte.muenchen.de/1255494.html
+bruecke,Brudermühlbrücke,48.1126073258,11.5600130605,"Entstand durch Versetzung der alten Wittelsbacher Brücke als erste Verbindung zwischen Thalkirchen und Untergiesing.<br />
+<br />
+Baujahr: 1953<br />
+Entwurf: <br />
+Spannweiten: 46<br />
+Gesamtbreite: 138<br />
+Tragwerk: Mehrfeldträger",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/brudermuehlbruecke.jpg,Baureferat,http://orte.muenchen.de/1255509.html
+bruecke,Corneliusbrücke,48.1285568968,11.5801246257,"Wurde entweder nach dem Maler und Direktor der Akademie der Bildenden Künste Peter von Cornelius oder aber nach dessen Neffen, einem Dichter und Komponisten gleichen Namens, benannt. Man weiß es nicht.<br />
+<br />
+Baujahr: 1903<br />
+Entwurf: Friedrich von Thiersch, Sager & Wörner<br />
+Spannweiten: 39-44<br />
+Gesamtbreite: 150<br />
+Tragwerk: Dreigelenkbogen, 3 Felder",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/corneliusbruecke.jpg,Baureferat,https://www.muenchen.de/sehenswuerdigkeiten/orte/1218968.html
+bruecke,Flauchersteg,48.104606,11.553159,"Wurde 1914 zu einem soliden, von Betonpfeilern gestützten Holzsteg ausgebaut. 2000 folgt der Neubau in Form einer Stahl-Holz-Konstruktion. Die Hochwasser des Jahres 2005 sollten schon bald Instandsetzungsarbeiten notwendig machen.<br />
+<br />
+Baujahr: 1890<br />
+Entwurf: <br />
+Spannweiten: 4-14<br />
+Gesamtbreite: 341<br />
+Tragwerk: Mehrfeldträger<br />",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/flauchersteg.jpg,Baureferat,http://orte.muenchen.de/1255470.html
+bruecke,Föhringer Eisenbahnbrücke,48.1837467441,11.6310169802,"War schon beim Bau 1907 mit einem Gleis auf den zweigleisigen Bahnbetrieb ausgelegt. Die Verbreiterung erfolgte in den 1940er Jahren. 1945 wurde die Brücke jedoch gesprengt, sofort notdürftig wieder aufgebaut, bevor Ende der 1960er der Neubau erfolgte.<br />
+<br />
+Baujahr: 1907<br />
+Entwurf: Eisenbahndirektion München<br />
+Spannweiten: 31-41<br />
+Gesamtbreite: 139<br />
+Tragwerk: Durchlaufträger mit 4 Feldern",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/eisenbahnbruecke-oberfoehring.jpg,Baureferat,
+bruecke,Großhesseloher Brücke,48.0745176659,11.5405264396,"Mit dem Bau in den 1850ern eine der ersten großen Eisenbahnbrücken Deutschlands. Fußgänger querten Isar und Isarwehrkanal ursprünglich rechts und links der Gleise entlang. Seit dem Neubau in den 1980ern verläuft der Fuß- und Radweg unterhalb der Gleise innerhalb der Fachwerkskonstruktion.<br />
+<br />
+Baujahr: 1985<br />
+Entwurf: Friedrich August von Pauli, Heinrich Gerber<br />
+Spannweiten: 56-65<br />
+Gesamtbreite: 209<br />
+Tragwerk: Mehrfeldträger, Fachwerk",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/grosshesseloher-bruecke.jpg,Baureferat,
+bruecke,Herzog-Heinrich-Brücke,48.182777,11.629578,"Ursprünglich sollte die jetztige John-F.-Kennedy-Brücke den Namen Herzog-Heinrich-Brücke erhalten. Nach dem Attentat am US-Präsidenten zollte man diesem mit der Namensgebung Tribut und wich Heinrich dem Löwen zu Ehren, dem ehemaligen Herzog Bayerns, auf diese zweite Brücke aus.<br />
+<br />
+Baujahr: 1960<br />
+Entwurf: Bayerische Straßenverwaltung, Baufirma Moll<br />
+Spannweiten: 26-56<br />
+Gesamtbreite: 156<br />
+Tragwerk: Stahlverbundkonstruktion mit vorgespannter Ortbetonverbundplatte",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/herzog-heinrich-bruecke.jpg,Baureferat,
+bruecke,John-F.-Kennedy-Brücke,48.156759932,11.6053643989,"Sollte eigentlich Herzog-Heinrich-Brücke heißen und wurde aufgrund des Attentats am US-Präsidenten ihm zu Ehren umbenannt.<br />
+<br />
+Baujahr: 1962<br />
+Entwurf: <br />
+Spannweiten: 25-68<br />
+Gesamtbreite: 131<br />
+Tragwerk: Mehrfeldträger, durchlaufend, Hohlkastenträger",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/john-f-kennedy.jpg,Baureferat,
+bruecke,Kabelsteg,48.1344968337,11.5893272136,"Das Bauwerk erhielt seinen Namen von den zu überbrückenden Kabelsträngen, die vom Muffatwerk ausgingen, um die Münchner Tram mit Strom zu versorgen.<br />
+<br />
+Baujahr: 1898<br />
+Entwurf: Adolf Schwiening, Aquilin Altmann<br />
+Spannweiten: 37<br />
+Gesamtbreite: 77<br />
+Tragwerk: Eingespannter Bogen",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/kabelsteg.jpg,Baureferat,
+bruecke,Leinthalerbrücke,48.183762,11.630049,"Eine erste Eisenbrücke zwischen Ober- und Unterföhring entstand nach Plänen der Königlichen Straßenbauverwaltung bereits 1902, wurde 1945 gesprengt und 1950 wieder aufgebaut. 1982 erfolgte ein kompletter Neubau.<br />
+<br />
+Baujahr: 1982<br />
+Entwurf: Königliche Straßenbauverwaltung<br />
+Spannweiten: 23-33<br />
+Gesamtbreite: 99<br />
+Tragwerk: Mehrfeldträger durchlaufend bzw. Einfeldträger",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/leinthalerbruecke.jpg,Baureferat,
+bruecke,Ludwigsbrücke,48.1318231111,11.5861880365,"Gilt mit dem Bau im 12. Jahrhundert als erste Isarbrücke Münchens und besteht aus zwei Teilen. Die Innere Ludwigsbrücke quert die Große Isar hin zur Museumsinsel, die Äußere Ludwigsbrücke führt über die Kleine Isar hin zur Rosenheimer Straße.<br />
+<br />
+Baujahr: 1935<br />
+Entwurf: German Bestelmeyer<br />
+Spannweiten: 33-64<br />
+Gesamtbreite: 114<br />
+Tragwerk: Dreigelenkbogen",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/ludwigbruecke.jpg,Baureferat,
+bruecke,Luitpoldbrücke,48.141696698,11.5952275755,"Wird nach dem Sponsor und Namensgeber auch Prinzregentenbrücke genannt. Die vier liegenden Skulpturen repräsentieren die damals allesamt bayerischen Stämme und Landesteile Altbayern, Schwaben, Franken und Pfalz.<br />
+<br />
+Baujahr: 1902<br />
+Entwurf: Theodor Fischer, Sager & Wörner<br />
+Spannweiten: <br />
+Gesamtbreite: 63<br />
+Tragwerk: Dreigelenkbogen aus Muschelkalkstein",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/luitpoltbruecke.jpg,Baureferat,
+bruecke,Mariannenbrücke,48.1350410117,11.5883579798,"Als 1888 die Kunstgewerbeausstellung am Isarkai stattfindet, schafft eine schlichte Holzbrücke die Verbindung zwischen Mariannenplatz und Praterinsel sowie dem dortigen Café Isarlust. Wie der Platz trägt die 1929 zur Eisenbetonbrücke ausgebaute Querung den Namen der Herzogin Maria Anna in Bayern.<br />
+<br />
+Baujahr: 1929<br />
+Entwurf: Aquilin Altmann, August Blössner<br />
+Spannweiten: 11-15<br />
+Gesamtbreite: 38<br />
+Tragwerk: Mehrfeldträger durchlaufend, 3 Felder",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/mariannenbruecke.jpg,Baureferat,
+bruecke,Marienklausensteg,48.092105,11.549871,"Nach Ende des Ersten Weltkriegs entsteht am südlichen Ende des Tierparks Hellabrunn ein Fußgängersteg aus Holz und Straßenbahnschienen. 1997 erfolgte ein kompletter Neubau. Ihr Charakteristikum ist der Stichsteg zu einer Aussichtskanzel auf der Trennmauer der alten Floßgasse.<br />
+<br />
+Baujahr: 1997<br />
+Entwurf: Felix Schürmann, Lothar Fritsche<br />
+Spannweiten: 6-18<br />
+Gesamtbreite: 129<br />
+Tragwerk: Mehrfeldträger, 10 Felder",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/marienklausensteg.jpg,Baureferat,
+bruecke,Maximiliansbrücke,48.1367747226,11.592129111,"Nach Plänen Arnold Zenettis entstand 1860 die zunächst 13 Meter breite Brücke als Verlängerung der 23 Meter breiten Maximilianstraße. Schon 1903 wurde die Verbreiterung des inneren Teils vom Westen über die Große Isar zur Praterinsel sowie der Neubau der äußeren Brücke über den Auer Mühlbach und die Kleine Isar im Osten angegangen.<br />
+<br />
+Baujahr: 1904<br />
+Entwurf: Friedrich von Thiersch, Sager & Wörner<br />
+Spannweiten: 8-14<br />
+Gesamtbreite: 138<br />
+Tragwerk: Ziegel- bzw. Natursteingewölbe",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/maximiliansbruecke.jpg,Baureferat,
+bruecke,Max-Joseph-Brücke,48.1492053784,11.5984702854,"Bereits 1804 und damals noch außerhalb der Stadt entstand die zweite Münchner Isarbrücke. Zunächst aus Holz, später aus Eisenfachwerk und zwischenzeitlich mehrfach durch Hochwasser zerstört, setzte man beim Neubau 1901 auf eine massive Steinbogenkonstruktion. Sie firmiert auch als Bogenhausener Brücke.<br />
+<br />
+Baujahr: 1901/02<br />
+Entwurf: Theodor Fischer, Sager & Wörner, Hans Grüb<br />
+Spannweiten: 8-14<br />
+Gesamtbreite: 64<br />
+Tragwerk: Dreigelenkbogen aus Muschelkalkstein",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/max-joseph-bruecke.jpg,Baureferat,
+bruecke,Oberföhringer Stauwehr,48.1683972733,11.6168465589,"An der Wehranlage zwischen dem Englischen Garten und Oberföhring beginnt der Mittlere-Isar-Kanal, der oberhalb von Landshut wieder in die Isar mündet. Unterhalb des Stauwehrs befindet sich ein weitgehend unterirdisches Wasserkraftwerk. Mit dem Bau des Wehrs in den 1920er Jahren entstand auch eine erste Fußgängerbrücke an dieser Stelle.<br />
+<br />
+Baujahr: 1924<br />
+Entwurf: Architekt Brühl<br />
+Spannweiten: 17<br />
+Gesamtbreite: 79",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/oberfoehringerstauwehr.jpg,Baureferat,
+bruecke,Praterwehrbrücke,48.1366422538,11.5898513655,"Einzige Brücke zur Praterinsel, die von Autos befahren werden kann. Unterhalb der Brücke staut ein Wehr die Isar für das Praterkraftwerk auf. Die Statue auf einem der Pfeiler stellt den Heiligen Nepomuk dar, den Patron der Flößer.<br />
+<br />
+Baujahr: 1966<br />
+Entwurf: Carl Friedrich von Wiebeking<br />
+Spannweiten: 7-8<br />
+Gesamtbreite: 40<br />
+Tragwerk: Mehrfeldträger durchlaufen, 5 Felder",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/praterwehrbruecke.jpg,Baureferat,
+bruecke,Reichenbachbrücke,48.1272222122,11.577080527,"Zwischen der Au und dem Glockenbachviertel gelegen ist die Brücke samt Kiosk eine der urbansten Isarbrücken in München. Sie wurde 1832 als Holzbrücke von Carl Muffat geplant und erbaut. Nach Einsturz eines Joches 1840 machten sich Muffat und Friedrich von Gärtner an den Bau einer zweiten Holzbrücke, die deutlich stabiler sogar dem Jahrhunderthochwasser von 1899 standhielt. 1903 trat der Neubau aus Stampfbeton und Muschelkalkstein an deren Stelle.<br />
+<br />
+Baujahr: 1902<br />
+Entwurf: Friedrich von Thiersch, Sager & Wörner<br />
+Spannweiten: 26-44<br />
+Gesamtbreite: 135<br />
+Tragwerk: Dreigelenkbogen aus Stampfbeton, 4 Felder",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/reichenbachbruecke.jpg,Baureferat,https://www.muenchen.de/sehenswuerdigkeiten/orte/120318.html
+bruecke,Sankt-Emmeram-Brücke,48.178537,11.625384,"Die 1978 als Verbindung zur Isarinsel bei Oberföhring erbaute Fußgänger- und Radlbrücke wurde 2002 durch Brandstiftung bis auf die Betonpfeiler vollkommen zerstört. 2004 konnte der Neubau aus Holz- und Stahlfachwerk auf den alten Pfeilern eingeweiht werden.<br />
+<br />
+Baujahr: 2004<br />
+Entwurf: Richard J. Dietrich<br />
+Spannweiten: 10-34<br />
+Gesamtbreite: 96<br />
+Tragwerk: Fachwerkträger",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/st-emmeram-bruecke.jpg,Baureferat,
+bruecke,Schinderbrücke,48.107695,11.552022,"Die Brücke vom Westufer der Isar in Sendling zum Flaucher ist nach den Schindern (auch Abdecker) benannt, die dort an der so genannten Wasenstatt Schlachtabfälle und Tierkadaver verwerteten und entsorgten.<br />
+<br />
+Baujahr: 1978<br />
+Entwurf: <br />
+Spannweiten: 12<br />
+Gesamtbreite: 36<br />
+Tragwerk: Mehrfeldträger mit Gelenkausbildung, 3 Felder",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/schinderbruecke.jpg,Baureferat,
+bruecke,Thalkirchner Brücke,48.100816,11.549463,"Die charakteristische rote Brücke aus Stahlbeton und Holz am Eingang des Tierparks Hellabrunn verbindet Thalkirchen seit 1904 mit Harlaching. Bei der Sanierung der Holzbrücke 1923 wurde die Fahrbahnbreite von 7 auf 5 Meter verkleinert. 1991 musste ein Neubau erfolgen, nachdem die Querung durch einen Brand zu Schaden gekommen war.
+<br />
+Baujahr: 1991<br />
+Entwurf: Richard J. Dietrich<br />
+Spannweiten: 13<br />
+Gesamtbreite: 183<br />
+Tragwerk: Mehrfeldträger durchlaufend, 13 Felder",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/thalkirchnerbruecke.jpg,Baureferat,
+bruecke,Wehrsteg,48.1342027335,11.5880129101,"Bereits zum Ende des 17. Jahrhunderts baute die Stadt München Überfälle zwischen den Kiesinseln zur Ableitung von Hochwasser. Der 100 Jahre später errichtete Wehrsteg hielt dem Hochwasser von 1965 jedoch nicht stand, so dass die Nachfolgekonstruktion 1966 auf Beton als Baumaterial setzte. Der Einfeldträger mit zehn Wehröffnungen wurde Mitte der 1990er saniert.<br />
+<br />
+Baujahr: 1966<br />
+Entwurf: <br />
+Spannweiten: <br />
+Gesamtbreite: 153<br />
+Tragwerk: Einfeldträger, 10 Wehröffnungen",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/wehrsteg.jpg,Baureferat,
+bruecke,Wittelsbacherbrücke,48.122539,11.568126,"Bestand 1871 zunächst nur aus dem hölzernen Werkssteg, der zur Errichtung der Braunauer Eisenbahnbrücke benötigt und anschließend versetzt wurde. 1876 erfolgt die erste stabilere Eisenkonstruktion. Der Neubau von 1904 stellte dann eine technische Kopie der Reichenbachbrücke aus Beton dar.<br />
+<br />
+Baujahr: 1905<br />
+Entwurf: Theodor Fischer, Sager & Wörner<br />
+Spannweiten: 26-44<br />
+Gesamtbreite: 138<br />
+Tragwerk: Dreigelenkbogen aus Stampfbeton, 4 Felder",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/wittelsbacherbruecke.jpg,Baureferat,http://orte.muenchen.de/1255501.html
+bruecke,Zenneckbrücke,48.129604,11.584879,"Die denkmalgeschützte Brücke erhielt ihren Namen zu Ehren des Physikers und Direktors der Technischen Hochschule München Jonathan Zenneck. Als sie noch aus Holz bestand, hieß sie zunächst """"Äußere Erhardt-Brücke"""" nach dem Bürgermeister Alois Erhardt. Zwischenzeitlich war sie nach Johan Baptist Bosch benannt, dem Leiter des Tiefbauamts.<br /><br />
+Baujahr: 1925<br />
+Entwurf: Hermann Frauenholz<br />
+Spannweiten: 9-15<br />
+Gesamtbreite: 67<br />
+Tragwerk: Mehrfeldträger durchlaufend, 5 Felder",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/zenneckbruecke.jpg,Baureferat,
+bruecke,Boschbrücke,48.130605,11.582787,"Baujahr: 1925<br />
+Entwurf:<br />
+Spannweiten: 15-16<br />
+Gesamtbreite: 47<br />
+Tragwerk: Mehrfeldträger, durchlaufend",https://res.cloudinary.com/muenchen/isar-map/img/bruecke/boschbruecke.jpg,Baureferat,
+schwimmbad,Müller'sches Volksbad,48.132147,11.588367,"Rosenheimer Str. 1<br />
+Hallenbad 9:00-23:00 Uhr",http://images.portal.muenchen.de/upload/media/000/000/220/498/resized/0750x0310/muellerisches-detail.png,SWM,https://www.muenchen.de/freizeit/orte/119389.html
+schwimmbad,Schyrenbad,48.11998,11.569555,"Claude-Lorrain-Straße 24<br />
+Sommer: 9:00-18:00 Uhr, an heißen Tagen: bis 20:00 Uhr",http://images.portal.muenchen.de/upload/media/000/000/220/632/resized/0750x0310/schyrenbad-1.png,SWM,https://www.muenchen.de/freizeit/orte/119341.html
+schwimmbad,Naturbad Maria Einsiedel,48.09665,11.54663,"Zentralländstraße 28<br />
+Sommer: 9:00 bis 18.00 Uhr, an heißen Tagen: bis 20:00 Uhr",http://images.portal.muenchen.de/upload/media/000/000/219/871/resized/0750x0310/maria-einsiedel-2-details.png,SWM,https://www.muenchen.de/freizeit/orte/119340.html
+camping,Campingplatz München-Thalkirchen,48.090842,11.544893,,,,http://branchenbuch.portal.muenchen.de/mhp/1250701/
+kiosk,Ronnie's Kiosk,48.0739375048,11.5394021963,Adresse: Unter der Großhesseloher Brücke,,,
+kiosk,Flaucherstandl Kiosk,48.092659722,11.5480677409,"Sortiment: Bio-Schorlen, kalt gepresste, eigens hergestellte Gemüsesäfte sowie weitere alkoholfreie und alkoholische Getränke, darunter verschiedene Biersorten, Wodka, Jägermeister. Zum Essen gibt es u.a. Currywurst, Bratwurst, Schweinswürstl, Wiener Würstchen, Käsesemmeln, Süßigkeiten und Eiscreme.<br />
+<br />
+Ausstattung: Das Dixiklo wird derzeit durch ein richtiges Toilettenhäuschen ersetzt. Mülleimer sind vorhanden, auch übliche Pfandflaschen werden angenommen und sogar Flickzeug steht bereit, sollte das Radl eine schnelle Reparatur brauchen.<br />
+<br />
+Öffnungszeiten: bei schönem Wetter täglich von 12 bis 20 Uhr, im Winter am Sonntag<br />
+<br />
+Adresse: Zentralländstraße 35, München",https://res.cloudinary.com/muenchen/isar-map/img/kiosk/flaucherstandl.jpg,Rico Güttich,https://www.muenchen.de/essen-trinken/orte/1198632.html
+kiosk,Isolde Mikschy Kiosk,48.100719,11.54809,"Sortiment: Zum Trinken stehen alkoholfreie Getränke, Spirituosen im Stamperl oder 0,7-Liter-Flaschen, Weißwein und Rotwein, Hugo, Sekt und Piccolos bereit. Gegen Hunger helfen Schnitzelsemmeln, Fleischpflanzerlsemmeln, Bratwurst, Brühpolnische, Käse- und Salamisemmeln. Darüber hinaus finden sich auch Eiscreme, Süßigkeiten und kleinere Snacks, sowie Tabak, Kondome und Einweggrills.<br />
+ <br />
+Ausstattung: Für Gäste des kleinen Biergartens steht ein Dixiklo zur Verfügung. Es gibt Mülleimer. Pfandflaschen, die hier erworben wurden, werden zurückgenommen.<br />
+<br />
+Öffnungszeiten: März bis November, 10 Uhr bis 3 Uhr<br />
+<br />
+Adresse: Zentralländstraße 2, München",https://res.cloudinary.com/muenchen/isar-map/img/kiosk/mickschy.jpg,Rico Güttich,https://www.muenchen.de/shopping/orte/217567.html
+kiosk,Tierpark Kiosk,48.100202,11.558647,"Sortiment: Alkoholfreie Getränke, Milch, Kakao, Capri Sonne, verschiedene Biersorten und Spirituosen werden ebenso angeboten wie Wiener Würstchen, Currywurst, Leberkassemmeln, Nürnberger Bratwürstchen, Käse- und Salamisemmeln nebst Süßigkeiten, Eiscreme, Zeitungen und Tabak.<br />
+<br />
+Ausstattung: Der Kiosk verfügt über eine Toilette, Mülleimer, einigen Sitzmöglichkeiten und auch ein Parkplatz ist in der Nähe. Die üblichen Pfandflaschen werden in der Regel zurückgenommen. <br />
+<br />
+Öffnungszeiten: täglich ab 10 Uhr, im Winter bis 18, sonst bis 22 Uhr<br />
+<br />
+Adresse: Tierparkstraße 37, München",https://res.cloudinary.com/muenchen/isar-map/img/kiosk/flamingo.jpg,Rico Güttich,
+kiosk,Kiosk Hexenhäusl Flaucher,48.1024691682,11.5518900908,Adresse: am Flaucher,,,
+kiosk,Kiosk Braunauer Eisenbahnbrücke,48.1176344811,11.5625666437,"Sortiment: Hier kann bei alkoholfreien Getränke, Paulaner Bier und warmen Getränken zugegriffen werden. Gegen den knurrenden Magen helfen Semmeln mit Wurst und Käse, Fleischpflanzerlsemmeln, Schnitzelsemmeln, Leberkassemmeln, Wiener in der Semmel. Auch Eiscreme, Süßigkeiten und Tabak sind erhältlich.<br />
+<br />
+Ausstattung: Dixiklo und Mülleimer sind vorhanden, Pfandflaschen aus dem eigenen Sortiment werden zurückgenommen.<br />
+<br />
+Öffnungszeiten: am Wochenende von 10 bis 22 Uhr; unter der Woche von 11 bis 22 Uhr; im Winter an schönen Tagen<br />
+<br />
+Adresse: Teutoburger Straße 11, München",https://res.cloudinary.com/muenchen/isar-map/img/kiosk/braunauer.jpg,Rico Güttich,
+kiosk,Kiosk Wittelsbacherbrücke,48.1216521459,11.5687016122,"Sortiment: alkoholfreie Getränke, verschiedene Biersorten, Weißweinschorle, Champagner,  Wiener Würstchen, Currywurst in dreierlei Variationen mit hauseigener Sauce, Bratwurstsemmeln, Nürnberger in der Semmel, Gulaschsuppe, Chili con Carne, Obazda, Fisch, Wurstsemmeln und Tabak.<br />
+<br />
+Ausstattung: Sitzgelegenheiten im Biergarten, behindertengerechte Toilette und Mülleimer. Pfandflaschen werden zurückgenommen.<br />
+<br />
+Öffnungszeiten: geöffnet von April bis Oktober in der Regel von 10 bis 24 Uhr<br />
+<br />
+Adresse: Humboldtstraße 1, München",https://res.cloudinary.com/muenchen/isar-map/img/kiosk/standl.jpg,Rico Güttich,
+kiosk,Kiosk Isarwahn,48.1220337086,11.5692463946,"Sortiment: Gegen den Durst kann aus alkoholfreien Getränken, verschiedenen Biersorten, warmen Getränken, Aperol Spritz, Gin Tonic oder Moscow Mule gewählt werden. Zum Essen gibt es Currywurst, Wiener Würstchen, Pommes. Auch Tabak ist erhältlich.<br />
+<br />
+Ausstattung: Sitzgelegenheiten im kleinen Biergarten samt Toilette und Mülleimern. Pfandflaschen werden nicht zurückgenommen.<br />
+<br />
+Öffnungszeiten: täglich von 11 bis 24 Uhr, im Winter nur an Wochenenden bei schönem Wetter<br />
+<br />
+Adresse: Humboldtstraße 2, München",https://res.cloudinary.com/muenchen/isar-map/img/kiosk/isarwahn.jpg,Rico Güttich,
+kiosk,Kiosk Reichenbahnbrücke,48.1275898621,11.5760866067,"Sortiment: Kiosk ist fast eine Untertreibung, denn über 300 Biersorten aus unterschiedlichen Ländern, 250 alkoholfreie Getränke, Spirituosen, Schnitzelsemmeln, Bockwurst, Leberkas, Cordon Bleu, Süßigkeiten, Lebensmittel für den täglichen Bedarf, Eis, nationale und internationale Zeitungen, Zeitschriften und Tabak lassen nur wenige Wünsche offen.<br />
+<br />
+Ausstattung: Auf der gegenüberliegenden Isarseite steht eine Dixiklo-Anlage zur Verfügung. Mülleimer sind vorhanden. Nebst Barem wird auch Kartenzahlung und Bezahlung mit dem Smartphone akzeptiert.<br />
+<br />
+Öffnungszeiten: 23 Stunden, täglich 6 Uhr bis 5 Uhr Morgens<br />
+<br />
+Adresse: Fraunhoferstraße 46, München",https://res.cloudinary.com/muenchen/isar-map/img/kiosk/reichenbachkiosk.jpg,Rico Güttich,
+kiosk,Fräulein Grüneis,48.143652,11.588752,"Sortiment: verschiedene Biersorten, alkoholfreie Getränke, warme Getränke, Wein, Sommergetränke, Spirituosen, wechselnde Mittagsgerichte, Pausenbrote, Brotzeit, Frühstück, Kuchen, Süßigkeiten, Eiscreme, Tabak<br />
+<br />
+Ausstattung: Das komplett renovierte Klohaisl stellt natürlich auch eine Toilettenanlage und Mülleimer für seine Gäste bereit. Besonderes Extra: ein Fahrradverleih.<br />
+<br />
+Öffnungszeiten: Montags bis freitags von 8 Uhr bis zum Einbruch der Dunkelheit, am Wochenende von 10 Uhr bis es dunkel wird<br />
+<br />
+Adresse: Lerchenfeldstraße 1, München",https://res.cloudinary.com/muenchen/isar-map/img/kiosk/grueneis.jpg,Rico Güttich,
+kiosk,Milchhäusl,48.149779,11.585437,"Sortiment: zu 100 Prozent aus Öko-Zutaten. Bei Durst locken alkoholfreie Getränke, verschiedene Biersorten und warme Getränke. Gegen den Hunger kann man zwischen Leberkas, Rostbratwürstchen, Wiener Würstchen, Tomate-Mozzarella-Semmeln, Obazda-Baguette und Ziegenkäse-Semmeln wählen.<br /><br />
+Ausstattung: Rund im den Kiosk gibt es einen kleinen Biergarten, Toiletten, Mülleimer und sogar einen Fahrradverleih.<br /><br />
+Öffnungszeiten: täglich von 10 bis 22 Uhr<br />
+<br />
+Adresse: Königinstraße 6, München",https://res.cloudinary.com/muenchen/isar-map/img/kiosk/milchhaeusl.jpg,Rico Güttich,
+kiosk,Bussis Kiosk,48.16028,11.591665,"Sortiment: Neben Bier kann man hier zu verschiedenen alkoholfreien und auch warmen Getränken greifen. Zum Essen sind Frühstück, Leberkas, Weißwurst, Wiener Würstchen, Obazda-Brezn, hausgemachte Kuchen, Salate oder Sandwiches im Angebot. Darüber hinaus lassen sich beim Kiosk Produkte für den täglichen Bedarf wie Milch, Butter, Nudeln, Toilettenpapier usw. besorgen, aber auch Süßigkeiten, Zeitungen und Tabak.<br />
+<br />
+Ausstattung: Es stehen einige Sitzgelegenheiten, Liegestühle und Mülleimer zur Verfügung. Pfandflaschen aus dem eigenen Verkauf werden zurückgenommen.<br />
+<br />
+Öffnungszeiten: unter Woche von 8 bis 22 Uhr, am Wochenende 9 bis 22 Uhr<br />
+<br />
+Adresse: Gunezrainerstraße 6, München",https://res.cloudinary.com/muenchen/isar-map/img/kiosk/bussis.jpg,Rico Güttich,
+kiosk,Kiosk Schinderstadl,48.1073519675,11.5526342255,"Öffnungszeiten: bei schönem Wetter täglich ab vormittags geöffnet<br />
+<br />
+Adresse: Isarauen 2, München",,,
+biergarten,Zum Flaucher - Biergarten,48.1085627922,11.5575628042,"Zum Flaucher an die Isar zieht es die Münchner bei den ersten Sonnenstrahlen. Den Namen erhalten hat der Flussabschnitt vom Wirtshaus „Zum Flaucher“, das der Wirt Johann Flaucher 1871 eröffnet hat.<br />
+Bald strömten die gestressten Städter in Scharen in die Isarauen, wo der Wildflusscharakter der Isar noch heute spürbar ist. Nach dem Umbau der Gaststätte knüpft man an diese lange Tradition wieder an: Im Biergarten des Gasthofes gibt es Bier und traditionelle Speisen fernab des Trubels der Stadt.<br />
+<br />
+Öffnungszeiten: bei schönem Wetter täglich geöffnet.<br />
+<br />
+Adresse: Isarauen 8, München",,,http://www.muenchen.de/essen-trinken/orte/1198632.html

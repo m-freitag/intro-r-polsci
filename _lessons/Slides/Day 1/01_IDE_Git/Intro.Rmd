@@ -1,6 +1,6 @@
 ---
-title: "Intro, (Git)Hub and R-Studio"
-subtitle: ""  
+title: "Lys"
+subtitle: "goes Xaringan"  
 author: 
   - "Markus Freitag"
 date: '`r Sys.Date()`'
@@ -17,7 +17,6 @@ output:
       ratio: 16:9
     seal: false
 ---
-
 
 
 ```{r setup, include=FALSE}
@@ -44,17 +43,19 @@ pacman::p_load(
   ggdag,
   data.table,
   patchwork,
-  datenguideR,
-  cjpowR
+  cjpowR,
+  raincloudplots,
+  rio,
+  leaflet
 )
 
 
-font_add_google(
-  name = "IBM Plex Sans",
-  family = "plex"
-)
+# font_add_google(
+#   name = "IBM Plex Sans",
+#   family = "plex"
+# )
 
-showtext_auto()
+# showtext_auto()
 
 
 
@@ -105,7 +106,7 @@ class: inverse, center, title-slide, middle
 
 <br /> 
 
-## .handw[]
+## .header-fancy[Session 1: RStudio and Version Control]
 
 ### Markus Freitag
 
@@ -210,7 +211,7 @@ At the present day (and surely years to come), R is arguably the best programmin
 # R versus other langs/software
 
 Source: [Julia Micro-Benchmarks](https://julialang.org/benchmarks/).
-![:scale 70=%](Figs/benchmarks.svg)
+![:scale 60=%](Figs/benchmarks.svg)
 
 ---
 
@@ -218,12 +219,60 @@ Source: [Julia Micro-Benchmarks](https://julialang.org/benchmarks/).
 
 U can make pretty graphs...
 
+```{r, echo = FALSE}
+
+elbe <- import("1998_2002.dta") # import Hainmueller et al. replication data.
+
+elbe <- elbe %>%
+  filter(year == 2002)
+
+elbe_t <- elbe  %>% 
+  filter(Flooded == 1)
+
+elbe_c <- elbe %>%
+  filter(Flooded != 1)
+
+df_1x1 <- data_1x1(
+  array_1 = elbe_c$spd_z_vs,
+  array_2 = elbe_t$spd_z_vs,
+  jit_distance = .09,
+  jit_seed = 321
+)
+
+raincloud_1 <- raincloud_1x1_repmes(
+  data = df_1x1,
+  colors = (c("#415564", "#a80000")),
+  fills = (c("#415564", "#a80000")),
+  line_color = 'gray',
+  line_alpha = 0,
+  size = 1,
+  alpha = .6
+) + scale_x_continuous(breaks = c(1, 2), labels = c("Pre", "Post"), limits = c(0, 3)) +
+  xlab("Time") +
+  ylab("Score") +
+  theme_classic() + theme(
+    text = element_text(family = "plex", size = 25, colour = "#415564"),
+    panel.background = element_rect(fill = "#f6f3f2"),
+    plot.background = element_rect(fill = "#f6f3f2", color = "#f6f3f2"),
+    panel.grid.major = element_line(colour = "#e8e8e8"),
+    panel.grid.minor = element_blank(),
+    legend.background = element_rect(fill = "#f6f3f2"),
+    legend.box.background = element_rect(fill = "#f6f3f2"),
+    axis.text = element_text(colour = "#415564"),
+    axis.line = element_line(colour = "#415564"),
+    axis.title = element_text(colour = "#415564"),
+    axis.ticks = element_line(colour = "#415564"),
+  )
+
+raincloud_1
+
+```
 
 ---
 
 # Showcase
 
-U can make pretty graphs...
+U can make pretty [graphs](https://www.economist.com/graphic-detail/2021/04/13/in-america-republican-led-states-are-rolling-back-electoral-and-civil-liberties)...
 
 <div align="center">
 <img src="https://www.economist.com/img/b/1000/590/90/sites/default/files/images/2021/04/articles/main/20210417_woc511.png" height=500>
@@ -249,14 +298,18 @@ Or interactive graphs...
 .pull-left[
 ```{r, echo=FALSE}
 
-p <- cjpowr_plotly(y = "n", x = "amce", by = "power",
-amce = seq(from = 0.02, to = 0.1, length.out = 1000),
-power = c(0.7,0.8,0.9),
-alpha = 0.05,
-levels = 5,
-delta0=0.5) %>% plotly::layout(plot_bgcolor='rgb(246, 243, 242)',
-                               paper_bgcolor = 'rgb(246, 243, 242)',
-                               fig_bgcolor = 'rgb(246, 243, 242)')
+p <- cjpowr_plotly(
+  y = "n", x = "amce", by = "power",
+  amce = seq(from = 0.02, to = 0.1, length.out = 1000),
+  power = c(0.7, 0.8, 0.9),
+  alpha = 0.05,
+  levels = 5,
+  delta0 = 0.5
+) %>% plotly::layout(
+  plot_bgcolor = "rgb(246, 243, 242)",
+  paper_bgcolor = "rgb(246, 243, 242)",
+  fig_bgcolor = "rgb(246, 243, 242)"
+)
 p
 ```
 ]
@@ -276,13 +329,29 @@ If you are interested in [power for (conjoint/factorial) survey experiments](htt
 
 Or or interactive maps...
 
+```{r, echo = FALSE, fig.height=6, eval=require('leaflet'), fig.align='center'}
 
+pois <- import("https://www.opengov-muenchen.de/dataset/fc28edb7-0e69-47b2-814e-3fa18c68f94f/resource/6fb56066-11b2-498d-ba22-cbcc85b660b4/download/pois-an-der-isar-2016-08-09.csv", encoding = "UTF-8")
+pois$description <- paste0(pois$title, ":\n", pois$description)
+
+
+leaflet(data = pois) %>%
+  addTiles() %>%
+  addMarkers(~longitude, ~latitude, popup = ~ as.character(description))
+
+```
 
 ---
 
 # Showcase
 
-U can easily combine R code and text in so called Rmarkdown files to produce reproducible documents...E.g. this presentation, LaTeX `.pdf`s or even Word files. 
+- U can easily combine R code and text in so called Rmarkdown files to produce 
+reproducible documents in various output formats (html, pdf, etc.).
+
+- This presentation is a (hopefully good) example. You can check out the source code 
+[here](). Feel free to take and adapt. 
+
+- We will learn a little more about this in just a few slides and much more tomorrow!
 
 ---
 

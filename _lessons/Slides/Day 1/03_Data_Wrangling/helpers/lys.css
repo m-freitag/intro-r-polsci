@@ -257,6 +257,10 @@ h2, h3, h4 {
  font-weight: 400;
 }
 
+.header-fancy {
+ font-size: 150%;
+}
+
 
 .hl{
  color: #e59e34;
@@ -264,7 +268,7 @@ h2, h3, h4 {
 }
 
 .hl2{
- color: #556441;
+ color: #5cb194;
  font-weight: 600;
 }
 
@@ -306,4 +310,10 @@ h2, h3, h4 {
     position: absolute;
     left: 15px;
     bottom: 1px;
+}
+
+.remark-inline-output {
+  /* background: #F5F5F5; /* lighter */
+  border-radius: 3px;
+  padding: 4px;
 }

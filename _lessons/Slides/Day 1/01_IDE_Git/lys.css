@@ -288,3 +288,6 @@ h2, h3, h4 {
     padding:0.3em 0.3em;
 }
 
+.header-fancy {
+ font-size: 120%;
+}

@@ -40,7 +40,9 @@ pacman::p_load(
   tidyverse,
   data.table,
   rio,
-  patchwork
+  patchwork,
+  DT,
+  modelsummary
 )
 
 
@@ -96,7 +98,7 @@ class: inverse, center, title-slide, middle
 
 <br />
 
-## Session 3: Data Wrangling
+## .header-fancy[Session 3: Data Wrangling]
 
 ### Markus Freitag
 
@@ -167,7 +169,74 @@ octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80
 
 # Tidyverse Packages
 
+```{r, echo=FALSE, fig.align='center', out.width= "45%"}
+knitr::include_graphics("Figs/tidyverse.png")
+```
 
+- These are only the tidyverse packages loaded by default. There are 
+[more](https://tidyverse.tidyverse.org/) (e.g. [lubridate](https://github.com/tidyverse/lubridate)).
+
+---
+
+# The Philosophy: Tidy Data
+
+> 1. Each variable forms a column.
+> 2. Each observation forms a row.
+> 3. Each type of observational unit forms a table. [(Wickham 2014)](https://www.jstatsoft.org/index.php/jss/article/view/v059i10/v59i10.pdf)
+
+- Sounds pretty reasonable. 3. is related to constructing clean relational data 
+bases (we will see an example later).
+
+- However, we can relax this from time to time given our needs/statistical methods.
+
+.hl2[Messy data] is everything else, e.g.:
+
+.code60[
+```{r, echo = FALSE}
+
+lotr <- data.frame(
+  race = c("hobbits", "hobbits", "elves", "hobbits", "dwarves", "men"),
+  character = c("Frodo", "Sam", "Arwen", "Golum", "Gimli", "Eowyn"),
+  gender = c("male", "male", "female", "male", "male", "female"),
+  `age_0-100` = c(1,1,0,0,0,1),
+  `age_100-500` = c(0,0,0,0,1,0),
+  `age_500-100` = c(0,0,0,1,0,0),
+  `age_>1000` = c(0, 0, 1, 0, 0, 0), 
+  check.names = FALSE
+)
+lotr
+
+```
+]
+---
+# The Philosophy: Tidy Data
+
+Tidy:
+
+```{r, echo = FALSE}
+
+lotr <- lotr %>%
+  pivot_longer(4:7, names_to = "age_cat", values_to = "classifier") %>%
+  filter(classifier == 1) %>%
+  select(-classifier) %>%
+  mutate(age_cat = str_remove(age_cat, "age_"))
+
+as.data.frame(lotr)
+
+```
+
+---
+
+# Tibbles
+
+- Tibbles are data.frames but with some perks. For instance, subset more strictly.
+
+- They also print differently (better):
+
+```{r}
+as_tibble(lotr) # You don't have the data here.
+# Hint: You can create one just like data frames but with tibble().
+```
 
 ---
 
@@ -241,17 +310,182 @@ In R, I recommend the [stringi/stringr](https://cran.r-project.org/web/packages/
 
 #  Pipes: %>% and |>
 
-- Instead of 
+- Pipes are crucial to the tidyverse workflow but also in general.
+
+- They make code more readable.
+
+Idea: Take the output of a function and to pass it **as the 
+first argument** of another function.
+
+$$f(g(x)) \quad \text{becomes (in R)} \quad x  \quad \text{%>%}^{[1]} \quad g() \quad 
+\text{%>%} \quad f()$$
+
+--
+
+.code80[
+```{r, eval = FALSE}
+x <- c(1, 2, 3, 4)
+
+sqrt(mean(x))
+
+x %>%
+  mean() %>%
+  sqrt()
+
+```
+]
+
+<sub>.font70[[1]]<sub/> .hl[TIPP:] Press ctrl-shift-m to produce the [magrittr](https://magrittr.tidyverse.org/) 
+pipe, `%>%`, in RStudio.
+
+---
+
+# Pipes: %>% and |>
+
+- We can also pass the output as the second, third, ... argument using `.` as a 
+placeholder.
+
+- `f(a, b = c)` can be written as `c %>% f(a, b = .)`
+
+Example:
+
+```{r}
+"Ceci n&#37;est pas une pipe" %>% gsub("&#37;", "'", .) # gsub() performs replacement of all matches in a chr. vector.
+```
+--
+
+- They are so useful, the R core team even introduced a base pipe (`|>`), in May 2021.
+Something like this happen **very** rarely: 
+
+```{r, eval = FALSE}
+x |>
+  mean() |>
+  sqrt()
+```
+---
+
+# Pipes: %>% and |>
+
+- The base pipe is a [tiny](https://statistik-dresden.de/archives/17227) bit faster.
+
+- Does not need an extra dependency. Useful for package development (using the 
+magrittr pipe in packages can be annoying sometimes).
+
+--
+
+- .hl[BUT]: it does not (yet) properly support the `.` placeholder (as of June 2021).
+
+We can hack it tho:
+```{r}
+Sys.setenv("_R_USE_PIPEBIND_" = "true")
+"Ceci n&#37;est pas une pipe" |> . => gsub("&#37;", "'", .)
+```
+
+- That's pretty ugly and [apparently](https://twitter.com/rdataberlin/status/1396170545046097928) 
+still buggy. We will stick to  `%>%`.
+
+---
+
+class: inverse, center, middle name: intro
+
+# Let's Wrangle      
 
 ---
 
 # The Data
 
+- We will use the [parlgov](http://www.parlgov.org/) database:
+
+> ParlGov is a data infrastructure for political 
+science and contains information for all EU 
+and most OECD democracies (37 countries). 
+The database combines approximately 1700 
+parties, 1000 elections (9400 results), and 1600 cabinets (3900 parties).
+
+- It's relational, i.e. consists of different tables (parties, elections, cabinets)
+that can be **joined** using key variables.
+
+---
+
+# The Data
+
+```{r, echo=FALSE, fig.align='center', out.width= "60%"}
+knitr::include_graphics("Figs/relational.svg")
+```
+
+---
+
+# The Data
+
+- We will use the [parlgov](http://www.parlgov.org/) database:
+
+> ParlGov is a data infrastructure for political 
+science and contains information for all EU 
+and most OECD democracies (37 countries). 
+The database combines approximately 1700 
+parties, 1000 elections (9400 results), and 1600 cabinets (3900 parties).
+
+- It's relational, i.e. consists of different tables (parties, elections, cabinets)
+that can be **joined** using key variables.
+
+- It makes for pretty simple and intuitive examples.
+
+Let's import the election data:
+
+```{r}
+parlgov_elec <- import("http://www.parlgov.org/static/data/development-cp1252/view_election.csv")
+```
+
+---
+
+# The Data: Getting an Overview
+
+.code70[
+```{r}
+glimpse(parlgov_elec) # enhanced version of str()
+```
+]
+
+---
+  
+# The Data: Getting an Overview
+
+
+```{r, echo = FALSE}
+
+datatable(head(parlgov_elec, 10),
+  width = "100%",
+  options = list(pageLength = 3, scrollX = TRUE)
+)
+```
+
+.hl[Q]: Is this data set tidy?
+
+---
+
+# The Data: Getting an Overview
+
+.code70[
+```{r, eval = FALSE}
+datasummary_skim(parlgov_elec) # from modelsummary package. Set type = "categorical" for character vars.
+
+# Of course, not super informative in our hierarchical data set:
+```
+```{r, echo = FALSE}
+datasummary_skim(parlgov_elec) %>% kableExtra::kable_styling(font_size = 17)
+```
+
+]
+
+.font70[.hl[TIPP:] The [collapse](https://github.com/SebKrantz/collapse) package 
+also provides some data summary functions (`descr()` and `qsu()`) that work really
+well on huge data sets. Stata users will love it as its similar to summarize.]
 
 
 ---
-    
+
 # Tidyverse's Wrangling "Wunderkind": dplyr
+
 
 
 
