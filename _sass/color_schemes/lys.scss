@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap);
 
-$blue-lys: #43586885;
+$blue-lys: #415564;
 $background-lys: #f6f3f2;
 $yellow-lys: #e59e34;
 $turquise-lys: #5cb194;
@@ -14,9 +14,8 @@ $body-text-color: $blue-lys;
 $body-heading-color: $blue-lys;
 
 $nav-child-link-color: $yellow-lys;
-$body-background-color: $white !default;
+// $body-background-color: $background-lys;
 
-$border-color: $blue-lys;
 
 $body-font-family: 'IBM Plex Sans', sans-serif;
 $mono-font-family: 'IBM Plex Mono', Monospace;
