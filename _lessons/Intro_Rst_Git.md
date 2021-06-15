@@ -1,11 +1,11 @@
 ---
-title: Intro, Git(Hub) & R-Studio
+title: "Session 1: Intro, Git(Hub) & R-Studio"
 parent: Day 1
 nav_order: 1
 summary: 
 ---
 
-## Intro, (Git)Hub & R-Studio
+## Session 1: Intro, Git(Hub) & R-Studio
 
 <br/>
 
