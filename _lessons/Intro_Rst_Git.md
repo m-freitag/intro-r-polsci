@@ -7,7 +7,7 @@ summary:
 
 <br/>
 
-# Session 1: Intro, Git(Hub) & R-Studio
+# <center> Session 1: Intro, Git(Hub) & R-Studio <center/>
 
 <br/>
 

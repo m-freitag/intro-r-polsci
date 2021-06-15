@@ -4,8 +4,9 @@ parent: Day 1
 nav_order: 2
 summary: 
 ---
+<br/>
 
-# Session 2: Base R and Tidyverse Basics
+# <center> Session 2: Base R and Tidyverse Basics <center/>
 
 <br/>
 
