@@ -1,7 +1,7 @@
 ---
 title: Intro, Git(Hub) & R-Studio
 parent: Day 1
-nav_order: 2
+nav_order: 1
 summary: 
 ---
 
