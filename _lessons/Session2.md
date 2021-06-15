@@ -1,12 +1,11 @@
 ---
-title: Intro, Git(Hub) & R-Studio
+title: "Session 2: Base R and Tidyverse Basics"
 parent: Day 1
-nav_order: 1
+nav_order: 2
 summary: 
 ---
 
-
-## Intro, (Git)Hub & R-Studio
+## Session 2: Base R and Tidyverse Basics
 
 In the second session, we will get to know (and hopefully also to love) the R language.
 
