@@ -23,8 +23,8 @@ In this first session, we will cover version control with (Git)Hub and get famil
 
 You can download the .pdf [here](https://raw.githack.com/m-freitag/intro-r-polsci/master/_lessons/Slides/Day 1/01_IDE_Git/Intro.pdf) (note that some animations/gifs do cause some visual bugs in the static file).
 
-#### Further Reading
-
 <br/>
+
+#### Further Reading
 
 Jenny Bryan. Happy Git and GitHub for the useR. Url: https://happygitwithr.com/.

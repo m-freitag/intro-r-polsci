@@ -23,8 +23,8 @@ In the second session, we will get to know (and hopefully also to love) the R la
 
 You can download the .pdf [here](https://raw.githack.com/m-freitag/intro-r-polsci/master/_lessons/Slides/Day 1/01_IDE_Git/Intro.pdf) (note that some animations/gifs do cause some visual bugs in the static file).
 
-#### Further Reading
-
 <br/>
+
+#### Further Reading
 
 Hadley Wickham. Advanced R. Url: https://adv-r.hadley.nz/.
