@@ -5,7 +5,7 @@ nav_order: 2
 summary: 
 ---
 
-# Session 2: Base R and Tidyverse Basics
+## Session 2: Base R and Tidyverse Basics
 
 <br/>
 
