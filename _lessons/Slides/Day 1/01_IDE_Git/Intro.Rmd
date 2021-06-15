@@ -50,12 +50,12 @@ pacman::p_load(
 )
 
 
-# font_add_google(
-#   name = "IBM Plex Sans",
-#   family = "plex"
-# )
+font_add_google(
+  name = "IBM Plex Sans",
+  family = "plex"
+)
 
-# showtext_auto()
+showtext_auto()
 
 
 
@@ -129,9 +129,9 @@ name: intro
 
 ---
 
-# Welcome Young Padawans 
+# Hi!
 
-**Why this course?**
+.hl2[Why this course?]
 
  - Intro to R with a focus on programming (<-> standard pol sci quant training).
  
@@ -143,23 +143,22 @@ name: intro
  
  - Take this course as a humble starting point to see through the thickit.
 
+.font70[.hl[Note:] Text will be highlighted in .hl[yellow] or .hl2[turquise]. Links will appear [purple]().]
 
 ---
 
-# Welcome Young Padawans 
+# Hi!
 
 **Who am I?**
 
-- Soon™ PhD student. Likes stats and pol sci. Also likes cooking and (board) gaming. 
+- Research Fellow (pre-doc). Likes stats and pol sci. Also likes cooking and (board) gaming. 
 
 - Web: [`r icons::icon_style(icons::fontawesome("globe"), fill = "#415564")`](https://markusfreitag.netlify.app/)
 
 
 **Who are you?**
 
-I hate online introductory rounds. 
-
-Let's do a break-out session instead so you get to know a few people. 
+Let's do a break-out icebreaker session. 
 
 This will also be your team for the problem sets. 
 
@@ -170,19 +169,19 @@ This will also be your team for the problem sets.
 
 1. .hl[Intro]
 
-2. .hl[R-Studio and (Git)Hub]
+2. .hl[R-Studio and Git(Hub)]
 
-3. .hl[Base R & Tidyverse Basics]
+3.  Base R & Tidyverse Basics
 
-4. .hl[Data Wrangling I]
+4.  Data Wrangling I
 
-5. .hl[Data Wrangling II]
+5.  Data Wrangling II
 
-6. .hl[Data Viz]
+6.  Data Viz
 
-7. .hl[Writing Functions]
+7.  Writing Functions
 
-8. .hl[A complete scientific workflow with R]
+8.  A complete scientific workflow with R
 
 ---
 
@@ -210,8 +209,10 @@ At the present day (and surely years to come), R is arguably the best programmin
 
 # R versus other langs/software
 
-Source: [Julia Micro-Benchmarks](https://julialang.org/benchmarks/).
-![:scale 60=%](Figs/benchmarks.svg)
+```{r, echo=FALSE, fig.align='center', out.width= "73%"}
+knitr::include_graphics("Figs/benchmarks.svg")
+```
+<center> Source: [Julia Micro-Benchmarks](https://julialang.org/benchmarks/). <center/>
 
 ---
 
@@ -219,7 +220,7 @@ Source: [Julia Micro-Benchmarks](https://julialang.org/benchmarks/).
 
 U can make pretty graphs...
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.width = 13, fig.align='center', out.width= "70%"}
 
 elbe <- import("1998_2002.dta") # import Hainmueller et al. replication data.
 
@@ -233,11 +234,18 @@ elbe_c <- elbe %>%
   filter(Flooded != 1)
 
 df_1x1 <- data_1x1(
-  array_1 = elbe_c$spd_z_vs,
-  array_2 = elbe_t$spd_z_vs,
+  array_1 = elbe_c$del_spd_z_vs,
+  array_2 = elbe_t$del_spd_z_vs,
   jit_distance = .09,
   jit_seed = 321
 )
+
+# df_1x1 <- data_1x1(
+#   array_1 = iris$Sepal.Length[1:50],
+#   array_2 = iris$Sepal.Length[51:100],
+#   jit_distance = .08,
+#   jit_seed = 321)
+
 
 raincloud_1 <- raincloud_1x1_repmes(
   data = df_1x1,
@@ -246,10 +254,10 @@ raincloud_1 <- raincloud_1x1_repmes(
   line_color = 'gray',
   line_alpha = 0,
   size = 1,
-  alpha = .6
-) + scale_x_continuous(breaks = c(1, 2), labels = c("Pre", "Post"), limits = c(0, 3)) +
-  xlab("Time") +
-  ylab("Score") +
+  alpha = .3,
+  align_clouds = FALSE) + scale_x_continuous(breaks = c(1, 2), labels = c("Not Flooded", "Flooded"), limits = c(0, 3)) +
+  xlab("\n2002 Elbe Flooding") +
+  ylab("Change in \nSPD Vote Share \n2002 - 1998 (in pp.)") +
   theme_classic() + theme(
     text = element_text(family = "plex", size = 25, colour = "#415564"),
     panel.background = element_rect(fill = "#f6f3f2"),
@@ -262,11 +270,13 @@ raincloud_1 <- raincloud_1x1_repmes(
     axis.line = element_line(colour = "#415564"),
     axis.title = element_text(colour = "#415564"),
     axis.ticks = element_line(colour = "#415564"),
+    axis.title.y = element_text(angle = 0, vjust = 0.5)
   )
 
-raincloud_1
+plot(raincloud_1)
 
 ```
+<center> Data from [Haimueller/Bechtel 2011](https://web.stanford.edu/~jhain/Paper/AJPS2011.pdf). <center/>
 
 ---
 
@@ -275,14 +285,14 @@ raincloud_1
 U can make pretty [graphs](https://www.economist.com/graphic-detail/2021/04/13/in-america-republican-led-states-are-rolling-back-electoral-and-civil-liberties)...
 
 <div align="center">
-<img src="https://www.economist.com/img/b/1000/590/90/sites/default/files/images/2021/04/articles/main/20210417_woc511.png" height=500>
+<img src="https://www.economist.com/img/b/1000/590/90/sites/default/files/images/2021/04/articles/main/20210417_woc511.png" height=450>
 </div>
 
 ---
 
 # Showcase
 
-Or maps...
+Or [maps](https://timogrossenbacher.ch/2019/04/bivariate-maps-with-ggplot2-and-sf/)...
 
 ```{r, echo=FALSE, fig.align='center', out.width= "60%"}
 knitr::include_graphics("Figs/map_ineq.png")
@@ -329,18 +339,54 @@ If you are interested in [power for (conjoint/factorial) survey experiments](htt
 
 Or or interactive maps...
 
+<center>
 ```{r, echo = FALSE, fig.height=6, eval=require('leaflet'), fig.align='center'}
 
-pois <- import("https://www.opengov-muenchen.de/dataset/fc28edb7-0e69-47b2-814e-3fa18c68f94f/resource/6fb56066-11b2-498d-ba22-cbcc85b660b4/download/pois-an-der-isar-2016-08-09.csv", encoding = "UTF-8")
+# pois <- import("https://www.opengov-muenchen.de/dataset/fc28edb7-0e69-47b2-814e-3fa18c68f94f/resource/6fb56066-11b2-498d-ba22-cbcc85b660b4/download/pois-an-der-isar-2016-08-09.csv", encoding = "UTF-8")
+# export(pois, "pois.csv")
+pois <- import("pois.csv", encoding = "UTF-8")
+
+gsi <- data.frame(type = "gsi",
+  title = "GSI",
+  latitude = 48.149533064606445,
+  longitude = 11.594370092103917,
+  description = "Home Sweet Home!", 
+  photo_url = "",    
+  photo_credit = "", 
+  url_website= ""
+  )
+pois <- rbind(pois, gsi)
+
 pois$description <- paste0(pois$title, ":\n", pois$description)
 
+pois$gsi <- ifelse(pois$title == "GSI", 1,0)
+
+
+getColor <- function(pois) {
+  sapply(pois$gsi, function(gsi) {
+  if(gsi == 0) {
+    "green"
+  } else if(gsi == 1) {
+    "orange"
+  } })
+}
+
+icons <- awesomeIcons(
+  icon = 'ios-close',
+  iconColor = 'black',
+  library = 'ion',
+  markerColor = getColor(pois)
+)
 
 leaflet(data = pois) %>%
   addTiles() %>%
-  addMarkers(~longitude, ~latitude, popup = ~ as.character(description))
+  addAwesomeMarkers(~longitude, ~latitude, popup = ~ as.character(description), icon = icons)
 
 ```
+<center/>
 
+.font60[Map shows [points of interest](https://www.opengov-muenchen.de/dataset/points-of-interest-an-der-sudlichen-isar) 
+at the southern part of the Isar in Munich (GSI in orange). Let summer come!]
 ---
 
 # Showcase
@@ -358,7 +404,7 @@ reproducible documents in various output formats (html, pdf, etc.).
 class: inverse, center, middle
 name: intro
 
-# R-Studio & (Git)Hub
+# R-Studio & Git(Hub)
 
 
 ---
@@ -432,18 +478,18 @@ An Rmarkdown file consists of mainly three things:
 
 1. **YAML header** (Yet Another Markdown Language). Specifies meta info (e.g. author, date, document format, etc.):
 
-    ```{r, eval = FALSE}
-    ---
-    title: "Untitled"
-    author: Markus
-    output: html_document
-    ---
+```{yaml, eval = FALSE}
+---
+title: "Untitled"
+author: Markus
+output: html_document
+---
 
-    ```
+```
 
-2. **Code chunks** sorrounded by ` ``` `. You can execute each chunk individually. 
+2\. **Code chunks** sorrounded by ` ``` `. You can execute each chunk individually. 
 
-3. Plain text formatted via Markdown, a markup language with very [easy syntax](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf).
+3\. Plain text formatted via Markdown, a markup language with very [easy syntax](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf).
 
 Problem sets will come as pre-formatted `.rmd` files such that you can start working on excercises directly. 
 
@@ -532,19 +578,21 @@ GitHub to the rescue:
 
 - Instead of some folder, your project lives in a remote **repository**
 
-**The remote repository is your upstream storage.**
+--
 
---> You can **clone** it from GitHub to create a local copy.
+.hl[The remote repository is your upstream storage.]
 
---> You can **fork** some repo (including those of other users); i.e. create a copy of the repo under "your repositories". You can then **clone** this forked repo to get a local copy.
+&#x2192; You can **clone** it from GitHub to create a local copy.
+
+&#x2192; You can **fork** some repo (including those of other users); i.e. create a copy of the repo under "your repositories". You can then **clone** this forked repo to get a local copy.
 
 ---
 
 # Your first repo
 
-1. Click [here](https://github.com/new) and create a new (Git)Hub repo. Call it "test", set it to private and initialize with readme.
+1. Click [here](https://github.com/new) and create a new Git(Hub) repo. Call it "test", set it to .hl[private] and initialize with a readme file.
 
-2. In R-Studio, navigate to **File > New Project > Version Control > Git**.
+2. In R-Studio, navigate to `File > New Project > Version Control > Git`.
 
 3. Paste the Repository URL, chose a name and project path and **clone** the thing.
 
@@ -552,7 +600,7 @@ GitHub to the rescue:
 
 5. In the files tab, open README.md. Also click on the Git tab.
 
-Do this **now**!
+Do this .hl[now]!
 
 ---
 
@@ -592,7 +640,7 @@ knitr::include_graphics("Figs/git_commit.png")
 
 ---
 
-# Collaborate with (Git)Hub
+# Collaborate with Git(Hub)
 
 - Using version control really comes to shine when collaborating.
 
@@ -640,15 +688,15 @@ knitr::include_graphics("Figs/git_tree.png")
 
 # Branches
 
-- Branches allow you to develop/test some idea without touching the main version of your code.
+- [Branches](https://git-scm.com/book/de/v2/Git-Branching-Branches-auf-einen-Blick) allow you to develop/test some idea without touching the main version of your code.
 
 - Useful for larger projects. You get a full copy of the repo and you can commit/pull/push all you want. 
 
 - If your idea turned out not to work. Just delete the branch.
 
-- In R-Studio, they can be created via the little purple branch icon in the Git tab
+- In R-Studio, they can be created **via the little purple branch icon in the Git tab**.
 
-- If you want to integrate the feature/idea into the main branch, issue a pull request (easiest way is via GitHub).
+- If you want to integrate the feature/idea into the main branch, issue a [pull request](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) (easiest way is via GitHub).
 
 
 ---
@@ -697,7 +745,7 @@ Well, we got an intuition for it when we created a merge conflict. See this conc
 
 # Further Steps
 
-- Fork the course repo and clone it via R-Studio (that's perhaps a bit hacky but easy and does the job)
+- .hl[Fork the course repo and clone it via R-Studio (that's perhaps a bit hacky but easy and does the job).]
 
 - You will need this to conveniently access the course materials/problem sets.
 
@@ -718,11 +766,11 @@ name: intro
 
 ```{r print pdf, include=FALSE}
 
- pagedown::chrome_print("./Intro.html")
+# pagedown::chrome_print("./Intro.html")
 
 ```
 
 ```{r xaringanExtra-share-again, echo=FALSE}
-xaringanExtra::use_share_again()
+# xaringanExtra::use_share_again()
 ```
 
