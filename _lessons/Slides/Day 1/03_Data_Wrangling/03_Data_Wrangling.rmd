@@ -492,3 +492,6 @@ well on huge data sets. Stata users will love it as its similar to summarize.]
 ```{r print pdf, include=FALSE}
 # pagedown::chrome_print("./02_Data_Wrangling.html")
 ```
+```{r xaringanExtra-share-again, echo=FALSE}
+# xaringanExtra::use_share_again()
+```

@@ -798,3 +798,7 @@ class: inverse, center, middle name: intro
 
 pagedown::chrome_print("./02_Basics.html")
 ```
+
+```{r xaringanExtra-share-again, echo=FALSE}
+xaringanExtra::use_share_again()
+```
