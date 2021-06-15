@@ -4,9 +4,7 @@ parent: Day 1
 nav_order: 1
 summary: 
 ---
-<br/>
-
-## Session 1: Intro, Git(Hub) & R-Studio
+# Session 1: Intro, Git(Hub) & R-Studio
 
 <br/>
 
