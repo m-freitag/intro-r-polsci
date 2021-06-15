@@ -29,7 +29,7 @@ heading_anchors: true
 permalink: pretty
 aux_links:
   Course Materials on GitHub:
-    - 'https://github.com/kevinlin1/just-the-class'
+    - 'https://github.com/m-freitag/intro-r-polsci'
 aux_links_new_tab: true    
 footer_content:
 
