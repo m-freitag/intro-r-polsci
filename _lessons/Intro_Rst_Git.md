@@ -5,9 +5,7 @@ nav_order: 1
 summary: 
 ---
 
-<br/>
-
-# <center> Session 1: Intro, Git(Hub) & R-Studio <center/>
+# Session 1: Intro, Git(Hub) & R-Studio
 
 <br/>
 
