@@ -1,12 +1,12 @@
 ---
-title: "Session 2: Base R and Tidyverse Basics"
+title: Intro, Git(Hub) & R-Studio
 parent: Day 1
 nav_order: 2
 summary: 
 ---
 
 
-## Session 2: Base R and Tidyverse Basics
+## Intro, (Git)Hub & R-Studio
 
 In this first session, we will cover version control with (Git)Hub and get familiar with the R-Studio IDE. 
 

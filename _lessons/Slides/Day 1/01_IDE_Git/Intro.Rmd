@@ -766,7 +766,7 @@ name: intro
 
 ```{r print pdf, include=FALSE}
 
-# pagedown::chrome_print("./Intro.html")
+pagedown::chrome_print("./Intro.html")
 
 ```
 

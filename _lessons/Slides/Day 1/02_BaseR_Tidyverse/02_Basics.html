@@ -40,7 +40,7 @@ class: inverse, center, title-slide, middle
 
 &lt;br /&gt;
 
-## .handw[]
+## .header-fancy[Session 2: Base R and Tidyverse Basics]
 
 ### Markus Freitag
 
@@ -284,7 +284,7 @@ class: inverse, center, middle name: intro
 
 # Functions
 
-- [Functions](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Function-objects) are objects; we will discuss them in more detail in session x
+- [Functions](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Function-objects) are objects; we will discuss them in more detail in Session x.
 
 - For now, just think of them in the usual mathematical sense, where we pass some argument and get back a value. E.g. `\(f(x) = \frac{2x + 3}{\sqrt{3}}\)`.
 
@@ -316,6 +316,8 @@ f(3)
 
 - Gives you more information about the usage and arguments of a built-in/user-written function.
 
+--
+  
 We can also call `help()` to get help about help:
 
 ```r
@@ -362,7 +364,7 @@ mode(a)
 gives you information about the class/type of the object. `class()` gives the
 class of the object from an OOP POV, `typeof()` the base type.
 
-- In this case, this is not very interesting as we created an **atomic** numeric vector.
+- In this case, this is not very interesting as we created an .hl2[atomic] numeric vector.
 
 - What is the class/type  of `b &lt;- 3 &gt; 2` and `c &lt;- "string"`?
 
@@ -382,7 +384,7 @@ allowfullscreen&gt;&lt;/iframe&gt;&lt;/center&gt;
 
 - But there are also some sensible arguments to stick mostly to `-&gt;`in casual settings (e.g. readability: easier to discriminate from arguments)
 
-- Bottom line: **be consistent**.
+- Bottom line: .hl[be consistent].
 
 ---
 
@@ -394,7 +396,7 @@ allowfullscreen&gt;&lt;/iframe&gt;&lt;/center&gt;
 
 - There are several naming conventions. I like `snake_case` and `camelCase` the most. We will use snake cases in this course.
 
-- Be consistent.
+- .hl[Be consistent].
 
 - There are some ["forbidden"/"reserved" words](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html)
 that cannot be assigned as names. E.g. `NA` (logical constant indicating
@@ -406,7 +408,7 @@ missing values), `if`, `else`, `break`.
 
 - In contrast to Stata, R can hold multiple objects at a time.
 
-- This is very convenient; you can copy, modify etc. R also copies **ALOT** internally (one reason why its sort of a slow language).
+- This is very convenient; you can copy, modify etc. R also copies .hl2[ALOT] internally (one reason why its sort of a slow language).
 
 - The global environment is the interactive workspace you usually work with.
 
