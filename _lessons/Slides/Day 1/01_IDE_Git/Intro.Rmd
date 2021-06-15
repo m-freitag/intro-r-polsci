@@ -1,5 +1,5 @@
 ---
-title: "Lys"
+title: "Session 1: RStudio and Version Control"
 subtitle: "goes Xaringan"  
 author: 
   - "Markus Freitag"

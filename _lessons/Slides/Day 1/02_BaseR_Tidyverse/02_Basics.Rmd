@@ -1,5 +1,5 @@
 ---
-title: "Lys"
+title: "Session 2: Base R and Tidyverse Basics"
 subtitle: "goes Xaringan"
 author:
   - "Markus Freitag"
