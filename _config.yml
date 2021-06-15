@@ -23,7 +23,7 @@ exclude: ["Gemfile", "Gemfile.lock", "LICENSE", "README.md", "_lessons/Slides"]
 
 # Theme settings
 remote_theme: pdmosses/just-the-docs@pages-and-collections
-color_scheme: light
+color_scheme: lys
 search_enabled: true
 heading_anchors: true
 permalink: pretty
