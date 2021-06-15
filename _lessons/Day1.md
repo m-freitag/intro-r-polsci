@@ -14,7 +14,7 @@ has_toc: false
 |                                       | [R Studio IDE and version control with Git(Hub)](https://m-freitag.github.io/intro-r-polsci/Intro_Rst_Git/)  | 09:00 - 10:30     |
 | *Break*                               |                                                | 10:30 - 10:45     |
 | Base R and into the Tidyverse         |                                                |                   |
-|                                       | Base R & Tidyverse Basics                      | 10:45 - 11:45     |
+|                                       | [Base R & Tidyverse Basics](https://m-freitag.github.io/intro-r-polsci/Session2/)                      | 10:45 - 11:45     |
 |                                       | *breakout session 1*                           | 11:45 - 12:30     |
 | *Break*                               |                                                | 12:30 - 13:00     |
 |                                       | Data Wrangling I                               | 13:00 - 14:00     |
