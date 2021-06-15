@@ -7,6 +7,8 @@ summary:
 
 ## Intro, (Git)Hub & R-Studio
 
+<br/>
+
 In this first session, we will cover version control with (Git)Hub and get familiar with the R-Studio IDE. 
 
 ## Material

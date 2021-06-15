@@ -7,6 +7,8 @@ summary:
 
 ## Session 2: Base R and Tidyverse Basics
 
+<br/>
+
 In the second session, we will get to know (and hopefully also to love) the R language.
 
 ## Material
