@@ -27,4 +27,4 @@ You can download the .pdf [here](https://github.com/m-freitag/intro-r-polsci/raw
 
 #### Further Reading
 
-Hadley Wickham. Advanced R. Url: https://adv-r.hadley.nz/.
+Hadley Wickham. Advanced R. Url: [https://adv-r.hadley.nz/](https://adv-r.hadley.nz/).
