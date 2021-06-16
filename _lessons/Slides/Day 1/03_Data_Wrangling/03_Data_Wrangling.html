@@ -4,7 +4,7 @@
     <title>Lys</title>
     <meta charset="utf-8" />
     <meta name="author" content="Markus Freitag" />
-    <meta name="date" content="2021-06-14" />
+    <meta name="date" content="2021-06-16" />
     <script src="03_Data_Wrangling_files/header-attrs-2.8/header-attrs.js"></script>
     <link href="03_Data_Wrangling_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <script src="03_Data_Wrangling_files/fabric-4.3.1/fabric.min.js"></script>
@@ -58,7 +58,7 @@ class: inverse, center, title-slide, middle
 ### [&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#415564;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"&gt;&lt;/path&gt;&lt;/svg&gt;](https://twitter.com/MarkusGFreitag) [&lt;svg viewBox="0 0 496 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#415564;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"&gt;&lt;/path&gt;&lt;/svg&gt;](https://markusfreitag.netlify.app/)
 
 
-### 2021-06-14
+### 2021-06-16
 
 &lt;a href="https://github.com/m-freitag" class="github-corner" aria-label="View
 source on Github"&gt;&lt;svg width="80" height="80" viewBox="0 0 250 250"
@@ -99,6 +99,7 @@ octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80
 6. Writing Functions
 
 7. A complete scientific workflow with R
+
 
 ---
 
@@ -444,8 +445,8 @@ glimpse(parlgov_elec) # enhanced version of str()
 # The Data: Getting an Overview
 
 
-<div id="htmlwidget-fb492e5d3e796a971195" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fb492e5d3e796a971195">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10"],["AUS","AUS","AUS","AUS","AUS","AUS","AUS","AUS","AUS","AUS"],["Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia"],["parliament","parliament","parliament","parliament","parliament","parliament","parliament","parliament","parliament","parliament"],["1901-03-30","1901-03-30","1901-03-30","1901-03-30","1901-03-30","1903-12-16","1903-12-16","1903-12-16","1903-12-16","1903-12-16"],[44.4,34.2,19.4,1.4,0.6,29.7,34.4,31,0.5,4.5],[32,26,15,1,1,26,25,23,1,0],[75,75,75,75,75,75,75,75,75,75],["PP","FTP","ALP","none","one-seat","PP","FTP","ALP","one-seat","none"],["Protectionist Party","Free Trade Party","Australian Labor Party","no party affiliation","one seat","Protectionist Party","Free Trade Party","Australian Labor Party","one seat","no party affiliation"],["Protectionist Party","Free Trade Party","Australian Labor Party","no party affiliation","one seat","Protectionist Party","Free Trade Party","Australian Labor Party","one seat","no party affiliation"],[7.4,6,3.8833,null,null,7.4,6,3.8833,null,null],[33,33,33,33,33,33,33,33,33,33],[731,731,731,731,731,730,730,730,730,730],[null,null,null,null,null,731,731,731,731,731],[null,null,null,null,null,997,997,997,997,997],[1898,1938,1253,1396,2299,1898,1938,1253,2299,1396]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>country_name_short<\/th>\n      <th>country_name<\/th>\n      <th>election_type<\/th>\n      <th>election_date<\/th>\n      <th>vote_share<\/th>\n      <th>seats<\/th>\n      <th>seats_total<\/th>\n      <th>party_name_short<\/th>\n      <th>party_name<\/th>\n      <th>party_name_english<\/th>\n      <th>left_right<\/th>\n      <th>country_id<\/th>\n      <th>election_id<\/th>\n      <th>previous_parliament_election_id<\/th>\n      <th>previous_cabinet_id<\/th>\n      <th>party_id<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":3,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[5,6,7,11,12,13,14,15,16]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[3,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7266d0818891e5ccca87" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7266d0818891e5ccca87">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10"],["AUS","AUS","AUS","AUS","AUS","AUS","AUS","AUS","AUS","AUS"],["Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia"],["parliament","parliament","parliament","parliament","parliament","parliament","parliament","parliament","parliament","parliament"],["1901-03-30","1901-03-30","1901-03-30","1901-03-30","1901-03-30","1903-12-16","1903-12-16","1903-12-16","1903-12-16","1903-12-16"],[44.4,34.2,19.4,1.4,0.6,29.7,34.4,31,0.5,4.5],[32,26,15,1,1,26,25,23,1,0],[75,75,75,75,75,75,75,75,75,75],["PP","FTP","ALP","none","one-seat","PP","FTP","ALP","one-seat","none"],["Protectionist Party","Free Trade Party","Australian Labor Party","no party affiliation","one seat","Protectionist Party","Free Trade Party","Australian Labor Party","one seat","no party affiliation"],["Protectionist Party","Free Trade Party","Australian Labor Party","no party affiliation","one seat","Protectionist Party","Free Trade Party","Australian Labor Party","one seat","no party affiliation"],[7.4,6,3.8833,null,null,7.4,6,3.8833,null,null],[33,33,33,33,33,33,33,33,33,33],[731,731,731,731,731,730,730,730,730,730],[null,null,null,null,null,731,731,731,731,731],[null,null,null,null,null,997,997,997,997,997],[1898,1938,1253,1396,2299,1898,1938,1253,2299,1396]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>country_name_short<\/th>\n      <th>country_name<\/th>\n      <th>election_type<\/th>\n      <th>election_date<\/th>\n      <th>vote_share<\/th>\n      <th>seats<\/th>\n      <th>seats_total<\/th>\n      <th>party_name_short<\/th>\n      <th>party_name<\/th>\n      <th>party_name_english<\/th>\n      <th>left_right<\/th>\n      <th>country_id<\/th>\n      <th>election_id<\/th>\n      <th>previous_parliament_election_id<\/th>\n      <th>previous_cabinet_id<\/th>\n      <th>party_id<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":3,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[5,6,7,11,12,13,14,15,16]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[3,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 .hl[Q]: Is this data set tidy?
 
@@ -678,6 +679,125 @@ well on huge data sets. Stata users will love it as its similar to summarize.]
 
 # Tidyverse's Wrangling "Wunderkind": dplyr
 
+
+&lt;img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/dplyr_wrangling.png" width="40%" style="display: block; margin: auto;" /&gt;
+&lt;center&gt; .font70[&amp;copy; [Alison Horst](https://github.com/allisonhorst/stats-illustrations)] &lt;center/&gt;
+
+A full list of `dplyr` functions can be found [here](https://dplyr.tidyverse.org/reference/index.html).
+
+---
+
+# Data Masking
+
+- Before we jump right in, remember when we talked about R environments in the last
+session?
+
+- When we wanted to pass a variable of a data frame (or element of a list) 
+to a function, we needed to make that .hl[explicit], e.g., using `$` for subsetting.
+
+
+```r
+lm(df$y ~ df$x)
+```
+
+- Some important dplyr functions use [data masking](https://dplyr.tidyverse.org/articles/programming.html)
+such that you can refer to variables just like objects in the (global) envornment.
+
+- Get's rid of .hl[$]s. 
+
+---
+
+# Filtering Rows
+
+- Let's start with something very basic: filtering rows.
+
+- For instance, we might want to obtain only the results of all Bundestag elections:
+
+
+```r
+parlgov_elec_de &lt;- parlgov_elec %&gt;% # add, e.g., _de if we want to keep our original df 
+  filter(country_name_short == "DEU")
+```
+
+- Now, say we want the mean SPD vote share across all elections:
+
+
+```r
+parlgov_elec_de %&gt;% # add, e.g., _de if we want to keep our original df 
+  filter(party_name_short == "SPD") %&gt;% 
+  mean(vote_share)
+```
+
+- That does not work....hl[Q]: Why?
+
+---
+
+# summarise() and pull()
+
+- Base-R's summary stats functions can't take a df or tibble and we did not wrap it into 
+a dplyr function (.hl[in order for data masking to kick in]).
+
+Two options:
+
+.pull-left[
+
+1. We can use `pull()` to pull out a vector form a df; works like `$` but for pipes.
+
+
+```r
+parlgov_elec_de %&gt;% # add, e.g., _de if we want to keep our original df
+  filter(party_name_short == "SPD") %&gt;%
+  pull(vote_share) %&gt;% 
+  mean()
+```
+
+```
+## [1] 31.12622
+```
+]
+
+.pull-right[
+2. We can wrap `mean()`into `summarise()` ("data-masking" for built-in summary functions):
+
+
+```r
+parlgov_elec_de %&gt;%
+  filter(party_name_short == "SPD") %&gt;%
+  summarise(mean(vote_share)) # summarise() takes summary functions such as mean(), sd(), etc.
+```
+
+```
+##   mean(vote_share)
+## 1         31.12622
+```
+]
+
+---
+
+# summarise()
+
+- Puts out a tibble we can pass to other dplyr functions.
+    
+- We can also compute more summary statistics with `summarise()` .hl[AND] also turn
+them into variables
+
+
+```r
+parlgov_elec_de %&gt;%
+  filter(party_name_short == "SPD") %&gt;%
+  summarise(mean = mean(vote_share), sd = sd(vote_share))
+```
+
+```
+##       mean       sd
+## 1 31.12622 8.373883
+```
+
+- In that, it is somewhat similar to the `mutate` command...
+
+---
+  
+# mutate()  
 
 
 

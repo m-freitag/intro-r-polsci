@@ -365,7 +365,7 @@ class(a)
 mode(a)
 ```
 gives you information about the class/type of the object. `class()` gives the
-class of the object from an OOP POV, `typeof()` the base type.
+class of the object from an OOP POV, `typeof()` (or `mode()`)the base type.
 
 - In this case, this is not very interesting as we created an .hl2[atomic] numeric vector.
 
@@ -385,7 +385,7 @@ player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
 encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen></iframe></center>
 
-- But there are also some sensible arguments to stick mostly to `->`in casual settings (e.g. readability: easier to discriminate from arguments)
+- But there are also some sensible arguments to stick mostly to `<-`in casual settings (e.g. readability: easier to discriminate from function arguments)
 
 - Bottom line: .hl[be consistent].
 

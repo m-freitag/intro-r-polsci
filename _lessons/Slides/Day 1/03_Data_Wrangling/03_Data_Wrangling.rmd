@@ -21,7 +21,7 @@ output:
 
 ```{r setup, include=FALSE}
 
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
 
 knitr::opts_chunk$set(
   fig.align = "center",
@@ -42,7 +42,8 @@ pacman::p_load(
   rio,
   patchwork,
   DT,
-  modelsummary
+  modelsummary,
+  collapse
 )
 
 
@@ -80,6 +81,7 @@ theme_set(theme_classic() +
   ))
 
 purple <- "#644155"
+
 ```
 
 
@@ -148,6 +150,7 @@ octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80
 6. Writing Functions
 
 7. A complete scientific workflow with R
+
 
 ---
 
@@ -487,11 +490,132 @@ well on huge data sets. Stata users will love it as its similar to summarize.]
 # Tidyverse's Wrangling "Wunderkind": dplyr
 
 
+```{r, echo=FALSE, fig.align='center', out.width= "40%"}
+knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/dplyr_wrangling.png")
+```
+<center> .font70[&copy; [Alison Horst](https://github.com/allisonhorst/stats-illustrations)] <center/>
+
+A full list of `dplyr` functions can be found [here](https://dplyr.tidyverse.org/reference/index.html).
+
+---
+
+# Data Masking
+
+- Before we jump right in, remember when we talked about R environments in the last
+session?
+
+- When we wanted to pass a variable of a data frame (or element of a list) 
+to a function, we needed to make that .hl[explicit], e.g., using `$` for subsetting.
+
+```{r, eval = FALSE}
+lm(df$y ~ df$x)
+```
+
+- Some important dplyr functions use [data masking](https://dplyr.tidyverse.org/articles/programming.html)
+such that you can refer to variables just like objects in the (global) envornment.
+
+- Get's rid of .hl[$]s. 
+
+---
+
+# Filtering Rows
+
+- Let's start with something very basic: filtering rows.
+
+- For instance, we might want to obtain only the results of all Bundestag elections:
+
+```{r}
+parlgov_elec_de <- parlgov_elec %>% # add, e.g., _de if we want to keep our original df 
+  filter(country_name_short == "DEU")
+```
+
+- Now, say we want the mean SPD vote share across all elections:
+
+```{r, eval = FALSE}
+parlgov_elec_de %>% # add, e.g., _de if we want to keep our original df 
+  filter(party_name_short == "SPD") %>% 
+  mean(vote_share)
+```
+
+- That does not work....hl[Q]: Why?
+
+---
+
+# summarise() and pull()
+
+- Base-R's summary stats functions can't take a df or tibble and we did not wrap it into 
+a dplyr function (.hl[in order for data masking to kick in]).
+
+Two options:
+
+.pull-left[
+
+1. We can use `pull()` to pull out a vector form a df; works like `$` but for pipes.
+
+```{r}
+
+parlgov_elec_de %>% # add, e.g., _de if we want to keep our original df
+  filter(party_name_short == "SPD") %>%
+  pull(vote_share) %>% 
+  mean()
+
+```
+]
+
+.pull-right[
+2. We can wrap `mean()`into `summarise()` ("data-masking" for built-in summary functions):
+
+```{r}
+parlgov_elec_de %>%
+  filter(party_name_short == "SPD") %>%
+  summarise(mean(vote_share)) # summarise() takes summary functions such as mean(), sd(), etc.
+```
+]
+
+---
+
+# summarise()
+
+- Puts out a tibble we can pass to other dplyr functions.
+    
+- We can also compute more summary statistics with `summarise()` .hl[AND] also turn
+them into variables
+
+```{r}
+parlgov_elec_de %>%
+  filter(party_name_short == "SPD") %>%
+  summarise(mean = mean(vote_share), sd = sd(vote_share))
+
+```
+
+- In that, it is somewhat similar to the `mutate` command...
+
+---
+  
+# mutate()
+
+- With `mutate()` you can add columns - or overwrite existing ones 
+(with the same name) - based on transformations of other variables
+
+- For instance, say we want to add a new column "seat_share":
+
+```{r}
+
+parlgov_elec_de <- parlgov_elec_de %>% # here, we "overwrite" our df
+  mutate(seat_share = seats/seats_total) 
+
+parlgov_elec_de %>% filter(election_date >= "2017")
+
+datasummary_skim(parlgov_elec_de$seat_share) # quick check
+
+```
+
 
 
 ```{r print pdf, include=FALSE}
 # pagedown::chrome_print("./02_Data_Wrangling.html")
 ```
+
 ```{r xaringanExtra-share-again, echo=FALSE}
 # xaringanExtra::use_share_again()
 ```

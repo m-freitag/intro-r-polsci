@@ -1,0 +1,86 @@
+---
+title: "Session 3: Problem Set"
+subtitle: Data Wrangling I
+author: Markus Freitag
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: 
+  html_document:
+    keep_md: false
+    theme: journal
+    highlight: haddock
+    toc: yes
+    toc_depth: 4
+    toc_float: yes
+# Uncomment below to produce .pdf
+#   pdf_document:
+#     latex_engine: xelatex
+#     keep_tex: false ## Change to true if want keep intermediate .tex file
+#     toc: true
+#     toc_depth: 3
+#     dev: cairo_pdf
+# knit: (function(inputFile, encoding) {
+#  rmarkdown::render(inputFile, encoding = encoding,
+#  output_format = 'all')
+#  })
+---
+
+```{r setup, include=FALSE}
+# install package management tool pacman
+# install.packages("pacman")
+
+pacman::p_load(
+  tidyverse,
+  rio,
+  modelsummary
+)
+
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+## Task 1
+
+With
+```{r}
+
+datasummary_skim(iris$Species, type = "categorical")
+
+```
+you get a quick summary for a categorical variable. 
+
+Try to re-create this output using dplyr.
+
+```{r task1}
+
+# There are many different ways we can achieve this:
+
+# 1. E.g. using count() which is a shorthand for group_by(x) %>% summarise(n = n())
+
+# count() returns a tibble of the form
+
+#>        x        n
+#>    <chr>    <int>
+#>  1     A       35
+
+# So we can just add a column to this computing the relative frequency:
+iris %>%
+  count(Species) %>%
+  mutate(percent = round(100 * n / sum(n), 1)) # sum() of the n vector/variable
+
+
+# Another way:
+
+iris %>%
+  group_by(Species) %>%
+  transmute(n = n()) %>%
+  unique() %>%
+  ungroup() %>%
+  mutate(percent = round(100 * n / sum(n), 1))
+
+```
+
+
+
+## Task 3
+
+
+rmd
