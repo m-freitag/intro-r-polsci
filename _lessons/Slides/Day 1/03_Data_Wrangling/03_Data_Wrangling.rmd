@@ -21,12 +21,12 @@ output:
 
 ```{r setup, include=FALSE}
 
-knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 
 knitr::opts_chunk$set(
   fig.align = "center",
   fig.retina = 2,
-  cache = F # , echo=F, warning=F, message=F
+  cache = FALSE # , echo=F, warning=F, message=F
 )
 
 # knitr::opts_chunk$set(fig.dim=c(4.8, 4.5), fig.retina=2, out.width="100%")
@@ -406,7 +406,9 @@ The database combines approximately 1700
 parties, 1000 elections (9400 results), and 1600 cabinets (3900 parties).
 
 - It's relational, i.e. consists of different tables (parties, elections, cabinets)
-that can be **joined** using key variables.
+that can be **joined** using key variables. It can also be joined with the 
+[partyfacts](https://partyfacts.herokuapp.com/) dataset that provides id's for 
+many other datasets (e.g. CLEA, ESS). 
 
 ---
 
@@ -429,9 +431,11 @@ The database combines approximately 1700
 parties, 1000 elections (9400 results), and 1600 cabinets (3900 parties).
 
 - It's relational, i.e. consists of different tables (parties, elections, cabinets)
-that can be **joined** using key variables.
+that can be **joined** using key variables. It can also be joined with the 
+[partyfacts](https://partyfacts.herokuapp.com/) dataset that provides id's for 
+many other datasets (e.g. CLEA, ESS). 
 
-- It makes for pretty simple and intuitive examples.
+- It makes for pretty simple examples and hence we use it.
 
 Let's import the election data:
 
@@ -529,11 +533,16 @@ parlgov_elec_de <- parlgov_elec %>% # add, e.g., _de if we want to keep our orig
   filter(country_name_short == "DEU")
 ```
 
-- Now, say we want the mean SPD vote share across all elections:
+--
+
+- Now, say we want the mean SPD vote share across all bundestag elections (bit silly but alas):
 
 ```{r, eval = FALSE}
+
+datasummary_skim(parlgov_elec_de$election_type, type = "categorical")
+
 parlgov_elec_de %>% # add, e.g., _de if we want to keep our original df 
-  filter(party_name_short == "SPD") %>% 
+  filter(party_name_short == "SPD", election_type == "parliament") %>% 
   mean(vote_share)
 ```
 
@@ -555,19 +564,21 @@ Two options:
 ```{r}
 
 parlgov_elec_de %>% # add, e.g., _de if we want to keep our original df
-  filter(party_name_short == "SPD") %>%
+  filter(party_name_short == "SPD", election_type == "parliament") %>%
   pull(vote_share) %>% 
   mean()
 
 ```
 ]
 
+--
+
 .pull-right[
 2. We can wrap `mean()`into `summarise()` ("data-masking" for built-in summary functions):
 
 ```{r}
 parlgov_elec_de %>%
-  filter(party_name_short == "SPD") %>%
+  filter(party_name_short == "SPD", election_type == "parliament") %>%
   summarise(mean(vote_share)) # summarise() takes summary functions such as mean(), sd(), etc.
 ```
 ]
@@ -579,16 +590,21 @@ parlgov_elec_de %>%
 - Puts out a tibble we can pass to other dplyr functions.
     
 - We can also compute more summary statistics with `summarise()` .hl[AND] also turn
-them into variables
+them into variables:
 
 ```{r}
 parlgov_elec_de %>%
-  filter(party_name_short == "SPD") %>%
-  summarise(mean = mean(vote_share), sd = sd(vote_share))
+  filter(party_name_short == "SPD", election_type == "parliament") %>%
+  summarise(mean = mean(vote_share), sd = sd(vote_share), n = n())
+
+# Aside: you can also get the number of rows (in a group) by usining the base 
+# function nrow(.) with a placeholder in the above pipe.
 
 ```
 
-- In that, it is somewhat similar to the `mutate` command...
+- In that, it is somewhat similar to the `mutate()` command... but it .hl2[collapses
+the data]
+
 
 ---
   
@@ -597,18 +613,22 @@ parlgov_elec_de %>%
 - With `mutate()` you can add columns - or overwrite existing ones 
 (with the same name) - based on transformations of other variables
 
-- For instance, say we want to add a new column "seat_share":
+- For instance, say we want to add a new column "year" based on the election date 
+variable:
 
 ```{r}
 
 parlgov_elec_de <- parlgov_elec_de %>% # here, we "overwrite" our df
-  mutate(seat_share = seats/seats_total) 
+  mutate(year = year(election_date)) 
 
-parlgov_elec_de %>% filter(election_date >= "2017")
-
-datasummary_skim(parlgov_elec_de$seat_share) # quick check
+qsu(parlgov_elec_de$year)
 
 ```
+
+---
+  
+  
+
 
 
 

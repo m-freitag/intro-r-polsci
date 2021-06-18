@@ -31,7 +31,9 @@ pacman::p_load(
 
 # We can also load the data directly from the web. In a "real" analysis, we would
 # only want to do this if the file is static and stable. Why? Reproducibility...
-parlgov_elec <- import("http://www.parlgov.org/static/data/development-cp1252/view_election.csv")
+parlgov_elec <- import(
+  "http://www.parlgov.org/static/data/development-cp1252/view_election.csv"
+)
 
 str(parlgov_elec) # enhanced version of glimpse()
 
@@ -48,9 +50,29 @@ mean(parlgov_elec$vote_share)
 mean(parlgov_elec$vote_share, na.rm = TRUE)
 
 
-parlgov_party <- import("http://www.parlgov.org/static/data/development-cp1252/view_party.csv")
+parlgov_party <- import(
+  "http://www.parlgov.org/static/data/development-cp1252/view_party.csv"
+)
 
-parlgov_cabinet <- import("http://www.parlgov.org/static/data/development-cp1252/view_cabinet.csv")
+parlgov_cabinet <- import(
+  "http://www.parlgov.org/static/data/development-cp1252/view_cabinet.csv"
+)
 
 qsu(parlgov_party)
 
+
+
+file_name <- "partyfacts-mapping.csv"
+if (!file_name %in% list.files()) {
+  url <- "https://partyfacts.herokuapp.com/download/external-parties-csv/"
+  download.file(url, file_name)
+}
+partyfacts_raw <- read_csv(file_name, guess_max = 50000)
+partyfacts <- partyfacts_raw %>% filter(!is.na(partyfacts_id))
+
+# link datasets (select only linked parties)
+dataset_1 <- partyfacts %>% filter(dataset_key == "manifesto")
+dataset_2 <- partyfacts %>% filter(dataset_key == "parlgov")
+link_table <-
+  dataset_1 %>%
+  inner_join(dataset_2, by = c("partyfacts_id" = "partyfacts_id"))

@@ -40,9 +40,9 @@ This course is intended for advanced B.A. students, M.A. students and junior fac
 
 In order to avoid a sluggish and organization-heavy start of the course, installation of all software components used in this course is to be completed in advance. Preparatory readings are not mandatory but may decrease the learning curve.
 
-### Setting up R, R-Studio and (Git)Hub
+### Setting up R, R-Studio and Git(Hub)
 
-If you've never used R, R-Studio or (Git)Hub before, start by installing each software component. I suggest you to do so in the following order:
+If you've never used R, R-Studio or Git(Hub) before, start by installing each software component. I suggest you to do so in the following order:
 
 1.  Install [R](https://www.r-project.org/).
 
