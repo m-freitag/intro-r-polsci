@@ -320,7 +320,7 @@ In R, I recommend the [stringi/stringr](https://cran.r-project.org/web/packages/
 Idea: Take the output of a function and to pass it **as the 
 first argument** of another function.
 
-$$f(g(x)) \quad \text{becomes (in R)} \quad x  \quad \text{%>%}^{[1]} \quad g() \quad 
+$$f(g(x)) \quad \text{becomes (in R)} \quad x  \quad \text{%>%}^{[2]} \quad g() \quad 
 \text{%>%} \quad f()$$
 
 --
@@ -338,8 +338,7 @@ x %>%
 ```
 ]
 
-<sub>.font70[[1]]<sub/> .hl[TIPP:] Press ctrl-shift-m to produce the [magrittr](https://magrittr.tidyverse.org/) 
-pipe, `%>%`, in RStudio.
+.font70[<sup>[2]</sup> .hl[TIPP:] Press ctrl-shift-m to produce the [magrittr](https://magrittr.tidyverse.org/) pipe, `%>%`, in RStudio.]
 
 ---
 
@@ -488,7 +487,6 @@ datasummary_skim(parlgov_elec) %>% kableExtra::kable_styling(font_size = 17)
 also provides some data summary functions (`descr()` and `qsu()`) that work really
 well on huge data sets. Stata users will love it as its similar to summarize.]
 
-
 ---
 
 # Tidyverse's Wrangling "Wunderkind": dplyr
@@ -527,16 +525,17 @@ such that you can refer to variables just like objects in the (global) envornmen
 - Let's start with something very basic: filtering rows.
 
 - For instance, we might want to obtain only the results of all Bundestag elections:
-
+.code70[
 ```{r}
 parlgov_elec_de <- parlgov_elec %>% # add, e.g., _de if we want to keep our original df 
   filter(country_name_short == "DEU")
 ```
-
+]
 --
 
 - Now, say we want the mean SPD vote share across all bundestag elections (bit silly but alas):
 
+.code70[
 ```{r, eval = FALSE}
 
 datasummary_skim(parlgov_elec_de$election_type, type = "categorical")
@@ -545,9 +544,12 @@ parlgov_elec_de %>% # add, e.g., _de if we want to keep our original df
   filter(party_name_short == "SPD", election_type == "parliament") %>% 
   mean(vote_share)
 ```
+]
 
 - That does not work....hl[Q]: Why?
 
+.font70[.hl[Note] that using convenience wrappers such as `datasummary()` are no substitute
+for learning the underlying base, tidyverse or data.table-way of achieving this.]
 ---
 
 # summarise() and pull()
@@ -602,8 +604,7 @@ parlgov_elec_de %>%
 
 ```
 
-- In that, it is somewhat similar to the `mutate()` command... but it .hl2[collapses
-the data]
+- In that, it is somewhat similar to the `mutate()` command... but it .hl2[collapses the data].
 
 
 ---
@@ -619,9 +620,36 @@ variable:
 ```{r}
 
 parlgov_elec_de <- parlgov_elec_de %>% # here, we "overwrite" our df
-  mutate(year = year(election_date)) 
+  mutate(year = lubridate::year(election_date))
 
-qsu(parlgov_elec_de$year)
+```
+--
+
+- Here, we used the `year()` function of the [lubridate](https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf)
+package.
+
+- We pulled out an integer vector indicating the election year from the `date` variable
+and assigned it to a new variable.<sup>[3]<sup/> 
+
+- `transmute()` is the opposite of `mutate()`; i.e. adds a new variable and drops the rest.
+
+<sup>[3]<sup/> font70[.hl[NOTE] We will use some core `lubridate` functions on the fly as they are rather intuitive. 
+If you deal with dates often, you should give [this](https://r4ds.had.co.nz/dates-and-times.html) introduction a read.]]
+
+---
+
+# select() and arrange()
+
+- Another basic wrangling operation we occasionally need to do do is selecting columns.
+
+- And sometimes we also want to sort columns:
+
+```{r}
+
+parlgov_elec_de %>%
+  filter(year == 2017) %>%
+  select(party_name_short, vote_share, left_right) %>% 
+  arrange(desc(left_right)) #default is ascending; we can wrap the masked vector with desc() to sort descending
 
 ```
 

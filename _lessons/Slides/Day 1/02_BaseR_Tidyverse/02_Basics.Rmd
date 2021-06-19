@@ -192,6 +192,8 @@ trivia](https://rss.onlinelibrary.wiley.com/doi/epdf/10.1111/j.1740-9713.2018.01
 
 - The script is otherwise empty. Fill it with the stuff I will discuss on the slides.
 
+--
+  
 - Make comments for yourself. Learn as you write. Explore. Stage, commit and push.
 
 - Hopefully not you &rightarrow; <img src= "https://www.cs.cmu.edu/~cangiuli/img/angry.gif" ALIGN=”right”>
@@ -213,11 +215,14 @@ class: inverse, center, middle name: intro
 ```{r}
 
 7 + 5 # [n] stands for the nth element printed to the console.
-```
-
-```{r}
 
 4 * 5 + 2 / 3^3 # Multiplication and division first, then addition and subtraction
+
+```
+
+--
+
+```{r}
 
 # Modulo Operators:
 
@@ -230,6 +235,7 @@ class: inverse, center, middle name: intro
 
 # CalculatoR
 
+.pull-left[
 ```{r}
 # Relational and logical operators
 
@@ -238,14 +244,19 @@ class: inverse, center, middle name: intro
 2 == 1 & 4 > 2 # == "equal to"; & "element wise logical AND"
 
 2 == 1 | 4 > 2 # | "element wise logical or"
+```
+]
+--
 
+.pull-right[
+```{r}
 3 != 4 # != "not equal"
 
 7 %in% 300:500 # %in% can be used to evaluate matches in objects
 
 # Take care about the order of precedence...
 ```
-
+]
 ---
 # CalculatoR
 
@@ -287,9 +298,19 @@ class: inverse, center, middle name: intro
 > Everything is an object and everything has a name.
 
 ```{r, echo=FALSE, fig.align='center', out.width= "80%"}
-knitr::include_graphics("Classes.svg")
+knitr::include_graphics("Classes1.svg")
 ```
 
+
+---
+
+# Object Oriented Programming
+
+> Everything is an object and everything has a name.
+
+```{r, echo=FALSE, fig.align='center', out.width= "80%"}
+knitr::include_graphics("Classes.svg")
+```
 
 ---
 
