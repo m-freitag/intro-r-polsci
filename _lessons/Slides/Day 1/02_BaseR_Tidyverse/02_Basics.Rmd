@@ -611,8 +611,8 @@ df_langs$background[1]
 # Data Frames
 
 - So we have an $\color{#e59e34}n$ (num. of obs.) $\times$ $\color{#5cb194}k$ 
-(num. of vars) matrix observation with observation $\color{#e59e34}i \in \{\color{#e59e34}{1,\dots,n}\}$ and 
-variable $\color{#5cb194}j \in \{\color{#5cb194}{1,\dots,k}\}$.
+(num. of vars) matrix with observations $\color{#e59e34}i \in \{\color{#e59e34}{1,\dots,n}\}$ and 
+variables $\color{#5cb194}j \in \{\color{#5cb194}{1,\dots,k}\}$.
 
 ```{r, eval = FALSE}
 dim(df_langs)
