@@ -1,6 +1,6 @@
 ---
-title: "Quick Notes"
-author: Markus Freitag
+title: "Problem Set 01"
+author: Your Name
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output: 
   html_document:
@@ -27,11 +27,51 @@ output:
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-## Task 1
 
-```{r task1}
+
+
+## Task 2
+ 
+
+Assign the name "x" to an integer vector from 1 to 10. 
+
+Generate an logical vector "z" which elements store whether x is greater than 
+2 and smaller than 8.
+
+Compute the number of times the above condition is true.
+
+```{r task3}
+
+x <- c(1:10)
+x
+
+z <- x > 2 & x < 8
+z
+
+sum(z)
+
+sum(x > 2 & x < 8)
+```
+
+## Task 3
+
+Given the data frame below, create a new column called "c" that contains the 
+product of "a" and "b". Do this using `$` and `[` indexing (and maybe `names()`).
+Remember, data frames are (special) lists! 
+
+
+```{r task3}
+df <- data.frame(
+  a = c("a", "b", "c", "c", "a"),
+  b = c("a", "c", "d", "c", "b")
+)
+
 ```
 
 
+Solution:
 
-## Task 3
+
+```{r task3_solution}
+df$c <- df$a * df$b
+```

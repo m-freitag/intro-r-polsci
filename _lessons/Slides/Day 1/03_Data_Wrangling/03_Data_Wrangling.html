@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Lys</title>
+    <title>Session 3: Data Wrangling</title>
     <meta charset="utf-8" />
     <meta name="author" content="Markus Freitag" />
-    <meta name="date" content="2021-06-19" />
-    <script src="03_Data_Wrangling_files/header-attrs-2.8/header-attrs.js"></script>
+    <meta name="date" content="2021-06-25" />
+    <script src="03_Data_Wrangling_files/header-attrs-2.9/header-attrs.js"></script>
     <link href="03_Data_Wrangling_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <script src="03_Data_Wrangling_files/fabric-4.3.1/fabric.min.js"></script>
     <link href="03_Data_Wrangling_files/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
     <script src="03_Data_Wrangling_files/xaringanExtra-scribble-0.0.1/scribble.js"></script>
-    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#644155"],"pen_size":3,"eraser_size":30}) })</script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#644155"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
     <script src="03_Data_Wrangling_files/htmlwidgets-1.5.3/htmlwidgets.js"></script>
     <script src="03_Data_Wrangling_files/jquery-3.5.1/jquery.min.js"></script>
     <link href="03_Data_Wrangling_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
@@ -58,7 +58,7 @@ class: inverse, center, title-slide, middle
 ### [&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#415564;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"&gt;&lt;/path&gt;&lt;/svg&gt;](https://twitter.com/MarkusGFreitag) [&lt;svg viewBox="0 0 496 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#415564;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"&gt;&lt;/path&gt;&lt;/svg&gt;](https://markusfreitag.netlify.app/)
 
 
-### 2021-06-19
+### 2021-06-25
 
 &lt;a href="https://github.com/m-freitag" class="github-corner" aria-label="View
 source on Github"&gt;&lt;svg width="80" height="80" viewBox="0 0 250 250"
@@ -207,6 +207,8 @@ as_tibble(lotr) # You don't have the data here.
 
 - However, for saving the latter you will (and should) use `.csv` or `.json` (human readable) most of the time.
 
+--
+  
 - For R novices, importing and exporting can be a bit of a pain.
 
     - There are different functions/packages for reading different file formats (haven, data.table, readxl etc.).
@@ -448,8 +450,8 @@ glimpse(parlgov_elec) # enhanced version of str()
 # The Data: Getting an Overview
 
 
-<div id="htmlwidget-dadb8a78c4e5a1472e05" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-dadb8a78c4e5a1472e05">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10"],["AUS","AUS","AUS","AUS","AUS","AUS","AUS","AUS","AUS","AUS"],["Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia"],["parliament","parliament","parliament","parliament","parliament","parliament","parliament","parliament","parliament","parliament"],["1901-03-30","1901-03-30","1901-03-30","1901-03-30","1901-03-30","1903-12-16","1903-12-16","1903-12-16","1903-12-16","1903-12-16"],[44.4,34.2,19.4,1.4,0.6,29.7,34.4,31,0.5,4.5],[32,26,15,1,1,26,25,23,1,0],[75,75,75,75,75,75,75,75,75,75],["PP","FTP","ALP","none","one-seat","PP","FTP","ALP","one-seat","none"],["Protectionist Party","Free Trade Party","Australian Labor Party","no party affiliation","one seat","Protectionist Party","Free Trade Party","Australian Labor Party","one seat","no party affiliation"],["Protectionist Party","Free Trade Party","Australian Labor Party","no party affiliation","one seat","Protectionist Party","Free Trade Party","Australian Labor Party","one seat","no party affiliation"],[7.4,6,3.8833,null,null,7.4,6,3.8833,null,null],[33,33,33,33,33,33,33,33,33,33],[731,731,731,731,731,730,730,730,730,730],[null,null,null,null,null,731,731,731,731,731],[null,null,null,null,null,997,997,997,997,997],[1898,1938,1253,1396,2299,1898,1938,1253,2299,1396]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>country_name_short<\/th>\n      <th>country_name<\/th>\n      <th>election_type<\/th>\n      <th>election_date<\/th>\n      <th>vote_share<\/th>\n      <th>seats<\/th>\n      <th>seats_total<\/th>\n      <th>party_name_short<\/th>\n      <th>party_name<\/th>\n      <th>party_name_english<\/th>\n      <th>left_right<\/th>\n      <th>country_id<\/th>\n      <th>election_id<\/th>\n      <th>previous_parliament_election_id<\/th>\n      <th>previous_cabinet_id<\/th>\n      <th>party_id<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":3,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[5,6,7,11,12,13,14,15,16]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[3,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-916534cc3b486bebfca2" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-916534cc3b486bebfca2">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10"],["AUS","AUS","AUS","AUS","AUS","AUS","AUS","AUS","AUS","AUS"],["Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia"],["parliament","parliament","parliament","parliament","parliament","parliament","parliament","parliament","parliament","parliament"],["1901-03-30","1901-03-30","1901-03-30","1901-03-30","1901-03-30","1903-12-16","1903-12-16","1903-12-16","1903-12-16","1903-12-16"],[44.4,34.2,19.4,1.4,0.6,29.7,34.4,31,0.5,4.5],[32,26,15,1,1,26,25,23,1,0],[75,75,75,75,75,75,75,75,75,75],["PP","FTP","ALP","none","one-seat","PP","FTP","ALP","one-seat","none"],["Protectionist Party","Free Trade Party","Australian Labor Party","no party affiliation","one seat","Protectionist Party","Free Trade Party","Australian Labor Party","one seat","no party affiliation"],["Protectionist Party","Free Trade Party","Australian Labor Party","no party affiliation","one seat","Protectionist Party","Free Trade Party","Australian Labor Party","one seat","no party affiliation"],[7.4,6,3.8833,null,null,7.4,6,3.8833,null,null],[33,33,33,33,33,33,33,33,33,33],[731,731,731,731,731,730,730,730,730,730],[null,null,null,null,null,731,731,731,731,731],[null,null,null,null,null,997,997,997,997,997],[1898,1938,1253,1396,2299,1898,1938,1253,2299,1396]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>country_name_short<\/th>\n      <th>country_name<\/th>\n      <th>election_type<\/th>\n      <th>election_date<\/th>\n      <th>vote_share<\/th>\n      <th>seats<\/th>\n      <th>seats_total<\/th>\n      <th>party_name_short<\/th>\n      <th>party_name<\/th>\n      <th>party_name_english<\/th>\n      <th>left_right<\/th>\n      <th>country_id<\/th>\n      <th>election_id<\/th>\n      <th>previous_parliament_election_id<\/th>\n      <th>previous_cabinet_id<\/th>\n      <th>party_id<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":3,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[5,6,7,11,12,13,14,15,16]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[3,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 .hl[Q]: Is this data set tidy?
 
@@ -560,7 +562,7 @@ datasummary_skim(parlgov_elec) # from modelsummary package. Set type = "categori
       stroke-miterlimit: 10.00;
     }
   &lt;/style&gt;&lt;/defs&gt;&lt;rect width="100%" height="100%" style="stroke: none; fill: none;"&gt;&lt;/rect&gt;&lt;defs&gt;&lt;clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"&gt;&lt;rect x="0.00" y="0.00" width="48.00" height="12.00"&gt;&lt;/rect&gt;&lt;/clippath&gt;&lt;/defs&gt;&lt;g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)"&gt;
-&lt;/g&gt;&lt;defs&gt;&lt;clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"&gt;&lt;rect x="0.00" y="2.88" width="48.00" height="9.12"&gt;&lt;/rect&gt;&lt;/clippath&gt;&lt;/defs&gt;&lt;g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"&gt;&lt;rect x="1.78" y="10.29" width="4.52" height="1.38" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="6.30" y="6.81" width="4.52" height="4.85" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="10.83" y="7.42" width="4.52" height="4.24" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="15.35" y="3.67" width="4.52" height="7.99" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="19.87" y="7.86" width="4.52" height="3.80" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="24.40" y="3.79" width="4.52" height="7.88" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="28.92" y="5.30" width="4.52" height="6.37" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="33.44" y="3.22" width="4.52" height="8.44" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="37.97" y="7.50" width="4.52" height="4.16" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="42.49" y="10.54" width="4.52" height="1.12" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;/g&gt;&lt;/svg&gt;
+&lt;/g&gt;&lt;defs&gt;&lt;clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"&gt;&lt;rect x="0.00" y="2.88" width="48.00" height="9.12"&gt;&lt;/rect&gt;&lt;/clippath&gt;&lt;/defs&gt;&lt;g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"&gt;&lt;rect x="1.78" y="10.29" width="4.52" height="1.38" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="6.30" y="6.81" width="4.52" height="4.85" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="10.83" y="7.42" width="4.52" height="4.24" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="15.35" y="3.67" width="4.52" height="7.99" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="19.87" y="7.86" width="4.52" height="3.80" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="24.40" y="3.79" width="4.52" height="7.88" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="28.92" y="5.30" width="4.52" height="6.37" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="33.44" y="3.22" width="4.52" height="8.44" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="37.97" y="7.51" width="4.52" height="4.15" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;rect x="42.49" y="10.53" width="4.52" height="1.13" style="stroke-width: 0.38; fill: #000000;"&gt;&lt;/rect&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
@@ -725,7 +727,7 @@ parlgov_elec_de &lt;- parlgov_elec %&gt;% # add, e.g., _de if we want to keep ou
 
 - Now, say we want the mean SPD vote share across all bundestag elections (bit silly but alas):
 
-.code70[
+.code60[
 
 ```r
 datasummary_skim(parlgov_elec_de$election_type, type = "categorical")
@@ -751,7 +753,7 @@ Two options:
 
 .pull-left[
 
-1. We can use `pull()` to pull out a vector form a df; works like `$` but for pipes.
+1\. We can use `pull()` to pull out a vector form a df; works like `$` but for pipes.
 
 
 ```r
@@ -769,7 +771,7 @@ parlgov_elec_de %&gt;% # add, e.g., _de if we want to keep our original df
 --
 
 .pull-right[
-2. We can wrap `mean()`into `summarise()` ("data-masking" for built-in summary functions):
+2\. We can wrap `mean()`into `summarise()` ("data-masking" for built-in summary functions):
 
 
 ```r
@@ -838,41 +840,628 @@ and assigned it to a new variable.&lt;sup&gt;[3]&lt;sup/&gt;
 
 - `transmute()` is the opposite of `mutate()`; i.e. adds a new variable and drops the rest.
 
-&lt;sup&gt;[3]&lt;sup/&gt; font70[.hl[NOTE] We will use some core `lubridate` functions on the fly as they are rather intuitive. 
-If you deal with dates often, you should give [this](https://r4ds.had.co.nz/dates-and-times.html) introduction a read.]]
+.font70[ &lt;sup&gt;[3]&lt;sup/&gt;] .font70[.hl[NOTE] We will use some core `lubridate` functions on the fly as they are rather intuitive. If you deal with dates often, give [this](https://r4ds.had.co.nz/dates-and-times.html) intro a read.]
 
 ---
 
-# select()
+# select() and arrange()
 
-- Another basic wrangling operation we occasionally need to do do is selecting columns:
+- Another basic wrangling operation we occasionally need to do do is selecting columns.
 
+- And sometimes we also want to sort columns:
+
+.code70[
 
 ```r
 parlgov_elec_de %&gt;%
   filter(year == 2017) %&gt;%
   select(party_name_short, vote_share, left_right) %&gt;% 
-  arrange(left_right)
+  arrange(desc(left_right)) #default is ascending; we can wrap the masked vector with desc() to sort descending
 ```
 
 ```
 ##   party_name_short vote_share left_right
-## 1           PDS|Li        9.2     1.2152
-## 2          B90/Gru        8.9     2.9308
-## 3              SPD       20.5     3.6451
-## 4              FDP       10.7     5.9233
-## 5              CDU       26.8     6.2503
-## 6              CSU        6.2     7.2871
-## 7               FW        1.0     7.4000
-## 8              AfD       12.6     8.8000
+## 1              AfD       12.6     8.8000
+## 2               FW        1.0     7.4000
+## 3              CSU        6.2     7.2871
+## 4              CDU       26.8     6.2503
+## 5              FDP       10.7     5.9233
+## 6              SPD       20.5     3.6451
+## 7          B90/Gru        8.9     2.9308
+## 8           PDS|Li        9.2     1.2152
 ## 9           PARTEI        1.0         NA
 ```
+]
+---
+  
+# group_by()
 
+
+- The last of the most fundamental dplyr "verbs" we will learn is `group_by`.
+
+- Given the variables you supply, it converts a data frame into a grouped version of it such that you can do 
+transformations, call functions, manipulate variables, etc. 
+
+- For instance, let's use the whole data to get the the party with the most 
+votes ever in a parliamentary election by country...
 
 
 ---
   
+# group_by()
+
+.code60[
+
+```r
+parlgov_elec %&gt;%
+  filter(election_type == "parliament") %&gt;% 
+  group_by(country_name_short) %&gt;%
+  summarise(share_max = max(vote_share, na.rm = T), 
+            party = party_name_english[1],
+            election_date = election_date[1]
+            ) %&gt;%  # note the "collapsing" I mentioned earlier
+  arrange(desc(share_max))
+```
+
+```
+## # A tibble: 37 x 4
+##    country_name_short share_max party                     election_date
+##    &lt;chr&gt;                  &lt;dbl&gt; &lt;chr&gt;                     &lt;date&gt;       
+##  1 CYP                     71.2 Democratic Party          1976-09-05   
+##  2 LVA                     68.2 Popular Front of Latvia   1990-04-29   
+##  3 ROU                     66.3 Democratic Party          1990-05-20   
+##  4 MLT                     59.9 Malta Labour Party        1947-10-27   
+##  5 JPN                     59   Japan Liberal Party       1946-04-10   
+##  6 NZL                     58.7 New Zealand Liberal Party 1902-11-25   
+##  7 CAN                     57   Liberal Party of Canada   1900-11-07   
+##  8 CHE                     56.2 Radical Democratic Party  1902-10-26   
+##  9 BEL                     56   Catholic Party            1900-05-27   
+## 10 GBR                     55.0 Conservatives             1918-12-14   
+## # ... with 27 more rows
+```
+]
+---
+
+# group_by()
+
+- Too complex?
+
+- Ok, let's do something more simple and add a variable that tells us the 
+maximum number of total seats for each country.
+
+--
+
+
+
+```r
+parlgov_elec &lt;- parlgov_elec %&gt;%
+  group_by(country_id) %&gt;% 
+  mutate(max_seats = max(seats_total)) %&gt;% 
+  ungroup() # to remove the grouping
+```
+
+---
+
+# group_by()
+
+.code70[
+
+```r
+parlgov_elec %&gt;%
+  filter(seats_total == max_seats) %&gt;%
+  select(country_name_short, election_date, max_seats) %&gt;%
+  distinct() # select distinct rows
+```
+
+```
+## # A tibble: 309 x 3
+##    country_name_short election_date max_seats
+##    &lt;chr&gt;              &lt;date&gt;            &lt;int&gt;
+##  1 AUS                2019-05-18          151
+##  2 AUT                1920-10-17          183
+##  3 AUT                1971-10-10          183
+##  4 AUT                1975-10-05          183
+##  5 AUT                1979-05-06          183
+##  6 AUT                1983-04-24          183
+##  7 AUT                1986-11-23          183
+##  8 AUT                1990-10-07          183
+##  9 AUT                1994-10-09          183
+## 10 AUT                1995-12-17          183
+## # ... with 299 more rows
+```
+]
+---
+
+# Other usefull stuff
+
+- `tidyr::separate()` to separate entries in columns; `tidyr::unite` to unite columns
+
+- `dplyr::rename()` to rename variables.
+
+- `dplyr::count()` count unique values of one or multiple variables.
+
+- `dplyr::distinct()` or Base R `unique()` to remove duplicate rows
+
+- `dplyr::slice()` to get a slice of rows: `parlgov_elec %&gt;% slice(1:5)` to get the 
+first 5 rows.
+
+- `dplyr::across()` apply functions to multiple columns.
+
+.font70[.hl[TIPP] Check out the [`modelsummary`](https://vincentarelbundock.github.io/modelsummary/articles/datasummary.html) functions in more detail for 
+easy crosstabs. ALternatively, use [`janitor::tabyl`](https://github.com/sfirke/janitor).]
+
+---
+
+# Problem Set 2
+
+Click here to open.
+
+---
+
+class: inverse, center, middle name: intro
+
+
+# Advanced Wrangling
+
+---
+
+# Dealing with factor variables: `forcats`
+
+- Factor variables are useful; especially for plotting and modelling.
+
+- With `factor_recode` we can easily recode levels:
+
+
+```r
+parlgov_elec_de %&gt;%
+  mutate(election_type = fct_recode(election_type, # Coerces the type automatically from chr to fct.
+    Bundestagswahl = "parliament",
+    Europawahl = "ep"
+  )) %&gt;%
+  count(election_type)
+```
+
+```
+##    election_type   n
+## 1     Europawahl  82
+## 2 Bundestagswahl 264
+```
+
+- With `fct_recorder` we can reorder factors (will be usefull for plotting
+factors).
+
+---
+
+# Complex conditions: `if_else` and `case_when` 
+
+- Often, we also want to manipulate variables by means of complex conditions
+
+- We will go deeper into control flow statements next week, but here is a sneak preview for data wrangling.
+
+- Say we want to create a variable, "family", that puts parties into some party family
+based on some arbitrary cutoff of the time-invariant left_right position:
+
+
+```r
+parlgov_elec_de &lt;- parlgov_elec_de %&gt;%
+  mutate(family = if_else(left_right &gt; 5, "right", "left"))
+```
+
+- Vectorised if: `if_else(condition, true, false)`. 
+
+---
+
+# Complex conditions: `if_else` and `case_when` 
+
+- A generalised version of `if_else` is `case_when`.
+
+- This is .hl2[very] useful:
+
+
+```r
+parlgov_elec_de &lt;- parlgov_elec_de %&gt;%
+  mutate(family = case_when(
+    left_right &lt;= 2.5 ~ "left",
+    left_right &gt; 2.5 &amp; left_right &lt; 5 ~ "centre-left",
+    left_right &gt; 5 &amp; left_right &lt; 7.5 ~ "centre-right",
+    left_right &gt;= 7.5 ~ "right"))
+```
+
+- two-sided formula: LHS = logical test; RHS = value to assign if the test
+is `TRUE`.
+
+- Values that do not fall into any of the conditions become `NA` which can
+be prevented by adding `TRUE ~ something` as the last argument.
+---
+# tidyr: reshaping data
+
+- Reshaping data is one of the key things you need to when cleaning/analysing data.
+
+- [Two functions](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-import.pdf):
+
+  - `tidyr::pivot_wider/longer()` is for reshaping from long (wide) to wide (long).
+
+Two main arguments:
+
+  - `names_*` and `values_*`, where "*" is "to" for `pivot_wider()` and "from" for 
+  `pivot_longer()`.
+
+--
   
+.pull-left[
+
+&lt;img src="Figs/wide.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;center&gt; long &amp;rarr; wide: `pivot_wider()` &lt;center/&gt; 
+]
+
+.pull-right[
+
+&lt;img src="Figs/longer.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;br/&gt;
+&lt;center&gt; wide &amp;rarr; long: `pivot_longer()` &lt;center/&gt; 
+]
+
+---
+
+# tidyr: reshaping data
+
+.hl[Example:]
+
+- Say, we want a table of the vote shares of all major parties for each 
+post-WW2 parliamentary election.
+
+- Where each row is an election:
+
+
+
+```r
+wide &lt;- parlgov_elec_de %&gt;%
+  filter(election_type == "parliament", vote_share &gt;= 5, year(election_date) &gt;= 1945) %&gt;%
+  select(election_date, party_name_short, vote_share) %&gt;%
+  pivot_wider(names_from = party_name_short, values_from = vote_share)
+```
+
+---
+
+# tidyr: reshaping data
+
+<div id="htmlwidget-9055d2129baa463787b4" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9055d2129baa463787b4">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19"],["1949-08-14","1953-09-06","1957-09-15","1961-09-17","1965-09-19","1969-09-28","1972-11-19","1976-10-03","1980-10-05","1983-03-06","1987-01-25","1990-12-02","1994-10-16","1998-09-27","2002-09-22","2005-09-18","2009-09-27","2013-09-22","2017-09-24"],[29.2,28.8,31.8,36.2,39.3,42.7,45.8,42.6,42.9,38.2,37.2,33.5,36.4,40.9,38.5,34.2,23,25.7,20.5],[25.2,36.4,39.7,35.8,38.2,36.6,35.2,38.1,34.2,38.2,34.5,36.7,34.2,28.4,29.5,27.8,27.3,34.1,26.8],[11.9,9.5,7.7,12.8,9.5,5.8,8.4,7.9,10.6,7,9.1,11.1,6.9,6.2,7.4,9.8,14.6,null,10.7],[5.8,8.8,10.5,9.6,9.6,9.5,9.7,10.6,10.3,10.6,9.8,7.1,7.3,6.7,9,7.4,6.5,7.4,6.2],[5.7,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,5.9,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,5.6,8.3,null,7.3,6.7,8.6,8.1,10.7,8.4,8.9],[null,null,null,null,null,null,null,null,null,null,null,null,null,5.1,null,8.7,11.9,8.6,9.2],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,12.6]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>election_date<\/th>\n      <th>SPD<\/th>\n      <th>CDU<\/th>\n      <th>FDP<\/th>\n      <th>CSU<\/th>\n      <th>KPD<\/th>\n      <th>GB/BHE<\/th>\n      <th>B90/Gru<\/th>\n      <th>PDS|Li<\/th>\n      <th>AfD<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9,10]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+
+---
+
+# tidyr: reshaping data
+
+- We can revert back to long format:
+
+
+```r
+long &lt;- wide %&gt;%
+  pivot_longer(!election_date, names_to = "party_name_short", values_to = "vote_share") %&gt;%
+  filter(is.na(vote_share) == FALSE) # alternatively, simply set values_drop_na to TRUE in pivot_longer().
+head(long)
+```
+
+```
+## # A tibble: 6 x 3
+##   election_date party_name_short vote_share
+##   &lt;date&gt;        &lt;chr&gt;                 &lt;dbl&gt;
+## 1 1949-08-14    SPD                    29.2
+## 2 1949-08-14    CDU                    25.2
+## 3 1949-08-14    FDP                    11.9
+## 4 1949-08-14    CSU                     5.8
+## 5 1949-08-14    KPD                     5.7
+## 6 1953-09-06    SPD                    28.8
+```
+
+---
+
+# dplyr: joins
+
+- Let's come back to the relational nature of our data...
+
+---
+
+# The Data
+
+&lt;img src="Figs/relational.svg" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+  
+# dplyr: joins
+
+- Let's come back to the [relational](https://en.wikipedia.org/wiki/Relational_database) nature of our data...
+
+- Remember, they consist of different tables, each representing one "entity type" 
+(c.f. the 3rd. point in Wickham's tidy data framework)
+
+- Each table has a unique key, representing each row. This key variable is used to link/join tables
+
+- Suppose we want to join the party and the election table, how do we do that?
+
+---
+  
+# dplyr: joins
+
+&lt;img src="Figs/joins.png" width="35%" style="display: block; margin: auto;" /&gt;
+&lt;img src="Figs/fjoins.png" width="35%" style="display: block; margin: auto;" /&gt;
+
+.hl2[Q] Which join do we need?
+
+---
+  
+# dplyr: joins
+
+We want a left join here...
+
+.code70[
+
+```r
+parlgov_party &lt;- rio::import("http://www.parlgov.org/static/data/development-utf-8/view_party.csv")
+
+l_joined &lt;- left_join(parlgov_elec_de, parlgov_party, by = "party_id")
+
+head(l_joined)
+```
+
+```
+##   country_name_short.x country_name.x election_type election_date vote_share
+## 1                  DEU        Germany    parliament    1919-01-19      37.87
+## 2                  DEU        Germany    parliament    1919-01-19      18.32
+## 3                  DEU        Germany    parliament    1919-01-19      15.45
+## 4                  DEU        Germany    parliament    1919-01-19      10.26
+## 5                  DEU        Germany    parliament    1919-01-19       4.66
+## 6                  DEU        Germany    parliament    1919-01-19       7.63
+##   seats seats_total party_name_short.x
+## 1   165         423                SPD
+## 2    74         423                DDP
+## 3    73         423                 DZ
+## 4    41         423               DNVP
+## 5    23         423                DVP
+## 6    22         423               USPD
+##                                         party_name.x
+## 1            Sozialdemokratische Partei Deutschlands
+## 2                      Deutsche Demokratische Partei
+## 3                            Deutsche Zentrumspartei
+## 4                       Deutschnationale Volkspartei
+## 5                               Deutsche Volkspartei
+## 6 Unabhängige Sozialdemokratische Partei Deutschland
+##                             party_name_english.x left_right.x country_id.x
+## 1             Social Democratic Party of Germany       3.6451           54
+## 2                        German Democratic Party       6.0000           54
+## 3                                   Centre Party       6.2000           54
+## 4                 German National People's Party       8.8000           54
+## 5                          German People's Party       7.4000           54
+## 6 Independent Social Democratic Party of Germany       1.3000           54
+##   election_id previous_parliament_election_id previous_cabinet_id party_id year
+## 1        1031                              NA                  NA      558 1919
+## 2        1031                              NA                  NA     2691 1919
+## 3        1031                              NA                  NA      137 1919
+## 4        1031                              NA                  NA     2692 1919
+## 5        1031                              NA                  NA     2693 1919
+## 6        1031                              NA                  NA     2690 1919
+##         family country_name_short.y country_name.y party_name_short.y
+## 1  centre-left                  DEU        Germany                SPD
+## 2 centre-right                  DEU        Germany                DDP
+## 3 centre-right                  DEU        Germany                 DZ
+## 4        right                  DEU        Germany               DNVP
+## 5 centre-right                  DEU        Germany                DVP
+## 6         left                  DEU        Germany               USPD
+##                             party_name_english.y
+## 1             Social Democratic Party of Germany
+## 2                        German Democratic Party
+## 3                                   Centre Party
+## 4                 German National People's Party
+## 5                          German People's Party
+## 6 Independent Social Democratic Party of Germany
+##                                          party_name.y
+## 1             Sozialdemokratische Partei Deutschlands
+## 2                       Deutsche Demokratische Partei
+## 3                             Deutsche Zentrumspartei
+## 4                        Deutschnationale Volkspartei
+## 5                                Deutsche Volkspartei
+## 6 UnabhÃ¤ngige Sozialdemokratische Partei Deutschland
+##                                      party_name_ascii family_name_short
+## 1             Sozialdemokratische Partei Deutschlands               soc
+## 2                       Deutsche Demokratische Partei               lib
+## 3                             Deutsche Zentrumspartei               chr
+## 4                        Deutschnationale Volkspartei             right
+## 5                                Deutsche Volkspartei               con
+## 6 Unabhaengige Sozialdemokratische Partei Deutschland               com
+##           family_name left_right.y state_market liberty_authority eu_anti_pro
+## 1    Social democracy       3.6451       3.8443            3.9791      7.9318
+## 2             Liberal       6.0000       6.7000            3.6000      8.7000
+## 3 Christian democracy       6.2000       5.7000            7.1000      8.3000
+## 4          Right-wing       8.8000       5.9000            8.5000      2.3000
+## 5        Conservative       7.4000       6.4000            7.0000      7.9000
+## 6 Communist/Socialist       1.3000       1.4000            3.0000      3.3000
+##     cmp euprofiler     ees castles_mair huber_inglehart ray benoit_laver chess
+## 1 41320        120 1276320          803            1503 302         6087   302
+## 2    NA         NA      NA           NA              NA  NA           NA    NA
+## 3 41522         NA      NA           NA              NA  NA           NA    NA
+## 4    NA         NA      NA           NA              NA  NA           NA    NA
+## 5    NA         NA      NA           NA              NA  NA           NA    NA
+## 6    NA         NA      NA           NA              NA  NA           NA    NA
+##   country_id.y family_id
+## 1           54        11
+## 2           54         6
+## 3           54         3
+## 4           54        40
+## 5           54        26
+## 6           54        14
+```
+]
+
+.hl[Q] Why do we get `party_name_short.x` etc?
+
+---
+
+# dplyr: joins
+
+- There are multiple matching (by name) variables in both tables.
+
+- Hence, we need to specify all keys, or let `dplyr` do its magic: 
+
+.code70[
+
+```r
+l_joined &lt;- left_join(parlgov_elec_de, parlgov_party)
+
+head(l_joined)
+```
+
+```
+##   country_name_short country_name election_type election_date vote_share seats
+## 1                DEU      Germany    parliament    1919-01-19      37.87   165
+## 2                DEU      Germany    parliament    1919-01-19      18.32    74
+## 3                DEU      Germany    parliament    1919-01-19      15.45    73
+## 4                DEU      Germany    parliament    1919-01-19      10.26    41
+## 5                DEU      Germany    parliament    1919-01-19       4.66    23
+## 6                DEU      Germany    parliament    1919-01-19       7.63    22
+##   seats_total party_name_short
+## 1         423              SPD
+## 2         423              DDP
+## 3         423               DZ
+## 4         423             DNVP
+## 5         423              DVP
+## 6         423             USPD
+##                                           party_name
+## 1            Sozialdemokratische Partei Deutschlands
+## 2                      Deutsche Demokratische Partei
+## 3                            Deutsche Zentrumspartei
+## 4                       Deutschnationale Volkspartei
+## 5                               Deutsche Volkspartei
+## 6 Unabhängige Sozialdemokratische Partei Deutschland
+##                               party_name_english left_right country_id
+## 1             Social Democratic Party of Germany     3.6451         54
+## 2                        German Democratic Party     6.0000         54
+## 3                                   Centre Party     6.2000         54
+## 4                 German National People's Party     8.8000         54
+## 5                          German People's Party     7.4000         54
+## 6 Independent Social Democratic Party of Germany     1.3000         54
+##   election_id previous_parliament_election_id previous_cabinet_id party_id year
+## 1        1031                              NA                  NA      558 1919
+## 2        1031                              NA                  NA     2691 1919
+## 3        1031                              NA                  NA      137 1919
+## 4        1031                              NA                  NA     2692 1919
+## 5        1031                              NA                  NA     2693 1919
+## 6        1031                              NA                  NA     2690 1919
+##         family                        party_name_ascii family_name_short
+## 1  centre-left Sozialdemokratische Partei Deutschlands               soc
+## 2 centre-right           Deutsche Demokratische Partei               lib
+## 3 centre-right                 Deutsche Zentrumspartei               chr
+## 4        right            Deutschnationale Volkspartei             right
+## 5 centre-right                    Deutsche Volkspartei               con
+## 6         left                                    &lt;NA&gt;              &lt;NA&gt;
+##           family_name state_market liberty_authority eu_anti_pro   cmp
+## 1    Social democracy       3.8443            3.9791      7.9318 41320
+## 2             Liberal       6.7000            3.6000      8.7000    NA
+## 3 Christian democracy       5.7000            7.1000      8.3000 41522
+## 4          Right-wing       5.9000            8.5000      2.3000    NA
+## 5        Conservative       6.4000            7.0000      7.9000    NA
+## 6                &lt;NA&gt;           NA                NA          NA    NA
+##   euprofiler     ees castles_mair huber_inglehart ray benoit_laver chess
+## 1        120 1276320          803            1503 302         6087   302
+## 2         NA      NA           NA              NA  NA           NA    NA
+## 3         NA      NA           NA              NA  NA           NA    NA
+## 4         NA      NA           NA              NA  NA           NA    NA
+## 5         NA      NA           NA              NA  NA           NA    NA
+## 6         NA      NA           NA              NA  NA           NA    NA
+##   family_id
+## 1        11
+## 2         6
+## 3         3
+## 4        40
+## 5        26
+## 6        NA
+```
+]
+
+.font70[.hl[NOTE] Be careful if variables are named the same but measure different things.]
+
+---
+
+# Alternative approaches
+
+- For every tidyverse function ("verb"), there is, of course, a base
+R way to do it.
+
+- There are alternatives.
+
+- For instance, the [data.table](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html) 
+and [collapse](https://raw.githubusercontent.com/SebKrantz/cheatsheets/master/collapse.pdf) (also comes with fast versions of summary stats and models) package provide great
+and fast data wrangling alternatives.
+
+- Data.table syntax is closer to the base R way of indexing/manipulating data frames.
+Some like that.
+
+- Don't be dogmatic. Use whatever suits you and your context. Mix stuff.
+
+- You can find a great comparison of `data.table` and `dplyr` [here](https://atrebas.github.io/post/2019-03-03-datatable-dplyr/).
+
+---
+
+# A glimpse at `data.table`
+
+- Comes with its own interpretation of data frames, "data tables". Special structure to work faster.
+
+- Looks similar to basic `df[]` indexing but with alot of twists.
+
+- Three elements:  which observations/rows COMMA transformations or other functions COMMA grouping.
+
+Rough `dplyr` equivalent:
+
+&lt;center&gt; DT[.hl[`slice(); filter(); arrange()`], .hl2[`select(); mutate()`], `group_by()`] &lt;center/&gt;
+
+---
+
+# A glimpse at `data.table`
+
+Example:
+
+.pull-left[
+
+```r
+parlgov_elec_de %&gt;% # add, e.g., _de if we want to keep our original df
+  filter(party_name_short == "SPD") %&gt;%
+  summarise(mean(vote_share, na.rm = T))
+```
+
+```
+##   mean(vote_share, na.rm = T)
+## 1                    31.12622
+```
+]
+
+.pull-right[
+
+```r
+setDT(parlgov_elec_de)
+
+parlgov_elec_de[party_name_short == "SPD", mean(vote_share, na.rm = T)]
+```
+
+```
+## [1] 31.12622
+```
+]
+
+---
+
+# Problem Set 03/"Homework"
+
+- This last problem set may take a bit longer
+
+- Try to get as far as you can in the remaining time and finish
+the rest at home (if you want)
+
+
+---
+
+class: inverse, center, middle name: intro
+
+
+# Advanced Wrangling
 
 
 

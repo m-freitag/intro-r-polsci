@@ -519,6 +519,11 @@ list_a[[4]][2]
 names(list_a) <- c("a", "b", "c", "d") # We can also name elements directly: list(x = 1, y = 2)
 list_a$b
 list_a$d[1]
+
+# Adding a new object-reference, i.e. an element, to a list:
+
+list_a$e <- c("R", "is fun")
+
 ```
 ]
 
@@ -594,7 +599,8 @@ df_langs <- data.frame(
 head(df_langs) # print first few lines of an object (6 by default)
 # Indexing
 df_langs[2, 2] # Second row of second column 
-df_langs$background[1] 
+df_langs$background[1]
+df_langs[df_langs$skill < 0,] # Combined with our operators, we can also filter
 ```
 ]
 ]

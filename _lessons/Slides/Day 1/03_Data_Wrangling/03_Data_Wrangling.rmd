@@ -1,6 +1,5 @@
 ---
-title: "Lys"
-subtitle: "goes Xaringan"
+title: "Session 3: Data Wrangling"
 author:
   - "Markus Freitag"
 date: '`r Sys.Date()`'
@@ -43,7 +42,9 @@ pacman::p_load(
   patchwork,
   DT,
   modelsummary,
-  collapse
+  collapse,
+  forcats
+
 )
 
 
@@ -250,6 +251,8 @@ as_tibble(lotr) # You don't have the data here.
 
 - However, for saving the latter you will (and should) use `.csv` or `.json` (human readable) most of the time.
 
+--
+  
 - For R novices, importing and exporting can be a bit of a pain.
 
     - There are different functions/packages for reading different file formats (haven, data.table, readxl etc.).
@@ -535,7 +538,7 @@ parlgov_elec_de <- parlgov_elec %>% # add, e.g., _de if we want to keep our orig
 
 - Now, say we want the mean SPD vote share across all bundestag elections (bit silly but alas):
 
-.code70[
+.code60[
 ```{r, eval = FALSE}
 
 datasummary_skim(parlgov_elec_de$election_type, type = "categorical")
@@ -561,7 +564,7 @@ Two options:
 
 .pull-left[
 
-1. We can use `pull()` to pull out a vector form a df; works like `$` but for pipes.
+1\. We can use `pull()` to pull out a vector form a df; works like `$` but for pipes.
 
 ```{r}
 
@@ -576,7 +579,7 @@ parlgov_elec_de %>% # add, e.g., _de if we want to keep our original df
 --
 
 .pull-right[
-2. We can wrap `mean()`into `summarise()` ("data-masking" for built-in summary functions):
+2\. We can wrap `mean()`into `summarise()` ("data-masking" for built-in summary functions):
 
 ```{r}
 parlgov_elec_de %>%
@@ -633,8 +636,7 @@ and assigned it to a new variable.<sup>[3]<sup/>
 
 - `transmute()` is the opposite of `mutate()`; i.e. adds a new variable and drops the rest.
 
-<sup>[3]<sup/> font70[.hl[NOTE] We will use some core `lubridate` functions on the fly as they are rather intuitive. 
-If you deal with dates often, you should give [this](https://r4ds.had.co.nz/dates-and-times.html) introduction a read.]]
+.font70[ <sup>[3]<sup/>] .font70[.hl[NOTE] We will use some core `lubridate` functions on the fly as they are rather intuitive. If you deal with dates often, give [this](https://r4ds.had.co.nz/dates-and-times.html) intro a read.]
 
 ---
 
@@ -644,6 +646,7 @@ If you deal with dates often, you should give [this](https://r4ds.had.co.nz/date
 
 - And sometimes we also want to sort columns:
 
+.code70[
 ```{r}
 
 parlgov_elec_de %>%
@@ -652,18 +655,403 @@ parlgov_elec_de %>%
   arrange(desc(left_right)) #default is ascending; we can wrap the masked vector with desc() to sort descending
 
 ```
+]
+---
+  
+# group_by()
+
+
+- The last of the most fundamental dplyr "verbs" we will learn is `group_by`.
+
+- Given the variables you supply, it converts a data frame into a grouped version of it such that you can do 
+transformations, call functions, manipulate variables, etc. 
+
+- For instance, let's use the whole data to get the the party with the most 
+votes ever in a parliamentary election by country...
+
 
 ---
   
+# group_by()
+
+.code60[
+```{r}
+parlgov_elec %>%
+  filter(election_type == "parliament") %>% 
+  group_by(country_name_short) %>%
+  summarise(share_max = max(vote_share, na.rm = T), 
+            party = party_name_english[1],
+            election_date = election_date[1]
+            ) %>%  # note the "collapsing" I mentioned earlier
+  arrange(desc(share_max))
+
+```
+]
+---
+
+# group_by()
+
+- Too complex?
+
+- Ok, let's do something more simple and add a variable that tells us the 
+maximum number of total seats for each country.
+
+--
+
+
+```{r}
+parlgov_elec <- parlgov_elec %>%
+  group_by(country_id) %>% 
+  mutate(max_seats = max(seats_total)) %>% 
+  ungroup() # to remove the grouping
+
+```
+
+---
+
+# group_by()
+
+.code70[
+```{r}
+parlgov_elec %>%
+  filter(seats_total == max_seats) %>%
+  select(country_name_short, election_date, max_seats) %>%
+  distinct() # select distinct rows
+```
+]
+---
+
+# Other usefull stuff
+
+- `tidyr::separate()` to separate entries in columns; `tidyr::unite` to unite columns
+
+- `dplyr::rename()` to rename variables.
+
+- `dplyr::count()` count unique values of one or multiple variables.
+
+- `dplyr::distinct()` or Base R `unique()` to remove duplicate rows
+
+- `dplyr::slice()` to get a slice of rows: `parlgov_elec %>% slice(1:5)` to get the 
+first 5 rows.
+
+- `dplyr::across()` apply functions to multiple columns.
+
+.font70[.hl[TIPP] Check out the [`modelsummary`](https://vincentarelbundock.github.io/modelsummary/articles/datasummary.html) functions in more detail for 
+easy crosstabs. ALternatively, use [`janitor::tabyl`](https://github.com/sfirke/janitor).]
+
+---
+
+# Problem Set 2
+
+Click here to open.
+
+---
+
+class: inverse, center, middle name: intro
+
+
+# Advanced Wrangling
+
+---
+
+# Dealing with factor variables: `forcats`
+
+- Factor variables are useful; especially for plotting and modelling.
+
+- With `factor_recode` we can easily recode levels:
+
+```{r}
+parlgov_elec_de %>%
+  mutate(election_type = fct_recode(election_type, # Coerces the type automatically from chr to fct.
+    Bundestagswahl = "parliament",
+    Europawahl = "ep"
+  )) %>%
+  count(election_type)
+
+```
+
+- With `fct_recorder` we can reorder factors (will be usefull for plotting
+factors).
+
+---
+
+# Complex conditions: `if_else` and `case_when` 
+
+- Often, we also want to manipulate variables by means of complex conditions
+
+- We will go deeper into control flow statements next week, but here is a sneak preview for data wrangling.
+
+- Say we want to create a variable, "family", that puts parties into some party family
+based on some arbitrary cutoff of the time-invariant left_right position:
+
+```{r}
+parlgov_elec_de <- parlgov_elec_de %>%
+  mutate(family = if_else(left_right > 5, "right", "left"))
+```
+
+- Vectorised if: `if_else(condition, true, false)`. 
+
+---
+
+# Complex conditions: `if_else` and `case_when` 
+
+- A generalised version of `if_else` is `case_when`.
+
+- This is .hl2[very] useful:
+
+```{r}
+parlgov_elec_de <- parlgov_elec_de %>%
+  mutate(family = case_when(
+    left_right <= 2.5 ~ "left",
+    left_right > 2.5 & left_right < 5 ~ "centre-left",
+    left_right > 5 & left_right < 7.5 ~ "centre-right",
+    left_right >= 7.5 ~ "right"))
+
+```
+
+- two-sided formula: LHS = logical test; RHS = value to assign if the test
+is `TRUE`.
+
+- Values that do not fall into any of the conditions become `NA` which can
+be prevented by adding `TRUE ~ something` as the last argument.
+---
+# tidyr: reshaping data
+
+- Reshaping data is one of the key things you need to when cleaning/analysing data.
+
+- [Two functions](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-import.pdf):
+
+  - `tidyr::pivot_wider/longer()` is for reshaping from long (wide) to wide (long).
+
+Two main arguments:
+
+  - `names_*` and `values_*`, where "*" is "to" for `pivot_wider()` and "from" for 
+  `pivot_longer()`.
+
+--
   
+.pull-left[
+
+```{r, echo=FALSE, fig.align='center', out.width= "60%"}
+knitr::include_graphics("Figs/wide.png")
+```
+<center> long &rarr; wide: `pivot_wider()` <center/> 
+]
+
+.pull-right[
+
+```{r, echo=FALSE, fig.align='center', out.width= "60%"}
+knitr::include_graphics("Figs/longer.png")
+```
+<br/>
+<center> wide &rarr; long: `pivot_longer()` <center/> 
+]
+
+---
+
+# tidyr: reshaping data
+
+.hl[Example:]
+
+- Say, we want a table of the vote shares of all major parties for each 
+post-WW2 parliamentary election.
+
+- Where each row is an election:
 
 
+```{r}
+wide <- parlgov_elec_de %>%
+  filter(election_type == "parliament", vote_share >= 5, year(election_date) >= 1945) %>%
+  select(election_date, party_name_short, vote_share) %>%
+  pivot_wider(names_from = party_name_short, values_from = vote_share)
+
+```
+
+---
+
+# tidyr: reshaping data
+
+```{r, echo = FALSE}
+
+datatable(wide,
+  width = "100%",
+  options = list(pageLength = 5, scrollX = TRUE)
+)
+```
+
+---
+
+# tidyr: reshaping data
+
+- We can revert back to long format:
+
+```{r}
+long <- wide %>%
+  pivot_longer(!election_date, names_to = "party_name_short", values_to = "vote_share") %>%
+  filter(is.na(vote_share) == FALSE) # alternatively, simply set values_drop_na to TRUE in pivot_longer().
+head(long)
+```
+
+---
+
+# dplyr: joins
+
+- Let's come back to the relational nature of our data...
+
+---
+
+# The Data
+
+```{r, echo=FALSE, fig.align='center', out.width= "60%"}
+knitr::include_graphics("Figs/relational.svg")
+```
+
+---
+  
+# dplyr: joins
+
+- Let's come back to the [relational](https://en.wikipedia.org/wiki/Relational_database) nature of our data...
+
+- Remember, they consist of different tables, each representing one "entity type" 
+(c.f. the 3rd. point in Wickham's tidy data framework)
+
+- Each table has a unique key, representing each row. This key variable is used to link/join tables
+
+- Suppose we want to join the party and the election table, how do we do that?
+
+---
+  
+# dplyr: joins
+
+```{r, echo=FALSE, fig.align='center', out.width= "35%"}
+knitr::include_graphics("Figs/joins.png")
+```
+```{r, echo=FALSE, fig.align='center', out.width= "35%"}
+knitr::include_graphics("Figs/fjoins.png")
+```
+
+.hl2[Q] Which join do we need?
+
+---
+  
+# dplyr: joins
+
+We want a left join here...
+
+.code70[
+```{r}
+parlgov_party <- rio::import("http://www.parlgov.org/static/data/development-utf-8/view_party.csv")
+
+l_joined <- left_join(parlgov_elec_de, parlgov_party, by = "party_id")
+
+head(l_joined)
+```
+]
+
+.hl[Q] Why do we get `party_name_short.x` etc?
+
+---
+
+# dplyr: joins
+
+- There are multiple matching (by name) variables in both tables.
+
+- Hence, we need to specify all keys, or let `dplyr` do its magic: 
+
+.code70[
+```{r}
+l_joined <- left_join(parlgov_elec_de, parlgov_party)
+
+head(l_joined)
+```
+]
+
+.font70[.hl[NOTE] Be careful if variables are named the same but measure different things.]
+
+---
+
+# Alternative approaches
+
+- For every tidyverse function ("verb"), there is, of course, a base
+R way to do it.
+
+- There are alternatives.
+
+- For instance, the [data.table](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html) 
+and [collapse](https://raw.githubusercontent.com/SebKrantz/cheatsheets/master/collapse.pdf) (also comes with fast versions of summary stats and models) package provide great
+and fast data wrangling alternatives.
+
+- Data.table syntax is closer to the base R way of indexing/manipulating data frames.
+Some like that.
+
+- Don't be dogmatic. Use whatever suits you and your context. Mix stuff.
+
+- You can find a great comparison of `data.table` and `dplyr` [here](https://atrebas.github.io/post/2019-03-03-datatable-dplyr/).
+
+---
+
+# A glimpse at `data.table`
+
+- Comes with its own interpretation of data frames, "data tables". Special structure to work faster.
+
+- Looks similar to basic `df[]` indexing but with alot of twists.
+
+- Three elements:  which observations/rows COMMA transformations or other functions COMMA grouping.
+
+Rough `dplyr` equivalent:
+
+<center> DT[.hl[`slice(); filter(); arrange()`], .hl2[`select(); mutate()`], `group_by()`] <center/>
+
+---
+
+# A glimpse at `data.table`
+
+Example:
+
+.pull-left[
+```{r}
+parlgov_elec_de %>% # add, e.g., _de if we want to keep our original df
+  filter(party_name_short == "SPD") %>%
+  summarise(mean(vote_share, na.rm = T))
+  
+```
+]
+
+.pull-right[
+```{r}
+setDT(parlgov_elec_de)
+
+parlgov_elec_de[party_name_short == "SPD", mean(vote_share, na.rm = T)]
+  
+```
+]
+
+---
+
+# Problem Set 03/"Homework"
+
+- This last problem set may take a bit longer
+
+- Try to get as far as you can in the remaining time and finish
+the rest at home (if you want)
+
+
+---
+
+class: inverse, center, middle name: intro
+
+
+# Advanced Wrangling
 
 
 ```{r print pdf, include=FALSE}
-# pagedown::chrome_print("./02_Data_Wrangling.html")
+pagedown::chrome_print("./02_Data_Wrangling.html")
 ```
 
 ```{r xaringanExtra-share-again, echo=FALSE}
-# xaringanExtra::use_share_again()
+xaringanExtra::use_share_again()
+```
+
+```{r xaringanExtra-clipboard, echo=FALSE}
+xaringanExtra::use_clipboard()
 ```
