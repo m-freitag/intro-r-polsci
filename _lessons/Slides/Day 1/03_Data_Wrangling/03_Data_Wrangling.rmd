@@ -9,7 +9,6 @@ output:
       after_body: "helpers/handw.js"
     css: ["default", "helpers/lys.css", "helpers/lys-fonts.css"]
     nature:
-      beforeInit: "macros.js"
       slideNumberFormat: "%current%"
       highlightStyle: github
       highlightLines: true
@@ -1045,7 +1044,7 @@ class: inverse, center, middle name: intro
 
 
 ```{r print pdf, include=FALSE}
-pagedown::chrome_print("./02_Data_Wrangling.html")
+pagedown::chrome_print("03_Data_Wrangling.html")
 ```
 
 ```{r xaringanExtra-share-again, echo=FALSE}
