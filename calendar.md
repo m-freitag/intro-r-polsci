@@ -22,7 +22,7 @@ The course will take the format of an intense 2 day workshop with "chalk and tal
 |                                       | *breakout session 2*                           | 14:00 - 14:30     |
 |                                       | Data Wrangling II: Advanced data manipulations | 14:30 - 15:30     |
 |                                       | *breakout session 3*                           | 15:30 - 16:15     |
-| **Day 2 (13.07.2021)**                |                                                |                   |
+| **Day 2 (19.07.2021)**                |                                                |                   |
 | Data Visualization                    |                                                | 09:00 - 10:30     |
 |                                       | *breakout session 1*                           | 10:30 - 12:15     |
 | *Break*                               |                                                | 12:15 - 12:45     |

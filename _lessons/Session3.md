@@ -5,7 +5,7 @@ nav_order: 2
 summary: 
 ---
 
-## Session 3: Data Wrangling
+## Session 3: Data Wrangling I + II
 
 <br/>
 
