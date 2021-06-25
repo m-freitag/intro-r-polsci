@@ -1040,7 +1040,7 @@ the rest at home (if you want)
 class: inverse, center, middle name: intro
 
 
-# Advanced Wrangling
+# Next Up: Data Viz
 
 
 ```{r print pdf, include=FALSE}
