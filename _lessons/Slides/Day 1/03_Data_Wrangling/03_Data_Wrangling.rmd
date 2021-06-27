@@ -158,13 +158,9 @@ octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80
 
 - Navigate to `Session Scripts > Session 3` and open `Session_3_script.R`.
 
-- You will see a pre-formatted Script.
+- You will see a pre-formatted Script with all the steps I do on the slides.
 
-- The script is otherwise empty. Fill it with the stuff I will discuss on the slides.
-
-- Make comments for yourself. Learn as you write. Explore. Stage, commit and push.
-
-- Hopefully not you &rightarrow; <img src= "https://www.cs.cmu.edu/~cangiuli/img/angry.gif" ALIGN=”right”>
+- Explore as you follow. 
 
 - If you have a second monitor, great! If not, split your screen.
 
@@ -237,7 +233,7 @@ as.data.frame(lotr)
 - They also print differently (better):
 
 ```{r}
-as_tibble(lotr) # You don't have the data here.
+as_tibble(lotr)
 # Hint: You can create one just like data frames but with tibble().
 ```
 

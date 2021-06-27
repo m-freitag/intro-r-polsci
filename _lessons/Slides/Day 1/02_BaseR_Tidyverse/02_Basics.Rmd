@@ -828,3 +828,7 @@ pagedown::chrome_print("./02_Basics.html")
 ```{r xaringanExtra-share-again, echo=FALSE}
 xaringanExtra::use_share_again()
 ```
+
+```{r xaringanExtra-share-again2, echo=FALSE}
+xaringanExtra::use_clipboard()
+```

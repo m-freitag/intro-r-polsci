@@ -1,6 +1,6 @@
 ---
 title: "Problem Set 01"
-author: Your Name
+author: Solution
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output: 
   html_document:
@@ -49,7 +49,8 @@ What type will the resulting object be?
 Check your intuition with R.
 
 ```{r}
-
+x <- c(1,3,"c")
+typeof(x)
 ```
 
 # Task 2
@@ -58,6 +59,15 @@ Create a named list containing a data frame, a character vector and a list. Acce
 first element of the first element and the second element.
 
 ```{r}
+# One solution:
+
+z <- list(df = data.frame(x = c(2, 2), y = c("a", "b")),
+          g = "c", 
+          f = list(1, 2)
+)
+
+z$df[1]
+z[[2]]
   
 ```
 
@@ -71,6 +81,15 @@ Compute the number of times the above condition is true (use `sum()`).
 
 ```{r}
 
+x <- c(1:10)
+x
+
+z <- x > 2 & x < 8
+z
+
+sum(z)
+
+sum(x > 2 & x < 8)
 ```
 
 
@@ -92,7 +111,11 @@ df <- data.frame(
 Your solution:
 
 ```{r}
+df$c <- df$a * df$b
 
+#Or
+
+df["c"] <- df["b"] * df["a"]
 ```
 
 # Task 5
@@ -154,7 +177,9 @@ Create a character vector with 20 elements: "1st element", "2nd element",
 "3rd element", "4th element", etc.
 
 ```{r}
-
+chr <- paste0(1:20, c("st", "nd", "rd", rep("th", 17)))
+chr <- paste(chr, "element")
+chr
 ```
 
 # Task 6
@@ -164,11 +189,16 @@ Write a function to compute the mean of a vector. Of course, without using the
 
 Define a vector you want to test your function on and specify the expected result:
 ```{r}
-
+x <- c(1,2,3,4,5)
+mean(x)
 ```
 
 Write the function and test it:
 
 ```{r}
+mean_fun <- function(x) {
+  sum(x) / length(x)
+}
 
+mean_fun(x)
 ```
