@@ -1,7 +1,7 @@
 ---
 title: "Session 4: Data Viz"
 parent: Day 2
-nav_order: 1
+nav_order: 2
 summary: 
 ---
 
