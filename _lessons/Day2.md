@@ -10,7 +10,7 @@ has_toc: false
 | **Topics**                            |                                                | **Time-Schedule** |
 |---------------------------------------|------------------------------------------------|-------------------|
 | **Day 2 (19.07.2021)**                |                                                |                   |
-| [Data Visualization](https://m-freitag.github.io/intro-r-polsci/Session4/)                    |                                                | 09:00 - 10:30     |
+| [Data Visualization](https://m-freitag.github.io/intro-r-polsci/Session4/)  |                                                | 09:00 - 10:30     |
 |                                       | *breakout session 1*                           | 10:30 - 12:15     |
 | *Break*                               |                                                | 12:15 - 12:45     |
 | Writing functions (and clean code)    |                                                | 12:45 - 13:45     |
