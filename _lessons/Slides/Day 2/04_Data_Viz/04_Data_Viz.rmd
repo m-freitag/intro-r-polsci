@@ -211,8 +211,8 @@ knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/9/
 .hl[Communication]
 
 - Useful for...
-    - exploring data structure/cleaning data (e.g. spotting missings or outliers)
-    - identfying trends, clusters, descriptive patterns
+    - exploring data structure/cleaning data (e.g. spotting missing or outliers)
+    - identifying trends, clusters, descriptive patterns
     - descriptive as well as for statistical and causal inference 
 
 .hl2[BUT:] Visual Inferences can also mis-guide in several ways (for one perspective on this, 
@@ -276,12 +276,13 @@ knitr::include_graphics("Figs/box.svg")
 
 # Useful for Statistical Inference...
 
-- Based on what I see in the data, does this accurately represent what I would see in the population? How certain am I?
+.font80[
+- Inferring the unkown (some population quantity/parameter, e.g. $E[Y|X]$) from the known (the data at hand). 
 
-- .hl[Ex]: What is $E[Y|X]$ in population given I see $E[y|x]$ in sample? 
+- Does what we see in the data accurately represent what we would see in the population we are interested in? How certain are we? 
 
-- Visualizing uncertainty about parameters...
-
+- Visualization is important to express our uncertainty about parameters...
+]
 ```{r, echo = FALSE, results = "hide"}
 
 fit <- stan_glm(mpg ~ ., data = mtcars)
@@ -503,7 +504,7 @@ John Snow and Cholera in London:
 
 - In the 1840s and 50s, most scientists thought Cholera was transmitted via air.
 
-- John Snow did not and forensically partialled out contaminated water as the cause of infection.
+- John Snow did not and forensically identified contaminated water as the cause of infection.
 
 - During the pandemic, a water company moved their production up the Thames, resulting in a [natural 
 experiment (diff-in-diff)](https://www.semanticscholar.org/paper/Causality-in-the-Time-of-Cholera%3A-John-Snow-As-a-Coleman/eec8864302732a862e614789767bb0edc068a2fe).
@@ -581,7 +582,7 @@ Source: [https://www.dph.illinois.gov/covid19/location-exposure?regionID=0](http
   
 # Some No-Noes
 
-3D when there is no third dimensions. Also avoid 3D charts at all cost/break down to multiple 2D charts.
+3D when there is no third dimensions. Also, avoid 3D charts in general and break them down into multiple 2D charts.
 
 ```{r, echo = FALSE, out.width = "70%"}
 knitr::include_graphics("Figs/3d.png")
@@ -604,7 +605,7 @@ Source: [https://xkcd.com/1138/](https://xkcd.com/1138/).
 [Grammar of Graphics](https://www.springer.com/de/book/9780387245447):
 
 - Data can come in many types: num. continious, num. discrete, categorical (ordered/unordered),
-time/date, text, spatial
+time/date, text, spatial.
 
 - In order to make a Figure, we need to map the data onto components of 
 graphical elements: onto .hl2[aesthetics] that form geometric geometric objects.
@@ -617,11 +618,11 @@ specify a .hl[scale] that connects those two "layers".
 
 ---
 
-# Which plot to chose?
+# Which Plot to Choose?
 
-- Depends, ofc, on your data (make sure you know it well) and the question you want to answer
+- Depends, ofc., on your data (make sure you know it well) and the question you want to answer.
 
-- We will not go through types of charts systematically but will get to know several when learning `ggplot2`
+- We will not go through types of charts systematically.
 
 - Take a look at [this](https://clauswilke.com/dataviz/index.html) book and this nice [descision tree](https://www.data-to-viz.com/)
 with code examples!
@@ -671,7 +672,7 @@ knitr::include_graphics("Figs/layers.png")
 
 ---
   
-# A plot from Scratch 
+# A Plot from Scratch 
 
 We will use the UN voting data again, but this time the ideal point estimates of 
 [Bailey et al. 2017](https://d1wqtxts1xzle7.cloudfront.net/53137356/jcrpiece.pdf?1494871088=&response-content-disposition=inline%3B+filename%3DEstimating_Dynamic_State_Preferences_fro.pdf&Expires=1625062433&Signature=LCQ0Ad4kSlgDCF6HRlj0oElIcpXyEBtQRg9v7Fsm6wAPHbMTITurc35WYkVvVHunXLCd3uIafxYqPmt8RmsYumGg-zVrAwuMqDsaiO5YaVksmiu0NOabR7seJv92NFA2qTcVEtoy7X4zUmOOvJhTe-DjfgQ8PFNz-MEaVacIMPNAAMl0iRVXVJJR0B4Ks-r0zr75UlYXYhQUvvEnku3xXkhjUtcvWUmZBUEWiRnfgidZaKXXytHmnbNx4MBK-HRKw-Rj7hsis8j4ahIIxSF-YcFzH6CPrdtvIlS5c-Pt6HP3zu-9lM0dC7KqV5A6T6OHxHNWr3voCnoch8pYdOxdZQ__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA).
@@ -698,7 +699,7 @@ ideal <- filter(ideal, iso3c %in% c("USA", "GBR", "FRA", "CHN", "RUS", "DEU"))
 
 ---
   
-# A plot from Scratch 
+# A Plot from Scratch 
 
 
 .pull-left[
@@ -1180,9 +1181,9 @@ Luckily, we can use `theme_set()` to set it globally.
 
 Changing default fonts is also a bit fiddly (esp. on windows). 
 
-  - You can use the `extrafont` package and see. e.g. [here](https://cran.r-project.org/web/packages/extrafont/README.html).
+  - You can use the `extrafont` package and see, e.g., [here](https://cran.r-project.org/web/packages/extrafont/README.html).
 
-- Alternatively, you can use the package `showtext` to load fonts directly from google fonts!
+- Alternatively, you can use the package `showtext` to load fonts directly from Google fonts!
 
 ```{r}
 theme_set(plex)
@@ -1455,10 +1456,10 @@ ggplot(penguins, aes(x = flipper_length_mm, fill = species, color = species)) +
 
 # Maps
 
-Working and visualizing spatial data (i.e. [GIS stuff](https://en.wikipedia.org/wiki/Geographic_information_system)) is a pretty complex subject.
+Wrangling and visualizing spatial data (i.e. [GIS stuff](https://en.wikipedia.org/wiki/Geographic_information_system)) is a pretty complex subject.
 
 You got to think of [projections](https://en.wikipedia.org/wiki/Map_projection),
-the [use of color](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3), [spurious/meaningless spatial correlations](https://xkcd.com/1138/), and alot more... 
+the [use of color](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3), [spurious/meaningless spatial correlations](https://xkcd.com/1138/), and a lot more... 
 
 We won't be able to dive into it but here are some pointers:
 
