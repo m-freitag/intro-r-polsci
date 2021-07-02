@@ -23,7 +23,7 @@ The course will take the format of an intense 2 day workshop with "chalk and tal
 |                                       | [Data Wrangling II: Advanced data manipulations](https://m-freitag.github.io/intro-r-polsci/Session3/)     | 14:30 - 15:30     |
 |                                       | *breakout session 3*                           | 15:30 - 16:15     |
 | **Day 2 (19.07.2021)**                |                                                |                   |
-| Data Visualization                    |                                                | 09:00 - 10:30     |
+| [Data Visualization](https://m-freitag.github.io/intro-r-polsci/Session4/)                   |                                                | 09:00 - 10:30     |
 |                                       | *breakout session 1*                           | 10:30 - 12:15     |
 | *Break*                               |                                                | 12:15 - 12:45     |
 | Writing functions (and clean code)    |                                                | 12:45 - 13:45     |
