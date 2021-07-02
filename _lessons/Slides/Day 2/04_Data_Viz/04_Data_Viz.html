@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Session 3: Data Wrangling</title>
+    <title>Session 4: Data Viz</title>
     <meta charset="utf-8" />
     <meta name="author" content="Markus Freitag" />
-    <meta name="date" content="2021-06-26" />
+    <meta name="date" content="2021-07-02" />
     <script src="04_Data_Viz_files/header-attrs-2.8/header-attrs.js"></script>
     <link href="04_Data_Viz_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <script src="04_Data_Viz_files/fabric-4.3.1/fabric.min.js"></script>
@@ -102,9 +102,1162 @@ octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80
 
 - If you have a second monitor, great! If not, split your screen.
 
+
 ---
 
-# Slide 1
+class: inverse, center, middle name: intro
+
+
+# Why is data viz important?
+
+
+---
+
+# Why is data viz important?
+
+- We have always tried to represent information in an (abstract) visual form...
+
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Babylonian_Map_of_the_World%2C_700-500_BC.jpg/800px-Babylonian_Map_of_the_World%2C_700-500_BC.jpg" width="30%" style="display: block; margin: auto;" /&gt;
+
+[The Babylonian Map of the World.](https://en.wikipedia.org/wiki/Babylonian_Map_of_the_World) Oldest known world map.
+
+---
+
+# Why is data viz important?
+
+
+.hl[Communication]
+
+- Useful for...
+    - exploring data structure/cleaning data (e.g. spotting missings or outliers)
+    - identfying trends, clusters, descriptive patterns
+    - descriptive as well as for statistical and causal inference 
+
+.hl2[BUT:] Visual Inferences can also mis-guide in several ways (for one perspective on this, 
+see e.g. [here](https://www.richardtraunmueller.com/wp-content/uploads/2019/01/Traunmueller-Visual-Inference-CCCP.pdf)).
+
+- More generally, graphical abstractions can aid in other aspects when working with data
+data (e.g. graphical representations of database structures or DAGs as a tool to see conditions for causal identification more easily)
+
+
+---
+
+# Why is data viz important?
+
+
+&lt;img src="Figs/traunmuelller.png" width="813" style="display: block; margin: auto;" /&gt;
+Source: [Traunmueller, 2018](https://www.richardtraunmueller.com/wp-content/uploads/2019/01/Traunmueller-Visual-Inference-CCCP.pdf).
+
+---
+
+# Useful for Description...
+
+- We observe (see) some data and have various ways to transport summarising information
+to our eyes, e.g.:
+
+&lt;img src="Figs/box.svg" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Useful for Statistical Inference...
+
+- Based on what I see in the data, does this accurately represent what I would see in the population? How certain am I?
+
+- .hl[Ex]: What is `\(E[Y|X]\)` in population given I see `\(E[y|x]\)` in sample? 
+
+- Visualizing uncertainty about parameters...
+
+
+
+&lt;img src="04_Data_Viz_files/figure-html/unnamed-chunk-5-1.png" width="30%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Useful for Statistical Inferences...
+
+.pull-left[
+
+Not optimal ([NJEM 2020, Comparing Covid and Influenza Lungs](https://www.nejm.org/doi/full/10.1056/nejmoa2015432)):
+
+&lt;img src="Figs/nejm.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+.pull-right[
+
+A little [better](https://www.estimationstats.com/#/background) (not the same data, just a sim. example):
+&lt;img src="04_Data_Viz_files/figure-html/unnamed-chunk-7-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+---
+
+# Visualizations are also useful for Causal Inference...
+
+- We can represent our theoretical knowledge about (the absense) of causal 
+relationships between with  graphical models:
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="Figs/dag.svg" alt="A DAG."  /&gt;
+&lt;p class="caption"&gt;A DAG.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+  
+# Visualizations are also useful for Causal Inference...
+
+Or for sensitivity analysis:
+
+&lt;img src="04_Data_Viz_files/figure-html/unnamed-chunk-8-1.png" width="504" style="display: block; margin: auto;" /&gt;
+
+---
+
+# But beware...
+
+- If you conduct exploratory data analysis and plot relationships, e.g. in a scatter plot:
+
+- What you see in the data does not tell you anything about causation. You need theory and assumptions. 
+  
+- `\(E[Y|X]\)` `\(\neq\)` `\(E[Y|do(X=x')]\)` (correlation is not causation!)
+
+&lt;img src="Figs/spurious.svg" width="75%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# But beware...
+
+&lt;img src="Figs/patchsnip.png" width="3982" style="display: block; margin: auto;" /&gt;
+
+- Conditioning on the collider „Star“ (filtering our data and looking at subsamples of the „star“ variable)
+would lead us to wrongly infer a negative relationship between talent and beauty, even if there is, in fact,
+no relationship.
+
+
+---
+
+# .font70[Still, theory + data + viz can put you on the right tracks...]
+
+John Snow and Cholera in London:
+
+- In the 1840s and 50s, most scientists thought Cholera was transmitted via air.
+
+- John Snow did not and forensically partialled out contaminated water as the cause of infection.
+
+- During the pandemic, a water company moved their production up the Thames, resulting in a [natural 
+experiment (diff-in-diff)](https://www.semanticscholar.org/paper/Causality-in-the-Time-of-Cholera%3A-John-Snow-As-a-Coleman/eec8864302732a862e614789767bb0edc068a2fe).
+
+- He also visualized that Cholera deaths were concentrated around a contaminated pump (from another company).
+
+
+---
+
+# .font70[Still, theory + data + viz can put you on the right tracks...]
+
+&lt;img src="Figs/cholera.jpg" width="45%" style="display: block; margin: auto;" /&gt;
+
+
+Some people still did not believe him. E.g. [Max Pettenkofer](https://de.wikipedia.org/wiki/Max_von_Pettenkofer) in Munich...
+
+---
+
+# Some Principles of Data Viz
+
+- Raw data first. Erase everything unnecessary.
+
+The principle of proportional ink (PPI):
+
+&gt; The representation of numbers, as physically measured on the surface of the 
+graphic itself, should be directly proportional to the numerical quantities represented. ([Tufte, 1983](https://www.edwardtufte.com/tufte/books_vdqi))
+
+- Use color (incl. brightness, hue, saturation, etc.), but use it wise.
+
+- Most tables should be figures (except for the case when there is little data)
+
+
+---
+
+# Some Principles of Data Viz
+
+.hl[Ex.] of PPI violation: not showing 0 in bar plots or other weird things...
+
+&lt;img src="Figs/top10books.jpg" width="45%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Gestalt Principles
+
+- [Gestalt psychology](https://en.wikipedia.org/wiki/Gestalt_psychology) is a somewhat antiquated school of perceptual theory
+
+- However, some of the "laws"/cognitive principles are pretty uncontroversial for [figure](https://www.researchgate.net/profile/Susan-Vanderplas/publication/338386060_Testing_Statistical_Charts_What_Makes_a_Good_Graph/links/600597e645851553a0522eef/Testing-Statistical-Charts-What-Makes-a-Good-Graph.pdf) 
+or webdesign:
+
+    - Proximity: Objects or shapes that are spatially close appear to be related.
+    - Similarity: Humans group things that look alike (e.g. use of color in figures). 
+    - Change Blindness: We have a hard time comparing multiple visually similar plots or 
+    facets of plots.
+    - Common region: Things in a common region are related, easy to grasp (e.g. confidence intervals)
+    
+
+---
+
+# Some No-Noes
+
+Pie charts. Almost always bad (except for maybe dist. of seats in a parlianment with &lt;= 4 parties). 
+
+
+&lt;img src="Figs/pie.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+Source: [https://www.dph.illinois.gov/covid19/location-exposure?regionID=0](https://www.dph.illinois.gov/covid19/location-exposure?regionID=0).
+
+---
+  
+# Some No-Noes
+
+3D when there is no third dimensions. Also avoid 3D charts at all cost/break down to multiple 2D charts.
+
+&lt;img src="Figs/3d.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+  
+# Some No-Noes
+
+&lt;img src="Figs/heatmap.png" width="30%" style="display: block; margin: auto;" /&gt;
+
+Source: [https://xkcd.com/1138/](https://xkcd.com/1138/).
+
+---
+
+# From Data to the Eye
+
+[Grammar of Graphics](https://www.springer.com/de/book/9780387245447):
+
+- Data can come in many types: num. continious, num. discrete, categorical (ordered/unordered),
+time/date, text, spatial
+
+- In order to make a Figure, we need to map the data onto components of 
+graphical elements: onto .hl2[aesthetics] that form geometric geometric objects.
+
+  &gt; Some aesthetics are: coordinate positions, shapes, colors, line widths, etc.
+
+We need program which cells of our data correspond to which aesthetics values. I.e.
+specify a .hl[scale] that connects those two "layers". 
+
+
+---
+
+# Which plot to chose?
+
+- Depends, ofc, on your data (make sure you know it well) and the question you want to answer
+
+- We will not go through types of charts systematically but will get to know several when learning `ggplot2`
+
+- Take a look at [this](https://clauswilke.com/dataviz/index.html) book and this nice [descision tree](https://www.data-to-viz.com/)
+with code examples!
+
+.font70[.hl[Some Tipps:] [Cleveland dot plots](https://edav.info/cleveland.html) are an often useful alternative to bar charts. 
+Line graphs need an ordered variable on the x axis. Scatter plots need cont. y 
+and x and can be hard to read with big data. For a single numeric or numeric x categorical variables
+I like [raincloud plots](https://github.com/RainCloudPlots/RainCloudPlots).]
+
+Workflow:
+
+&gt; Theory/understanding of the data &amp;rightarrow; think about appropriate 
+aesthetics and tyes of geometric objects (i.e. plot type) &amp;rightarrow; sketch it by hand! &amp;rightarrow; compute it &amp;rightarrow; detail last!!
+
+
+---
+
+class: inverse, center, middle name: intro
+
+
+# Data Viz with ggplot
+
+---
+  
+# ggplot's Grammar
+
+.pull-left[
+
+- `ggplot` [builds on](https://vita.had.co.nz/papers/layered-grammar.pdf) the grammar of graphics.
+
+- `ggplot(data = df, mapping = aes(x = x, y = y, color = group))` is the core function where
+we specify the aesthetic mapping.
+
+- We then add layers with `+`.
+
+]
+
+
+.pull-right[
+
+
+&lt;img src="Figs/layers.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+  
+# A plot from Scratch 
+
+We will use the UN voting data again, but this time the ideal point estimates of 
+[Bailey et al. 2017](https://d1wqtxts1xzle7.cloudfront.net/53137356/jcrpiece.pdf?1494871088=&amp;response-content-disposition=inline%3B+filename%3DEstimating_Dynamic_State_Preferences_fro.pdf&amp;Expires=1625062433&amp;Signature=LCQ0Ad4kSlgDCF6HRlj0oElIcpXyEBtQRg9v7Fsm6wAPHbMTITurc35WYkVvVHunXLCd3uIafxYqPmt8RmsYumGg-zVrAwuMqDsaiO5YaVksmiu0NOabR7seJv92NFA2qTcVEtoy7X4zUmOOvJhTe-DjfgQ8PFNz-MEaVacIMPNAAMl0iRVXVJJR0B4Ks-r0zr75UlYXYhQUvvEnku3xXkhjUtcvWUmZBUEWiRnfgidZaKXXytHmnbNx4MBK-HRKw-Rj7hsis8j4ahIIxSF-YcFzH6CPrdtvIlS5c-Pt6HP3zu-9lM0dC7KqV5A6T6OHxHNWr3voCnoch8pYdOxdZQ__&amp;Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA).
+
+  - Based on an IRT, they compute session-year ideal points that can also be used to compute
+  dyadic similarity measures. 
+
+  - We will replicate and extend one of their time series figures to the post 2010 period.
+
+Preprocessing:
+.code60[
+
+```r
+unvotes &lt;- import("data/UNVotes.parquet")
+sessions &lt;- unvotes %&gt;%
+  select(session, date) %&gt;%
+  group_by(session) %&gt;%
+  summarise(year = year(min(date)))
+ideal &lt;- import("data/ideal.csv")
+ideal &lt;- left_join(ideal, sessions, by = "session")
+ideal &lt;- filter(ideal, iso3c %in% c("USA", "GBR", "FRA", "CHN", "RUS", "DEU"))
+```
+]
+
+---
+  
+# A plot from Scratch 
+
+
+.pull-left[
+
+.title-wrap2[**Step 1: Specify aesthetic mapping**]
+
+
+```r
+*ggplot(data = ideal,
+*      mapping = aes(x = year,
+*                    y = IdealPointAll,
+*                    color = iso3c))
+```
+Other aesthetics are, e.g.: size, shape, fill, alpha.
+
+
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/layer1-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# A plot from Scratch
+
+.pull-left[
+.title-wrap2[**Step 2: Choose a geometry**]
+
+```r
+ggplot(data = ideal,
+       mapping = aes(x = year,
+                     y = IdealPointAll,
+                     color = iso3c)) +
+* geom_point()
+```
+
+We prefer to show every single data point. Since the data 
+is yearly this works ok with points. But we want lines too... 
+
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/layer2-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+
+# A plot from Scratch
+
+.pull-left[
+.title-wrap2[**Step 3: Adding a line geom**]
+
+```r
+ggplot(data = ideal,
+       mapping = aes(x = year,
+                     y = IdealPointAll,
+                     color = iso3c)) +
+  geom_point() +
+* geom_line()
+```
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/layer3-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# A plot from Scratch
+
+.pull-left[
+.title-wrap2[**Step 4: Resize lines and points**]
+
+```r
+ggplot(data = ideal,
+       mapping = aes(x = year,
+                     y = IdealPointAll,
+                     color = iso3c)) +
+* geom_point(size = 2) +
+* geom_line(size = 1)
+```
+
+If we dont want the size to map to our data, we can omit `aes()`and set to some value. 
+
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/layer4-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# A plot from Scratch
+
+.pull-left[
+.title-wrap2[**Step 5: Change color scale**]
+
+```r
+ggplot(data = ideal,
+       mapping = aes(x = year,
+                     y = IdealPointAll,
+                     color = iso3c)) +
+  geom_point(size = 2) + 
+  geom_line(size = 1) +
+* scale_colour_brewer(palette = "Dark2")
+```
+
+We can add a decent color-blind friendly
+scale from [ColorBrewer](https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3). 
+We need a discrete color scale. 
+
+.font70[.hl[Tipp:] MORE COLORS!?! Take a look [here](https://github.com/EmilHvitfeldt/r-color-palettes).]
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/layer5-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# A plot from Scratch
+
+.pull-left[
+.title-wrap2[**Step 6: x scale**]
+
+```r
+ggplot(data = ideal,
+       mapping = aes(x = year,
+                     y = IdealPointAll,
+                     color = iso3c)) +
+  geom_point(size = 2) + 
+  geom_line(size = 1) +
+  scale_colour_brewer(palette = "Dark2") +
+* scale_x_continuous(breaks = seq(1950, 2020, 10))
+```
+As our date variable is simply of type integer, we use `scale_*_continuous` instead
+of `scale_*_date`.
+
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/layer6-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# A plot from Scratch
+
+.pull-left[
+.title-wrap2[**Step 7: (optional) Facets**]
+
+```r
+ggplot(data = ideal,
+       mapping = aes(x = year,
+                     y = IdealPointAll,
+                     color = iso3c)) +
+  geom_point(size = 2) + 
+  geom_line(size = 1) +
+  scale_colour_brewer(palette = "Dark2") +
+  scale_x_continuous(breaks = seq(1950, 2020, 10)) +
+* facet_wrap(vars(iso3c), ncol = 1)
+```
+
+But we don't want this in our case. 
+
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/layer7-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+
+# A plot from Scratch
+
+.pull-left[
+
+.title-wrap2[**Step 8: Labels**]
+
+.code60[
+
+```r
+ggplot(data = ideal,
+       mapping = aes(x = year,
+                     y = IdealPointAll,
+                     color = iso3c)) +
+  geom_point(size = 2) +
+  geom_line(size = 1) +
+  scale_colour_brewer(palette = "Dark2") +
+  scale_x_continuous(breaks = seq(1950, 2020, 10)) +
+* labs(x = "Year",
+*      y = "Ideal Point",
+*      color = "Country",
+*      title = "State foreign policy ideal points from 1946 to 2020",
+*      subtitle = "Estimates based on votes in the UN General Assembly (Bailey et al. 2017)",
+*      caption = "Higher values indicate more 'Western' ideal points.")
+```
+]
+
+
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/layer8-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+
+# A plot from Scratch
+
+.pull-left[
+
+.title-wrap2[**Step 9: Themes**]
+
+.code60[
+
+```r
+ggplot(data = ideal,
+       mapping = aes(x = year,
+                     y = IdealPointAll,
+                     color = iso3c)) +
+  geom_point(size = 2) +
+  geom_line(size = 1) +
+  scale_colour_brewer(palette = "Dark2") +
+  scale_x_continuous(breaks = seq(1950, 2020, 10)) +
+  labs(x = "Year", 
+       y = "Ideal Point",
+       color = "Country", 
+       title = "State foreign policy ideal points from 1946 to 2020",
+       subtitle = "Estimates based on votes in the UN General Assembly (Bailey et al. 2017)",
+       caption = "Higher values indicate more 'Western' ideal points.") +
+  hrbrthemes::theme_ipsum() #&lt;&lt; # There are many ggplot themes, but I like this one atm.
+```
+
+.font70[.hl[Tipp:] MORE THEMES!?! Take a look [here](https://github.com/hrbrmstr/hrbrthemes), 
+[here](https://rstudio.github.io/thematic/index.html), [here](https://github.com/vankesteren/firatheme),
+[here](https://jrnold.github.io/ggthemes/index.html) or [here](https://github.com/bbc/bbplot/).]
+
+]
+
+
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/layer9-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+
+# A plot from Scratch
+
+.pull-left[
+
+.title-wrap2[**Step 10: Going wild - theme tuning**]
+
+.code50[
+
+```r
+ggplot(data = ideal,
+       mapping = aes(x = year,
+                     y = IdealPointAll,
+                     color = iso3c)) +
+  geom_point(size = 2) +
+  geom_line(size = 1) +
+  scale_colour_brewer(palette = "Dark2") +
+  scale_x_continuous(breaks = seq(1950, 2020, 10)) +
+  labs(x = "\nYear", 
+       y = "Ideal Point",
+       color = "Country", 
+       title = "State foreign policy ideal points from 1946 to 2020",
+       subtitle = "Estimates based on votes in the UN General Assembly (Bailey et al. 2017)",
+       caption = "Higher values indicate more 'Western' ideal points.") +
+  hrbrthemes::theme_ipsum() + 
+* theme(text = element_text(colour = "#415564", family = "IBM Plex Sans"),
+*       plot.title = element_text(colour = "#415564", family = "IBM Plex Sans"),
+*       plot.subtitle = element_text(colour = "#415564", family = "IBM Plex Sans"),
+*       plot.background = element_rect(fill = "#f6f3f2", color = "#f6f3f2"),
+*       panel.border = element_blank(),
+*       axis.text = element_text(colour = "#415564"),
+*       axis.title = element_text(colour = "#415564"))
+```
+]
+
+
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/layer10-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+
+
+---
+
+# A plot from Scratch
+
+.pull-left[
+
+.title-wrap2[**Step 11: Going wild - Annotations**]
+
+.code40[
+
+```r
+ggplot(data = ideal,
+       mapping = aes(x = year,
+                     y = IdealPointAll,
+                     color = iso3c)) +
+  geom_point(size = 2) +
+  geom_line(size = 1) +
+  scale_colour_brewer(palette = "Dark2") +
+  scale_x_continuous(breaks = seq(1950, 2020, 10)) +
+  labs(x = "\nYear", 
+       y = "Ideal Point",
+       color = "Country", 
+       title = "State foreign policy ideal points from 1946 to 2020",
+       subtitle = "Estimates based on votes in the UN General Assembly (Bailey et al. 2017)",
+       caption = "Higher values indicate more 'Western' ideal points.") +
+  hrbrthemes::theme_ipsum() + 
+  theme(text = element_text(colour = "#415564", family = "IBM Plex Sans"), 
+        plot.title = element_text(colour = "#415564", family = "IBM Plex Sans"), 
+        plot.subtitle = element_text(colour = "#415564", family = "IBM Plex Sans"), 
+        plot.background = element_rect(fill = "#f6f3f2", color = "#f6f3f2"), 
+        panel.border = element_blank(), 
+        axis.text = element_text(colour = "#415564"), 
+        axis.title = element_text(colour = "#415564")) +
+* annotate(geom = "curve", xend = 1990, yend = 0.7, x = 1983, y = 0.5,
+*          curvature = -.3, arrow = arrow(length = unit(2, "mm")), color = "#415564") +
+* annotate(geom = "text", x = 1971, y = 0.37, label = "End of Cold War", hjust = "left", color = "#415564") +
+* annotate(geom = "curve", xend = 1994, yend = -1.7, x = 2003, y = -2.1,
+*          curvature = -.4, arrow = arrow(length = unit(2, "mm")), color = "#415564") +
+* annotate(geom = "text", x = 2004, y = -2.1, label = "Post-Tianmen \nSquare", hjust = "left", color = "#415564")
+```
+]
+
+
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/layer11-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# A plot from Scratch
+
+.pull-left[
+
+.title-wrap2[**Step 12: Fine tuning the legend and shapes**]
+
+.code35[
+
+```r
+*ideal &lt;- ideal %&gt;%
+* mutate(iso3c = fct_relevel(iso3c, c("USA", "GBR", "FRA", "DEU", "RUS", "CHN")))
+
+ggplot(data = ideal,
+       mapping = aes(x = year,
+                     y = IdealPointAll,
+                     color = iso3c,
+*                    shape = iso3c)) +
+  geom_point(size = 2) +
+  geom_line(size = 1) +
+  scale_colour_brewer(palette = "Dark2") +
+  scale_x_continuous(breaks = seq(1950, 2020, 10)) +
+  labs(x = "\nYear", 
+       y = "Ideal Point",
+       color = "Country",
+*      shape = "Country",
+       title = "State foreign policy ideal points from 1946 to 2020",
+       subtitle = "Estimates based on votes in the UN General Assembly (Bailey et al. 2017)",
+       caption = "Higher values indicate more 'Western' ideal points.") +
+  hrbrthemes::theme_ipsum() + 
+  theme(text = element_text(colour = "#415564", family = "IBM Plex Sans"), 
+        plot.title = element_text(colour = "#415564", family = "IBM Plex Sans"), 
+        plot.subtitle = element_text(colour = "#415564", family = "IBM Plex Sans"), 
+        plot.background = element_rect(fill = "#f6f3f2", color = "#f6f3f2"), 
+        panel.border = element_blank(), 
+        axis.text = element_text(colour = "#415564"), 
+        axis.title = element_text(colour = "#415564")) +
+  annotate(geom = "curve", xend = 1990, yend = 0.7, x = 1983, y = 0.5, 
+           curvature = -.3, arrow = arrow(length = unit(2, "mm")), color = "#415564") + 
+  annotate(geom = "text", x = 1971, y = 0.37, label = "End of Cold War", hjust = "left", color = "#415564") + 
+  annotate(geom = "curve", xend = 1994, yend = -1.7, x = 2003, y = -2.1, 
+           curvature = -.4, arrow = arrow(length = unit(2, "mm")), color = "#415564") + 
+  annotate(geom = "text", x = 2004, y = -2.1, label = "Post-Tianmen \nSquare", hjust = "left", color = "#415564")
+```
+]
+
+
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/layer12-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+
+
+---
+
+# A plot from Scratch
+
+.pull-left[
+
+.title-wrap2[**Alternative "Legend"**]
+
+.code35[
+
+```r
+*ideal_fin &lt;- filter(ideal, year == 2020)
+
+ggplot(data = ideal,
+       mapping = aes(x = year,
+                     y = IdealPointAll,
+                     color = iso3c)) + 
+  geom_line(size = 1) +
+  scale_colour_brewer(palette = "Dark2") +
+  scale_x_continuous(breaks = seq(1950, 2020, 10)) +
+  labs(x = "\nYear", 
+       y = "Ideal Point",
+       color = "Country",
+       title = "State foreign policy ideal points from 1946 to 2020",
+       subtitle = "Estimates based on votes in the UN General Assembly (Bailey et al. 2017)",
+       caption = "Higher values indicate more 'Western' ideal points.") +
+  hrbrthemes::theme_ipsum() + 
+  theme(text = element_text(colour = "#415564", family = "IBM Plex Sans"), 
+        plot.title = element_text(colour = "#415564", family = "IBM Plex Sans"), 
+        plot.subtitle = element_text(colour = "#415564", family = "IBM Plex Sans"), 
+        plot.background = element_rect(fill = "#f6f3f2", color = "#f6f3f2"), 
+        panel.border = element_blank(), 
+        axis.text = element_text(colour = "#415564"), 
+        axis.title = element_text(colour = "#415564"),
+*       legend.position = "none",
+*       axis.text.y.right = element_text(margin = margin(0, 0, 0, -20))) +
+  annotate(geom = "curve", xend = 1990, yend = 0.7, x = 1983, y = 0.5, 
+           curvature = -.3, arrow = arrow(length = unit(2, "mm")), color = "#415564") + 
+  annotate(geom = "text", x = 1971, y = 0.37, label = "End of Cold War", hjust = "left", color = "#415564") + 
+  annotate(geom = "curve", xend = 1994, yend = -1.7, x = 2003, y = -2.1, 
+           curvature = -.4, arrow = arrow(length = unit(2, "mm")), color = "#415564") + 
+  annotate(geom = "text", x = 2004, y = -2.1, label = "Post-Tianmen \nSquare", hjust = "left", color = "#415564") +
+* scale_y_continuous(sec.axis = dup_axis(breaks = ideal_fin$IdealPointAll, labels = c("USA", "GBR", "FRA", "DEU", "RUS", "CHN"), name = NULL))
+```
+]
+
+
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/layer13-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+
+# Setting the theme globally
+
+Adding a theme to every plot can be cumbersome.
+
+Luckily, we can use `theme_set()` to set it globally. 
+
+Changing default fonts is also a bit fiddly (esp. on windows). 
+
+  - You can use the `extrafont` package and see. e.g. [here](https://cran.r-project.org/web/packages/extrafont/README.html).
+
+- Alternatively, you can use the package `showtext` to load fonts directly from google fonts!
+
+
+```r
+theme_set(plex)
+```
+
+---
+
+# Saving your work
+
+The last step is now to save your plot.
+
+We can do this with `ggsave`. Exports the last graphic you plotted or the plot object u specify.
+
+
+```r
+ggsave("ideal_points.png", width = 9, height = 7)
+```
+
+
+If we work with `.rmd` documents, we can just control the output using 
+chunk options (but more on this later).
+
+
+---
+
+# Other Geoms
+
+You can find all geoms here: [https://ggplot2.tidyverse.org/reference/#section-geoms](https://ggplot2.tidyverse.org/reference/#section-geoms).
+
+
+&lt;img src="Figs/ggplot2_blank.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# More examples: Amounts, Props and Distributions
+
+To explore some other geoms and plots, we will just use data on the [Palmer penguins](https://allisonhorst.github.io/palmerpenguins/articles/intro.html), a popular exemplary data set. 
+
+&gt; The `palmerpenguins` data contains size measurements for three penguin species 
+observed on three islands in the Palmer Archipelago, Antarctica.
+
+
+&lt;img src="Figs/pingu.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+
+# More examples: Amounts, Props and Distributions
+
+.code45[
+.pull-left[
+
+.title-wrap2[**Visualizing Amounts**]
+
+
+
+```r
+ggplot(penguins, aes(x = island, fill = species)) +
+  geom_bar(alpha = 0.8) +
+  scale_fill_brewer(palette = "Dark2")
+```
+
+.hl[Q] What are the pros and cons?
+
+.font70[.hl[Fine Point]: `geom_bar()` automatically counts the number of cases and 
+displays the height of the bars accordingly. If you want the height to represent 
+other values in the data use `geom_col()`.]
+
+]
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/bar1-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+
+# More examples: Amounts, Props and Distributions
+
+.code45[
+.pull-left[
+
+.title-wrap2[**Visualizing Amounts**]
+
+
+```r
+ggplot(penguins, aes(x = island, fill = species)) +
+  geom_bar(alpha = 0.8) +
+  scale_fill_brewer(palette = "Dark2") +
+* facet_wrap(~species, ncol = 1) +
+* coord_flip() +
+* theme(legend.position = "none")
+```
+
+.hl[Q] What are the pros and cons?
+
+]
+]
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/bar2-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+
+
+---
+
+# More examples: Amounts, Props and Distributions
+
+
+.pull-left[
+
+.title-wrap2[**Visualizing Cont. Distributions**]
+.code45[
+
+```r
+ggplot(penguins, aes(x = species, y = flipper_length_mm)) +
+  geom_point(alpha = 0.6, 
+             aes(color = species), 
+             show.legend = FALSE) +
+  scale_color_brewer(palette = "Dark2")
+```
+]
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/dist1-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# More examples: Amounts, Props and Distributions
+
+
+.pull-left[
+
+.title-wrap2[**Visualizing Cont. Distributions**]
+
+.code45[
+
+```r
+set.seed(213)
+*ggplot(penguins, aes(x = species, y = flipper_length_mm, color = species)) +
+* geom_point(alpha = 0.6,
+             show.legend = FALSE,
+*            position = position_jitter(seed = 213, width = .1)) +
+  scale_color_brewer(palette = "Dark2")
+```
+]
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/dist2-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+
+# More examples: Amounts, Props and Distributions
+
+
+.pull-left[
+
+.title-wrap2[**Visualizing Cont. Distributions**]
+
+.code45[
+
+```r
+set.seed(213)
+penguins2 &lt;- filter(penguins, flipper_length_mm != is.na(flipper_length_mm))
+ggplot(penguins2, aes(x = species, y = flipper_length_mm, color = species)) +
+* ggdist::stat_halfeye(adjust = .5,
+*                      width = .6,
+*                      .width = 0,
+*                      justification = -.3,
+*                      point_colour = NA,
+*                      aes(fill = species)) +
+* geom_boxplot(width = .2,
+*              outlier.shape = NA, fill = "#f6f3f2") +
+* geom_point(alpha = 0.3,
+             position = position_jitter(seed = 213, width = .1)) +                     
+  scale_color_brewer(palette = "Dark2") +
+* scale_fill_brewer(palette = "Dark2") +
+* theme(legend.position = "none") +
+* coord_flip()
+```
+]
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/dist3-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+
+# More examples: Amounts, Props and Distributions
+
+
+.pull-left[
+
+.title-wrap2[**Visualizing Cont. Distributions**]
+
+.code45[
+
+```r
+set.seed(213)
+penguins2 &lt;- filter(penguins, flipper_length_mm != is.na(flipper_length_mm))
+
+*penguins2 &lt;- penguins2 %&gt;%
+* group_by(species) %&gt;%
+* mutate(n = n()) %&gt;%
+* ungroup() %&gt;%
+* mutate(spec_n = paste0(species, " \n(n = ", n, ")"))
+
+ggplot(penguins2, aes(x = spec_n, y = flipper_length_mm, color = spec_n)) +
+  ggdist::stat_halfeye(adjust = .7, 
+                       width = .6, 
+                       .width = 0, 
+                       justification = -.3, 
+                       point_colour = NA, 
+                       alpha = 0.6,
+                       aes(fill = spec_n)) + 
+  geom_boxplot(width = .2, 
+               outlier.shape = NA, fill = "#f6f3f2") +
+* geom_point(alpha = 0.3,
+             position = position_jitter(seed = 213, width = .1)) +                     
+  scale_color_brewer(palette = "Dark2") +
+  scale_fill_brewer(palette = "Dark2") +
+  theme(legend.position = "none") +
+  coord_flip() +
+* labs(title = "Flipper Length of Brush-Tailed Penguins",
+*      x = "",
+*      y = "\nFlipper Length (mm)")
+```
+]
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/dist4-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+
+# More examples: Amounts, Props and Distributions
+
+.title-wrap2[**Visualizing Cont. Distributions**]
+
+.code45[
+
+```r
+ggplot(penguins, aes(x = flipper_length_mm, fill = species, color = species)) +
+  geom_density(alpha = 0.3, adjust = .7) +
+* labs(title = "Flipper Length of Brush-Tailed Penguins",
+*      x = "\nFlipper Length (mm)") +
+  scale_fill_brewer(palette = "Dark2") +
+  scale_color_brewer(palette = "Dark2")
+```
+
+&lt;img src="04_Data_Viz_files/figure-html/dist5-1.png" width="720" style="display: block; margin: auto;" /&gt;
+]
+
+.hl[Q] Pros and cons?
+
+
+---
+
+# Maps
+
+Working and visualizing spatial data (i.e. [GIS stuff](https://en.wikipedia.org/wiki/Geographic_information_system)) is a pretty complex subject.
+
+You got to think of [projections](https://en.wikipedia.org/wiki/Map_projection),
+the [use of color](https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3), [spurious/meaningless spatial correlations](https://xkcd.com/1138/), and alot more... 
+
+We won't be able to dive into it but here are some pointers:
+
+  - [`sf`](https://github.com/r-spatial/sf) is probably the most complete package to do GIS stuff in R.
+
+  - Check out [this](https://keen-swartz-3146c4.netlify.app/) book on spatial data science with R.
+
+  - Check out [`leaflet`](https://github.com/rstudio/leaflet) for interactive maps.
+
+---
+
+# Maps
+
+.pull-left[
+
+.code45[
+
+Once you get a hang of [shapefiles and the information they store](https://en.wikipedia.org/wiki/Shapefile), 
+[projections](https://docs.qgis.org/3.16/en/docs/gentle_gis_introduction/coordinate_reference_systems.html)/[coordinate 
+reference systems](https://www.earthdatascience.org/courses/earth-analytics/spatial-data-r/intro-to-coordinate-reference-systems/), and figured out how to join your administrative data with it, 
+it's not too difficult... 
+
+
+```r
+ger_map &lt;- sf::read_sf("data/.shapes/VG250_GEM.shp")
+elec_res &lt;- rio::import("data/bundeswahlleiter_17.rds")
+afd_plot &lt;- dplyr::left_join(ger_map, elec_res, by = c("AGS" = "ags"))
+
+ggplot(afd_plot) +
+  geom_sf(aes(fill = afd_share),
+          size = 0.1,
+          color = "#415564") +
+  scale_fill_gradient(low = "#f6f4f2",
+                      high = "#014980") +
+  labs(title = "AfD Vote Share: 2017 Federal Elections", 
+       subtitle = "Municipal-Level Data",
+       fill = "AfD Vote Share (%)",
+       caption = "Source: Bundeswahlleiter; Shapefiles: https://www.govdata.de/.")
+```
+]
+
+]
+
+.pull-right[
+
+&lt;img src="Figs/map.png" width="326" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+# Combining Plots: patchwork
+
+My favorite little data viz helper: [`patchwork`](https://patchwork.data-imaginist.com/).
+
+.pull-left[
+
+.code45[
+
+```r
+p1 &lt;- ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species, shape = species), size = 2)
+
+p2 &lt;- ggplot(data = penguins, aes(x = flipper_length_mm)) +
+  geom_histogram(aes(fill = species), alpha = 0.5, position = "identity")
+
+p1 / p2
+```
+
+Enables you to connect plots with `+`. And to stack `/` and pack them.
+
+]
+
+]
+
+.pull-right[
+&lt;img src="04_Data_Viz_files/figure-html/patch-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+
+class: inverse, center, middle name: intro
+
+# Data Viz Challenge
 
 
 ---
@@ -113,7 +1266,6 @@ class: inverse, center, middle name: intro
 
 
 # Next Up: Writing Functions and Clean Code
-
 
 
 

@@ -125,7 +125,7 @@ h2, h3, h4 {
 }
 
 .remark-code-line-highlighted { 
-  background-color: #DDDBD8; 
+  background-color: #5cb194;
   
 }
 
@@ -146,8 +146,16 @@ h2, h3, h4 {
   font-size: 30%;
 }
 
+.code35 .remark-code {
+  font-size: 35%;
+}
+
 .code40 .remark-code {
   font-size: 40%;
+}
+
+.code45 .remark-code {
+  font-size: 45%;
 }
 
 .code50 .remark-code {
@@ -282,7 +290,7 @@ h2, h3, h4 {
 }
 
 .title-wrap2{
-    background: #415564;
+    background: #e59e34;
     color: #f6f3f2;
     padding:0.3em 0.3em;
 }
