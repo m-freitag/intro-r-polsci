@@ -39,4 +39,6 @@ Solutions will be uploaded after the course.
 
 #### Further Reading
 
+<br/>
+
 Hadley Wickham. Advanced R. Url: [https://adv-r.hadley.nz/](https://adv-r.hadley.nz/).

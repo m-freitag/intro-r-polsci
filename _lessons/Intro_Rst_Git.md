@@ -26,4 +26,6 @@ You can download the .pdf [here](https://github.com/m-freitag/intro-r-polsci/raw
 
 #### Further Reading
 
+<br/>
+
 Jenny Bryan. Happy Git and GitHub for the useR. Url: [https://happygitwithr.com/](https://happygitwithr.com/).

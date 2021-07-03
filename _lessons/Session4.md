@@ -39,6 +39,8 @@ If you are not a course participant or want to access the tasks and solutions di
 
 #### Further Reading
 
+<br/>
+
 Kieran Healy. Data Visualization. URL: [https://socviz.co/](https://socviz.co/).
 
 Klaus Wilke. Fundamentals of Data Visualization. URL: [https://clauswilke.com/dataviz/](https://clauswilke.com/dataviz/).
