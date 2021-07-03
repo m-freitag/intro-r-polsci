@@ -23,6 +23,8 @@ In the second session, we will get to know (and hopefully also to love) the R la
 
 You can download the .pdf [here](https://github.com/m-freitag/intro-r-polsci/raw/master/_lessons/Slides/Day%201/02_BaseR_Tidyverse/02_Basics.pdf) (note that some animations/gifs do cause some visual bugs in the static file).
 
+<br/>
+
 #### Problem Set
 
 Please fork and clone [this](https://github.com/m-freitag/R2021_materials) repo to get all the materials.
