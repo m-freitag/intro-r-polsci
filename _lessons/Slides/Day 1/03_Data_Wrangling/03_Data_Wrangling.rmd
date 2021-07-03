@@ -736,9 +736,9 @@ easy crosstabs. ALternatively, use [`janitor::tabyl`](https://github.com/sfirke/
 
 ---
 
-# Problem Set 2
+class: inverse, center, middle name: intro
 
-Click here to open.
+# Session 3 - Problem Set
 
 ---
 
@@ -1025,10 +1025,10 @@ parlgov_elec_de[party_name_short == "SPD", mean(vote_share, na.rm = T)]
 
 # Problem Set 03/"Homework"
 
-- This last problem set may take a bit longer
+- This last problem set may take a bit longer.
 
 - Try to get as far as you can in the remaining time and finish
-the rest at home (if you want)
+the rest at home (if you want).
 
 
 ---

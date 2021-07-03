@@ -815,6 +815,10 @@ design philosophy, grammar, and data structures." [tidyverse website](https://ww
 
 ---
 
+# Session 2 - Problem Set
+
+---
+
 class: inverse, center, middle name: intro
 
 # Next up: Data Wrangling

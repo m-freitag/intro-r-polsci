@@ -218,8 +218,7 @@ knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/9/
 .hl2[BUT:] Visual Inferences can also mis-guide in several ways (for one perspective on this, 
 see e.g. [here](https://www.richardtraunmueller.com/wp-content/uploads/2019/01/Traunmueller-Visual-Inference-CCCP.pdf)).
 
-- More generally, graphical abstractions can aid in other aspects when working with data
-data (e.g. graphical representations of database structures or DAGs as a tool to see conditions for causal identification more easily)
+- More generally, graphical abstractions can aid in other aspects when working with data (e.g. graphical representations of database structures or DAGs as a tool to see conditions for causal identification more easily).
 
 
 ---
@@ -727,7 +726,7 @@ Other aesthetics are, e.g.: size, shape, fill, alpha.
 
 ---
 
-# A plot from Scratch
+# A Plot from Scratch
 
 .pull-left[
 .title-wrap2[**Step 2: Choose a geometry**]
@@ -753,7 +752,7 @@ is yearly this works ok with points. But we want lines too...
 
 ---
 
-# A plot from Scratch
+# A Plot from Scratch
 
 .pull-left[
 .title-wrap2[**Step 3: Adding a line geom**]
@@ -775,7 +774,7 @@ ggplot(data = ideal,
 
 ---
 
-# A plot from Scratch
+# A Plot from Scratch
 
 .pull-left[
 .title-wrap2[**Step 4: Resize lines and points**]
@@ -800,7 +799,7 @@ If we dont want the size to map to our data, we can omit `aes()`and set to some 
 
 ---
 
-# A plot from Scratch
+# A Plot from Scratch
 
 .pull-left[
 .title-wrap2[**Step 5: Change color scale**]
@@ -829,7 +828,7 @@ We need a discrete color scale.
 
 ---
 
-# A plot from Scratch
+# A Plot from Scratch
 
 .pull-left[
 .title-wrap2[**Step 6: x scale**]
@@ -856,7 +855,7 @@ of `scale_*_date`.
 
 ---
 
-# A plot from Scratch
+# A Plot from Scratch
 
 .pull-left[
 .title-wrap2[**Step 7: (optional) Facets**]
@@ -885,7 +884,7 @@ But we don't want this in our case.
 
 ---
 
-# A plot from Scratch
+# A Plot from Scratch
 
 .pull-left[
 
@@ -922,7 +921,7 @@ ggplot(data = ideal,
 
 ---
 
-# A plot from Scratch
+# A Plot from Scratch
 
 .pull-left[
 
@@ -966,7 +965,7 @@ ggplot(data = ideal,
 
 ---
 
-# A plot from Scratch
+# A Plot from Scratch
 
 .pull-left[
 
@@ -1012,7 +1011,7 @@ ggplot(data = ideal,
 
 ---
 
-# A plot from Scratch
+# A Plot from Scratch
 
 .pull-left[
 
@@ -1061,7 +1060,7 @@ ggplot(data = ideal,
 
 ---
 
-# A plot from Scratch
+# A Plot from Scratch
 
 .pull-left[
 
@@ -1118,7 +1117,7 @@ ggplot(data = ideal,
 
 ---
 
-# A plot from Scratch
+# A Plot from Scratch
 
 .pull-left[
 
