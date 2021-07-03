@@ -27,6 +27,8 @@ You can download the .pdf [here](https://github.com/m-freitag/intro-r-polsci/raw
 
 #### Problem Set
 
+<br/>
+
 Please fork and clone [this](https://github.com/m-freitag/R2021_materials) repo to get all the materials.
 
 If you are not a course participant or want to access the tasks and solutions directly:
