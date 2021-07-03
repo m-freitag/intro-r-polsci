@@ -23,7 +23,11 @@ In the fourth session, we will learn how to build good visualizations with ggplo
 
 You can download the .pdf [here](https://raw.githubusercontent.com/m-freitag/intro-r-polsci/master/_lessons/Slides/Day%202/04_Data_Viz/04_Data_Viz.pdf) (note that some animations/gifs do cause some visual bugs in the static file).
 
+<br/>
+
 #### Problem Sets
+
+<br/>
 
 Please fork and clone [this](https://github.com/m-freitag/R2021_materials) repo to get all the materials.
 

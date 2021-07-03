@@ -5,6 +5,7 @@ author:
 date: '`r Sys.Date()`'
 output:
   xaringan::moon_reader:
+    self_contained: true
     includes:
       after_body: "helpers/handw.js"
     css: ["default", "helpers/lys.css", "helpers/lys-fonts.css"]

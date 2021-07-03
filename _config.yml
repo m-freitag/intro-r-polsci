@@ -29,7 +29,7 @@ heading_anchors: true
 permalink: pretty
 aux_links:
   Course Materials on GitHub:
-    - 'https://github.com/m-freitag/intro-r-polsci'
+    - 'https://github.com/m-freitag/R2021_materials'
 aux_links_new_tab: true    
 footer_content:
 

@@ -23,7 +23,11 @@ In the third session, we will learn how to manipulate and transform data using t
 
 You can download the .pdf [here](https://github.com/m-freitag/intro-r-polsci/raw/master/_lessons/Slides/Day%201/03_Data_Wrangling/03_Data_Wrangling.pdf) (note that some animations/gifs do cause some visual bugs in the static file). A script with all the code from the slides can be found [here](https://github.com/m-freitag/R2021_materials/blob/master/Session%20Scripts/Session_3_script.R) (without annotations).
 
+<br/>
+
 #### Problem Sets
+
+<br/>
 
 Please fork and clone [this](https://github.com/m-freitag/R2021_materials) repo to get all the materials.
 
@@ -31,7 +35,7 @@ If you are not a course participant or want to access the tasks and solutions di
 
 [`problem_set_3.html`](https://raw.githack.com/m-freitag/R2021_materials/master/Problem%20Sets/session_3_problem_set.html)
 
-[homework_day_1.html](https://github.com/m-freitag/R2021_materials/blob/master/Problem%20Sets/homework_day_01.html)
+[`homework_day_1.html`](https://github.com/m-freitag/R2021_materials/blob/master/Problem%20Sets/homework_day_01.html)
 
 Solutions will be uploaded after the course.
 
