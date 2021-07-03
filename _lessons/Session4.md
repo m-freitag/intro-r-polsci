@@ -19,7 +19,7 @@ In the fourth session, we will learn how to build good visualizations with ggplo
 
 <br/>
 
- <iframe src="https://rawcdn.githack.com/m-freitag/intro-r-polsci/d5c685210cca42ddc398d2673a5a5b406ca2678c/_lessons/Slides/Day%202/04_Data_Viz/04_Data_Viz.html?flush_cache=True" width="600" height="337.50" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe> <script>fitvids('.shareagain', {players: 'iframe'});</script>
+ <iframe src="https://raw.githack.com/m-freitag/intro-r-polsci/master/_lessons/Slides/Day%202/04_Data_Viz/04_Data_Viz.html?flush_cache=True" width="600" height="337.50" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe> <script>fitvids('.shareagain', {players: 'iframe'});</script>
 
 You can download the .pdf [here](https://raw.githubusercontent.com/m-freitag/intro-r-polsci/master/_lessons/Slides/Day%202/04_Data_Viz/04_Data_Viz.pdf) (note that some animations/gifs do cause some visual bugs in the static file).
 
