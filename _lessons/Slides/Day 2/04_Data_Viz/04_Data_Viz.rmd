@@ -685,7 +685,7 @@ We will use the UN voting data again, but this time the ideal point estimates of
 Preprocessing:
 .code60[
 ```{r}
-unvotes <- import("data/UNVotes.parquet")
+unvotes <- import("data/UNVotes2.parquet")
 sessions <- unvotes %>%
   select(session, date) %>%
   group_by(session) %>%
@@ -1561,13 +1561,13 @@ class: inverse, center, middle name: intro
 # Next Up: Writing Functions and Clean Code
 
 ```{r print pdf, include=FALSE}
-# pagedown::chrome_print("04_Data_Viz.html")
+pagedown::chrome_print("04_Data_Viz.html")
 ```
 
 ```{r xaringanExtra-share-again, echo=FALSE}
-# xaringanExtra::use_share_again()
+xaringanExtra::use_share_again()
 ```
 
 ```{r xaringanExtra-clipboard, echo=FALSE}
-# xaringanExtra::use_clipboard()
+xaringanExtra::use_clipboard()
 ```

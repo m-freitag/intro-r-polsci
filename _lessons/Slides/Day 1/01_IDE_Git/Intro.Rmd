@@ -522,7 +522,6 @@ Why? Reproducibility.
 
 This creates a folder with an `.Rproj` file. Whenever you open an R-project, a fresh instance of R starts and **the current working directory is set to the project directory.** You can then work with file paths relative to the project directory: E.g. `Figures/somepicture.png")`.
 
-
 **<span style="color: #03bc0d;">Good</span>**
 
 > Creating a project and using version control.
