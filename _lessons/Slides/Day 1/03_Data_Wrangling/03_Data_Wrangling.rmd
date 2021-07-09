@@ -968,8 +968,8 @@ head(l_joined)
 
 # Alternative approaches
 
-- For every tidyverse function ("verb"), there is, of course, a base
-R way to do it.
+- For every tidyverse function ("verb"), there is, of course, [a base
+R way to do it](https://dplyr.tidyverse.org/articles/base.html).
 
 - There are alternatives.
 

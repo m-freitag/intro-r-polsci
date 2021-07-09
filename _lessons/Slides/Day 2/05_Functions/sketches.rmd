@@ -1,0 +1,95 @@
+
+---
+
+# Example: CLT Simulations
+
+.title-wrap2[**Central Limit Theorem**]
+
+.font90[Let $X_1, X_2, \dots, X_n$ be a sequence of independent and identically distributed
+random variables with a common mean $\mu$ and variance $\sigma^2$. In other words, 
+$n$ random samples drawn from a population distribution of arbitrary form and mean $\mu$ and variance $\sigma^2$.
+Let $\bar{X}_n$ be the sample average. 
+
+When $n \rightarrow \infty$, $\bar{X}_n$ converges to the population $\mu$ (.hl2[law of large numbers]).
+
+The .hl[CLT] describes the stochastic behaviour around $\mu$ during the convergence.
+
+Simplified, it says that for large $n$ the sampling distribution of $\bar{X}_n$ approximates a
+normal distribution $N(\mu, \frac{\sigma^2}{n})$.
+
+> If you repeatedly and randomly sample (with replacement) a "large" amount of 
+observations from a population and calculate the mean each time, the  .hl[sampling distribution] 
+of the means will approximate a normal distribution.
+
+
+]
+.font70[.hl[Tipp:] If you need a more thorough refresher, check [these](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading6b.pdf) lecture notes. 
+The [Wikipedia article](https://en.wikipedia.org/wiki/Central_limit_theorem) is also fine in this case.]
+
+
+---
+
+# Example: CLT Simulations
+
+- 
+
+.hl2[Let's visualise the sampling distribution using functions, loops, and funcitonals!]
+
+Take the simplest example of tossing a coin $n$-times, where each $X_i$ is an independent flip of a
+biased coin with the probability $p_i$ of heads being $0.6$.
+
+Summarizing the model: 
+
+$X_i \sim Bern(\mu_i)$ with $\mu_i = p_i = 0.6$
+
+Now, we use R to draw from the bernoulli distribution a large number of 
+random samples (e.g. 1000) each having a size of $n$ (e.g. also 1000) and calculate the mean each time. 
+
+---
+
+# Example: CLT Simulations
+
+.code60[
+```{r}
+set.seed(111) # for reproducibility
+
+
+sample_dist <- function(n = 1000, p = 0.6, runs = 1000) { 
+
+  samp_means <- tibble(mean = rep(NA, runs))
+
+  for (i in 1:runs) {
+
+    x <- rbinom(n, 1, p)
+    samp_means$mean[i] <- mean(x)
+
+  }
+
+  ggplot(samp_means, aes(x = mean)) +
+    geom_histogram(aes(y =..density..)) +
+    stat_function(
+      fun = dnorm,
+      args = list(mean = mean(samp_means$mean), sd = sd(samp_means$mean))
+    )
+
+}
+
+```
+]
+---
+
+# Example: CLT Simulations
+
+```{r}
+sample_dist()
+```
+
+---
+
+# Example: CLT Simulations
+
+- 
+
+---
+
+# Simulations: Further Reading
