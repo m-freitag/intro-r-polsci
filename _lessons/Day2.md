@@ -13,7 +13,7 @@ has_toc: false
 | [Data Visualization](https://m-freitag.github.io/intro-r-polsci/Session4/)                    |                                                | 09:00 - 10:30     |
 |                                       | *breakout session 1*                           | 10:30 - 12:15     |
 | *Break*                               |                                                | 12:15 - 12:45     |
-| Writing functions (and clean code)    |                                                | 12:45 - 13:45     |
+| [Writing Functions](https://m-freitag.github.io/intro-r-polsci/Session5/)    |                                                | 12:45 - 13:45     |
 |                                       | *breakout session 2*                           | 13:45 - 15:00     |
 | A complete scientific workflow with R |                                                | 15:00 - 16:15     |
 |                                       | *Wrap-up*                                      |                   |
