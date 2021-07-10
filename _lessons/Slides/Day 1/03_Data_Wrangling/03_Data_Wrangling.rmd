@@ -138,19 +138,17 @@ octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80
 
 # Overview
 
-1. Intro
-
-2. R-Studio and (Git)Hub
+1. Intro + R-Studio and (Git)Hub
 
 3. Base R & Tidyverse Basics
 
-4. .hl[Data Wrangling]
+3. .hl[Data Wrangling]
 
-5. Data Viz
+4. Data Viz
 
-6. Writing Functions
+5. Writing Functions
 
-7. A complete scientific workflow with R
+6. A complete scientific workflow with R
 
 
 ---
@@ -214,7 +212,6 @@ lotr
 Tidy:
 
 ```{r, echo = FALSE}
-
 lotr <- lotr %>%
   pivot_longer(4:7, names_to = "age_cat", values_to = "classifier") %>%
   filter(classifier == 1) %>%
@@ -235,7 +232,7 @@ as.data.frame(lotr)
 
 ```{r}
 as_tibble(lotr)
-# Hint: You can create one just like data frames but with tibble().
+# Hint: You can create tibbles just like data frames but with tibble().
 ```
 
 ---
@@ -513,7 +510,7 @@ lm(df$y ~ df$x)
 ```
 
 - Some important dplyr functions use [data masking](https://dplyr.tidyverse.org/articles/programming.html)
-such that you can refer to variables just like objects in the (global) envornment.
+such that you can refer to variables just like objects in the (global) environment.
 
 - Get's rid of .hl[$]s. 
 
@@ -534,11 +531,8 @@ parlgov_elec_de <- parlgov_elec %>% # add, e.g., _de if we want to keep our orig
 
 - Now, say we want the mean SPD vote share across all bundestag elections (bit silly but alas):
 
-.code60[
+.code60[  
 ```{r, eval = FALSE}
-
-datasummary_skim(parlgov_elec_de$election_type, type = "categorical")
-
 parlgov_elec_de %>% # add, e.g., _de if we want to keep our original df 
   filter(party_name_short == "SPD", election_type == "parliament") %>% 
   mean(vote_share)
@@ -551,30 +545,28 @@ parlgov_elec_de %>% # add, e.g., _de if we want to keep our original df
 for learning the underlying base, tidyverse or data.table-way of achieving this.]
 ---
 
-# summarise() and pull()
+# pull()
 
 - Base-R's summary stats functions can't take a df or tibble and we did not wrap it into 
 a dplyr function (.hl[in order for data masking to kick in]).
 
 Two options:
 
-.pull-left[
-
 1\. We can use `pull()` to pull out a vector form a df; works like `$` but for pipes.
 
 ```{r}
-
 parlgov_elec_de %>% # add, e.g., _de if we want to keep our original df
   filter(party_name_short == "SPD", election_type == "parliament") %>%
   pull(vote_share) %>% 
   mean()
 
 ```
-]
 
---
 
-.pull-right[
+---
+  
+# summarise()
+
 2\. We can wrap `mean()`into `summarise()` ("data-masking" for built-in summary functions):
 
 ```{r}
@@ -582,7 +574,7 @@ parlgov_elec_de %>%
   filter(party_name_short == "SPD", election_type == "parliament") %>%
   summarise(mean(vote_share)) # summarise() takes summary functions such as mean(), sd(), etc.
 ```
-]
+
 
 ---
 
@@ -593,12 +585,14 @@ parlgov_elec_de %>%
 - We can also compute more summary statistics with `summarise()` .hl[AND] also turn
 them into variables:
 
+--
+  
 ```{r}
 parlgov_elec_de %>%
   filter(party_name_short == "SPD", election_type == "parliament") %>%
   summarise(mean = mean(vote_share), sd = sd(vote_share), n = n())
 
-# Aside: you can also get the number of rows (in a group) by usining the base 
+# Aside: you can also get the number of rows (in a group) by using the base 
 # function nrow(.) with a placeholder in the above pipe.
 
 ```
@@ -675,7 +669,7 @@ votes ever in a parliamentary election by country...
 parlgov_elec %>%
   filter(election_type == "parliament") %>% 
   group_by(country_name_short) %>%
-  summarise(share_max = max(vote_share, na.rm = T), 
+  summarise(share_max = max(vote_share, na.rm = TRUE), # In many base functions, default is not to ignore missings.
             party = party_name_english[1],
             election_date = election_date[1]
             ) %>%  # note the "collapsing" I mentioned earlier
@@ -730,7 +724,9 @@ parlgov_elec %>%
 - `dplyr::slice()` to get a slice of rows: `parlgov_elec %>% slice(1:5)` to get the 
 first 5 rows.
 
-- `dplyr::across()` apply functions to multiple columns.
+- `dplyr::across()` apply transformations to multiple columns.
+
+- `modelsummary::datasummary_crosstab()` for easy two- or multi-dimensional cross tabulations (for Stata `tabulate` addicts).
 
 .font70[.hl[TIPP] Check out the [`modelsummary`](https://vincentarelbundock.github.io/modelsummary/articles/datasummary.html) functions in more detail for 
 easy crosstabs. ALternatively, use [`janitor::tabyl`](https://github.com/sfirke/janitor).]
@@ -750,11 +746,11 @@ class: inverse, center, middle name: intro
 
 ---
 
-# Dealing with factor variables: `forcats`
+# Dealing with factor variables: forcats
 
-- Factor variables are useful; especially for plotting and modelling.
+- Factor variables are useful, especially for plotting and modelling.
 
-- With `factor_recode` we can easily recode levels:
+- With `factor_recode`, we can easily recode levels:
 
 ```{r}
 parlgov_elec_de %>%
@@ -766,12 +762,12 @@ parlgov_elec_de %>%
 
 ```
 
-- With `fct_recorder` we can reorder factors (will be usefull for plotting
+- With `fct_recorder` we can reorder factors (will be useful for plotting
 factors).
 
 ---
 
-# Complex conditions: `if_else` and `case_when` 
+# Complex conditions: if_else and case_when
 
 - Often, we also want to manipulate variables by means of complex conditions
 
@@ -779,6 +775,8 @@ factors).
 
 - Say we want to create a variable, "family", that puts parties into some party family
 based on some arbitrary cutoff of the time-invariant left_right position:
+
+--
 
 ```{r}
 parlgov_elec_de <- parlgov_elec_de %>%
@@ -789,7 +787,7 @@ parlgov_elec_de <- parlgov_elec_de %>%
 
 ---
 
-# Complex conditions: `if_else` and `case_when` 
+# Complex conditions: if_else and case_when 
 
 - A generalised version of `if_else` is `case_when`.
 
@@ -810,6 +808,7 @@ is `TRUE`.
 
 - Values that do not fall into any of the conditions become `NA` which can
 be prevented by adding `TRUE ~ something` as the last argument.
+
 ---
 # tidyr: reshaping data
 
@@ -913,7 +912,7 @@ knitr::include_graphics("Figs/relational.svg")
 
 - Each table has a unique key, representing each row. This key variable is used to link/join tables
 
-- Suppose we want to join the party and the election table, how do we do that?
+- .hl[Suppose we want to join the party and the election table, how do we do that?]
 
 ---
   
@@ -986,7 +985,7 @@ Some like that.
 
 ---
 
-# A glimpse at `data.table`
+# A glimpse at data.table
 
 - Comes with its own interpretation of data frames, "data tables". Special structure to work faster.
 
@@ -1000,7 +999,7 @@ Rough `dplyr` equivalent:
 
 ---
 
-# A glimpse at `data.table`
+# A glimpse at data.table
 
 Example:
 
@@ -1037,7 +1036,14 @@ the rest at home (if you want).
 class: inverse, center, middle name: intro
 
 
-# Next Up: Data Viz
+# Q & A
+
+---
+
+class: inverse, center, middle name: intro
+
+
+# Next Up: Data Viz (Next Week)
 
 
 ```{r print pdf, include=FALSE}

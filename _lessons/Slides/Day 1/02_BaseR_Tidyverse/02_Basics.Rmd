@@ -8,7 +8,7 @@ output:
   xaringan::moon_reader:
     self_contained: true
     includes:
-      after_body: "handw.js"
+      after_body: ["handw.js", "collapseoutput.js"]
     css: ["default", "lys.css", "lys-fonts.css"]
     nature:
       beforeInit: "macros.js"
@@ -137,30 +137,34 @@ octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80
 ---
 # Overview
 
-1. .hl[Intro]
+1. Intro + R-Studio and (Git)Hub
 
-2. .hl[R-Studio and (Git)Hub]
+2. .hl[Base R & Tidyverse Basics]
 
-3. .hl[Base R & Tidyverse Basics]
+3. Data Wrangling
 
-4. .hl[Data Wrangling I]
+4. Data Viz
 
-5. .hl[Data Wrangling II]
+5. Writing Functions
 
-6. .hl[Data Viz]
-
-7. .hl[Writing Functions]
-
-8. .hl[A complete scientific workflow with R]
+6. A complete scientific workflow with R
 
 ---
 # Trivia
 
-- R was designed in 1993 by Ross Ihaka and Robert Gentleman
+- R was designed in 1993 by Ross Ihaka and Robert Gentleman.
 
-- Builds upon the S programming language by John Chambers
+- Builds upon the S programming language by John Chambers.
 
-    - Named R as a play on S and bc of the first names of the authors
+```{r, echo=FALSE, fig.align='center', out.width= "25%"}
+knitr::include_graphics("Figs/devs.png")
+```
+.center[.font50[[Image source and more R-History
+trivia](https://rss.onlinelibrary.wiley.com/doi/epdf/10.1111/j.1740-9713.2018.01169.x)]]
+
+  - Named R as a play on S and bc of the first names of the authors.
+
+--
 
 ```{r, echo = FALSE, results='hide'}
 
@@ -172,13 +176,8 @@ nb_pkgs <- nrow(CRANpackages)
 
 - There are `r nb_pkgs` packages available on [CRAN](https://cran.r-project.org/) as of `r Sys.Date()`.
 
-- [R-Studio](https://www.rstudio.com/about/) $\neq$ [R-Core Team](https://www.r-project.org/contributors.html); the former is a mix of a for-profit and a non-profit company; highly committed to produce free & open-source products; has some business solutions
+- [R-Studio](https://www.rstudio.com/about/) $\neq$ [R-Core Team](https://www.r-project.org/contributors.html); the former is a mix of a for-profit and a non-profit company; highly committed to produce free & open-source products; has some business solutions.
 
-```{r, echo=FALSE, fig.align='center', out.width= "25%"}
-knitr::include_graphics("Figs/devs.png")
-```
-.center[.font50[[Image source and more R-History
-trivia](https://rss.onlinelibrary.wiley.com/doi/epdf/10.1111/j.1740-9713.2018.01169.x)]]
 
 ---
 
@@ -191,11 +190,11 @@ trivia](https://rss.onlinelibrary.wiley.com/doi/epdf/10.1111/j.1740-9713.2018.01
 
 - You will see a pre-formatted Script containing some useful information on comments and formatting.
 
-- The script is otherwise empty. Fill it with the stuff I will discuss on the slides.
+- The script contains everything I do on the slides.
 
 --
   
-- Make comments for yourself. Learn as you write. Explore. Stage, commit and push.
+- Make comments for yourself. Explore as you follow. Stage, commit and push.
 
 - Hopefully not you &rightarrow; <img src= "https://www.cs.cmu.edu/~cangiuli/img/angry.gif" ALIGN=”right”>
 
@@ -236,49 +235,71 @@ class: inverse, center, middle name: intro
 
 # CalculatoR
 
+.hl[Relational and logical operators]
+
 .pull-left[
+
+.code60[
+.details[  
 ```{r}
-# Relational and logical operators
-
 3 < 4
+```
+]
 
+.details[
+```{r}
 2 == 1 & 4 > 2 # == "equal to"; & "element wise logical AND"
+```
+]
 
+.details[
+```{r}
 2 == 1 | 4 > 2 # | "element wise logical or"
 ```
 ]
+]
+]
+
 --
 
 .pull-right[
+.code60[  
 ```{r}
 3 != 4 # != "not equal"
 
 7 %in% 300:500 # %in% can be used to evaluate matches in objects
-
-# Take care about the order of precedence...
 ```
 ]
+Take care about the order of precedence (mostly left to right)...
+]
+
+
 ---
 # CalculatoR
 
 .pull-left[
 ```{r}
-
 # Floating Points
 
 0.1 + 0.2
-
+```
+.details[
+```{r}
 0.1 + 0.2 == 0.3
 ```
-
-Why?!
-
-> [Because internally, computers use a format (binary floating-point) that cannot accurately represent a number like 0.1, 0.2 or 0.3 at all.](https://floating-point-gui.de/basic/)
-
+]
 
 ]
 
+--
+
 .pull-right[
+
+.font80[
+.hl2[Why?!]
+
+> [Because internally, computers use a format (binary floating-point) that cannot accurately represent a number like 0.1, 0.2 or 0.3 at all.](https://floating-point-gui.de/basic/)
+]
 
 ```{r, echo=FALSE, fig.align='center', out.width= "60%"}
 knitr::include_graphics("Figs/robot.png")
@@ -317,7 +338,7 @@ knitr::include_graphics("Classes.svg")
 
 # Functions
 
-- [Functions](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Function-objects) are objects; we will discuss them in more detail in Session x.
+- [Functions](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Function-objects) are objects; we will discuss them in more detail in Session [5](https://m-freitag.github.io/intro-r-polsci/Session5/).
 
 - For now, just think of them in the usual mathematical sense, where we pass some argument and get back a value. E.g. $f(x) = \frac{2x + 3}{\sqrt{3}}$.
 
@@ -340,7 +361,7 @@ f(3)
 
 - There are many functions in R, some are written by users and scientists and put into some package, some are built-in functions of "base" R.<sup>.font70[[1]]</sup>
 
-- A really helpful built-in function - fin the literal sense - is the... `help()` function.
+- A really helpful built-in function - in the literal sense - is the... `help()` function.
 
 - Gives you more information about the usage and arguments of a built-in/user-written function.
 
@@ -367,9 +388,13 @@ operators we met are actually also function calls.]
 - You can use `<-` or `=` for assignment
 
 - For instance,
+
+.code50[
 ```{r}
 a <- 3 # Or a = 3; under the hood, assignment works more like a -> 3
 ```
+]
+
 assigns the name `x` to an object of type/mode numeric holding the value 3.
 I.e. binds an object to a name.
 
@@ -407,7 +432,7 @@ player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
 encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen></iframe></center>
 
-- But there are also some sensible arguments to stick mostly to `<-`in casual settings (e.g. readability: easier to discriminate from function arguments)
+- But there are also some sensible arguments to stick mostly to `<-` (e.g. readability: easier to discriminate from function arguments)
 
 - Bottom line: .hl[be consistent].
 
@@ -451,29 +476,39 @@ for an advanced treatment.
 # Vectors
 
 
-- Vectors are the most fundamental data structure in R.
+- Vectors are the most fundamental data structure in R (actually, .hl2[everything is a vector]).
 
 - As vectors in R have to be of the same type (e.g. numeric), they
-are often called **atomic** vectors
+are often called .hl2[atomic] vectors.
 
+- If you type a number, R "sees" it as double-width floating-point atomic vector of length one.
+
+.font80[
 - *[Technical Fine Point:](https://adv-r.hadley.nz/vectors-chap.html)* Vectors have attributes, importantly dimension and class.
 With the dimension attribute, vectors can become arrays and matrices. With the
 class attribute, we can built an S3 object on top of the base type (see e.g.
 factor type).
+]
 
 --
 
 We can build longer vectors by concenating shorter ones using the `c()`
 function:
 
+.code60[
 ```{r, results= "hide"}
 chr_var <- c("a", "b", "c", "d") # A 4-element atomic vector of type character
 ```
+]
+
 Indexing:
+
+.code60[
 ```{r, results= "hide"}
 chr_var[3] # Returns the third element of object "chr_var".
 chr_var[1:3] # Returns the 1st three.
 ```
+]
 
 ---
 
@@ -487,7 +522,7 @@ For example:
 ```{r, results= "hide"}
 list_a <- list(
   5:7,
-  "string",
+  "I'm a string",
   c(TRUE, TRUE),
   c(1.23, 4.20)
 )
@@ -496,36 +531,59 @@ list_a <- list(
 constructs a list using the function `list()`.
 
 .font70[<sup>[2]</sup>.hl[Fine Point:] A list does not store objects of
-different types, it references to them.]
+different types, it references to them. As you may have inferred yourself, the 
+`:` operator makes sequences. In this case, a numeric vector.]
 
 ---
 
-# Lists
+# Indexing Lists
 
-- Indexing:
 
 .pull-left[
+.code60[  
+.details[  
 ```{r}
-list_a[3] # This returns a list with element four.
+list_a[3] # This returns a list with element three.
+```
+]
+.details[
+```{r}
 list_a[[4]] # We need double brackets to index a list element.
-
+```
+]
+.details[
+```{r}
 # Index within a list element:
 list_a[[4]][2]
 ```
 ]
+]
+]
 
 .pull-right[
+.code60[
+.details[     
 ```{r}
 # For named lists, we can index with $:
-names(list_a) <- c("a", "b", "c", "d") # We can also name elements directly: list(x = 1, y = 2)
+names(list_a) <- c("a", "b", "c", "d") 
+# Note: We can also name elements directly: list(x = 1, y = 2)
 list_a$b
+```
+]
+.details[
+```{r}
 list_a$d[1]
-
-# Adding a new object-reference, i.e. an element, to a list:
-
+```
+]
+.details[
+```{r}
+# Adding a new object-reference, 
+# i.e. an element, to a list:
 list_a$e <- c("R", "is fun")
 
 ```
+]
+]
 ]
 
 ---
@@ -545,6 +603,8 @@ backgrounds_fac <- factor(backgrounds_char, levels = c("none", "Stata", "R")) # 
 ```
 ]
 
+--
+
 .code70[
 .pull-left[
 ```{r}
@@ -563,7 +623,7 @@ typeof(backgrounds_fac)
 .code70[
 .pull-left[
 ```{r chunka, eval=FALSE}
-table(backgrounds_fac)
+table(backgrounds_fac) # -> output to the right
 ```
 ]
 ]
@@ -582,7 +642,7 @@ table(backgrounds_fac)
 
 - You likely already have a grasp for their structure from 
 Stata or other software; they are crucial for data analysis 
---> the rectangle we love.
+&rarr; the rectangle we love.
 
 .code60[
 .pull-left[
@@ -594,14 +654,10 @@ df_langs <- data.frame(
     "Stata", "Stata", "Stata",
     "R"
   )),
-  skill = rnorm(5)
+  skill = rnorm(5) # draw 5 random numbers from a normal dist.
 )
 # View(df_langs)
 head(df_langs) # print first few lines of an object (6 by default)
-# Indexing
-df_langs[2, 2] # Second row of second column 
-df_langs$background[1]
-df_langs[df_langs$skill < 0,] # Combined with our operators, we can also filter
 ```
 ]
 ]
@@ -611,6 +667,29 @@ df_langs[df_langs$skill < 0,] # Combined with our operators, we can also filter
 ```{r chunkb-out, ref.label="chunkb", echo=FALSE}
 ```
 ]
+]
+
+---
+
+# Indexing Data Frames
+
+.details[
+```{r}
+df_langs[2, 2] # Second row of second column
+```
+]
+
+.details[
+```{r}
+df_langs$background[1]
+```
+]
+
+.details[
+```{r}
+# Combined with the operators we learned, we can also filter:
+df_langs[df_langs$skill < 0, ] 
+```
 ]
 
 ---
@@ -650,21 +729,28 @@ $$
 named references to them "live" inside the data frame and not in the global
 environment.
 
-.code50[
-```{r, eval = FALSE}
-# Throws an error:
-lm(skill ~ background) # [3]; the lm object is of type list
+
+```{r, error = TRUE}
+lm(skill ~ background) # the lm object is of type list
 
 ```
-]
 
-.code50[
+
+---
+
+# Data Frames
+
+
+.code60[
+.details[   
 ```{r}
-m1 <- lm(df_langs$skill ~ df_langs$background) # Or: lm(skill ~ background, data = df_langs)
+m1 <- lm(df_langs$skill ~ df_langs$background) # [3]; Or: lm(skill ~ background, data = df_langs)
 summary(m1) # generic function used to produce result summaries of the results of various model fitting functions
 
 ```
 ]
+]
+
 .font70[<sup>[3]</sup>.hl[NOTE:] The formula object/class is built on the base 
 type "language" and important for many stats applications.]
 
@@ -672,7 +758,7 @@ type "language" and important for many stats applications.]
 
 # Data Frames
 
-- This is the time to also plug Vincent Arel-Bundocks' nice package 
+- This is a good timing to also plug Vincent Arel-Bundocks' nice package 
 [modelsummary](https://github.com/vincentarelbundock/modelsummary). 
 
 - Makes perfectly formated regression tables/coef. plots for HTML/MD/LaTeX/Word/etc. a one-liner.
@@ -681,7 +767,7 @@ type "language" and important for many stats applications.]
 
 ---
 
-  # Data Frames
+# Data Frames
 
   Result:
 
@@ -703,18 +789,20 @@ modelsummary(m1,
 
 In most cases, we can also convert an object to another type. Sometimes this has side-effects.
 
-.pull-left[.code70[
+.pull-left[.code70[.details[
 ```{r}
 df_langs_m <- as.matrix(df_langs) # convert data.frame to matrix
 print(df_langs_m)
 ```
 ]
 ]
+]
 
-.pull-right[.code70[
+.pull-right[.code70[.details[
 ```{r}
 typeof(df_langs_m[2, 1])
 ```
+]
 ]
 ]
 
@@ -724,9 +812,6 @@ typeof(df_langs_m[2, 1])
 
 .font70[<sup>[4]</sup>.hl[Fine Point:] Coercion order is character > 
 double > integer > logical.]
-
-
-
 
 
 ---
@@ -784,14 +869,16 @@ You should definitely use it if you work on a larger project.]
     
   - We will keep this very surface-level. 
 
+--
+
   - R warns you about namespace conflicts when loading some package, e.g. by telling you that 
   some objects are `masked from package: base`.
 
-  - The package loaded last "wins", i.e. function `a` of package 2 masks function 
-  `a` of package 1.
+  - .hl[The package loaded last "wins"], i.e. function `a()` of package 2 masks function 
+  `a()` of package 1.
 
-  - If you only need the mask function a few times, use `package1::functiona()`.
-  Else, overwrite it `functiona <- package1::functiona()`.
+  - If you only need the mask function a few times, use `package1::a()`.
+  Else, overwrite it `a <- package1::a()`.
   
 
 ---
@@ -802,12 +889,14 @@ You should definitely use it if you work on a larger project.]
 packages designed for data science. All packages share an underlying 
 design philosophy, grammar, and data structures." [tidyverse website](https://www.tidyverse.org/)
 
-- Developed by [Hadley Wickham](https://en.wikipedia.org/wiki/Hadley_Wickham), supported by RStudio
+- Developed by [Hadley Wickham](https://en.wikipedia.org/wiki/Hadley_Wickham), supported by RStudio...
 
-  - Packages that are easy to learn, that have a similar syntax, and are convenient
+  - Packages that are easy to learn, that have a similar syntax, and are convenient.
+
+--
 
 - There are alternatives... base R is still stable and useful; data.table is fast; 
-[collapse](https://raw.githubusercontent.com/SebKrantz/cheatsheets/master/collapse.pdf)(brand new) is even faster
+[collapse](https://raw.githubusercontent.com/SebKrantz/cheatsheets/master/collapse.pdf) (brand new) is even faster.
 
 - In my opinion, the tidyverse is a bit verbose/wordy. Alot of functions doing one particular thing.
 
@@ -815,6 +904,8 @@ design philosophy, grammar, and data structures." [tidyverse website](https://ww
 (I do too!).
 
 ---
+
+class: inverse, center, middle name: intro
 
 # Session 2 - Problem Set
 
