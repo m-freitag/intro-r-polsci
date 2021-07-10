@@ -110,7 +110,7 @@ class: inverse, center, title-slide, middle
 ### [`r icons::icon_style(icons::fontawesome("twitter"), fill = "#415564")`](https://twitter.com/MarkusGFreitag) [`r icons::icon_style(icons::fontawesome("globe"), fill = "#415564")`](https://markusfreitag.netlify.app/)
 
 
-### `r Sys.Date()`
+### July 12, 2021
 
 <a href="https://github.com/m-freitag" class="github-corner" aria-label="View
 source on Github"><svg width="80" height="80" viewBox="0 0 250 250"
