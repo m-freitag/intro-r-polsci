@@ -135,20 +135,20 @@ name: intro
 .hl2[Why this course?]
 
  - Intro to R with a focus on programming (&harr; standard pol sci quant training).
- 
- - Set some good programming/workflow habits to make your life easier later on.
 
- - A gentle introduction but with some detail on how R works as a programming language (perhaps a bit different to other intro courses). 
+ - A gentle introduction, but with some detail on how R works as a programming language (perhaps a bit different to other intro courses). 
  
+  - Set some good programming/workflow habits to make your life easier later on.
+
 --
 
-> *"I want to give a short (crash) course that provides you with some basic practical skills necessary to get serious about quantitative research."* 
+> *Provide you with some basic practical skills necessary to get serious about quantitative research.* 
 
  - There are tons of awesome & free materials from the best R Gurus of the world out there.
  
- - Take this course as a humble starting point to see through the thickit.
+ - Take this course as a humble starting point to see through the thicket.
 
-.font70[.hl[Note:] Text will be highlighted in .hl[yellow] or .hl2[turquise]. Links will appear [purple]().]
+.font70[.hl[Note:] Text will be highlighted in .hl[yellow] or .hl2[turquoise]. Links will appear [purple]().]
 
 ---
 
@@ -195,7 +195,7 @@ At the present day (and surely years to come), R is arguably the best programmin
 
 - Most active (academic) development community for .hl[statistical] computing/programming.
 
-- Nice IDEs; Good integration of other languages and workflow components.
+- Excellent IDEs; Good integration of other languages and workflow components.
 
 - Best for data viz.
 
@@ -389,12 +389,13 @@ leaflet(data = pois) %>%
 
 .font60[Map shows [points of interest](https://www.opengov-muenchen.de/dataset/points-of-interest-an-der-sudlichen-isar) 
 at the southern part of the Isar in Munich (GSI in orange). Let summer come!]
+
 ---
 
 # Showcase
 
-- U can easily combine R code and text in so called Rmarkdown files to produce 
-reproducible documents in various output formats (html, pdf, etc.).
+- You can easily combine R code and text in so-called Rmarkdown files to produce 
+reproducible documents in various output formats (.html, .pdf, etc.).
 
 - This presentation is a (hopefully good) example. You can check out the source code 
 [here](https://github.com/m-freitag/intro-r-polsci). Feel free to take and adapt. 
@@ -415,13 +416,13 @@ name: intro
 
 Steps you should have done already:
 
-1.  Install [R](https://www.r-project.org/).
+1.  Installed [R](https://www.r-project.org/).
 
-2.  Install [R-Studio](https://www.rstudio.com/products/rstudio/download/#download).
+2.  Installed [R-Studio](https://www.rstudio.com/products/rstudio/download/#download).
 
-3.  Create a [GitHub](https://github.com/) account. Take some care with the user-name if you want to keep this account throughout your career. You can't change it afterwards.
+3.  Created a [GitHub](https://github.com/) account. Take some care with the username if you want to keep this account throughout your career. You can't change it afterwards.
 
-4.  Install and set up [Git](https://git-scm.com/downloads) (and optionally a desktop client).
+4.  Installed and set up [Git](https://git-scm.com/downloads) (and optionally a desktop client).
 
 
 ---
@@ -430,19 +431,17 @@ Steps you should have done already:
 
 R-Studio is an .hl2[IDE] (integrated development environment) for the R language:
 
-- comes with a console, code editor, tools for plotting, history, debugging and workspace
+- comes with a console, code editor, tools for plotting, history, debugging, and workspace
 
 - open source
 
 - pretty accessible/easy to use
 
---
-
 Alternatives:
 
 - Visual Studio Code (nice, if you work with multiple langs; my fav IDE)
 
-- Alternatives are a bit more clunky for package development, shiny platforms and some other R-specific stuff 
+- Alternatives are a bit more clunky for package development, shiny platforms, and some other R-specific stuff 
 
 - If your main language is R, you can't go wrong with RStudio
 
@@ -451,7 +450,7 @@ Alternatives:
 
 # R-Studio
 
-Lets take a tour...
+Let's take a tour...
 
 
 ```{r, echo=FALSE, fig.align='center', out.width="75%"}
@@ -481,7 +480,7 @@ In this course, we will use two types of scripts to write our code:
 
 An Rmarkdown file consists of mainly three things:
 
-1. .hl[YAML header] (Yet Another Markdown Language). Specifies meta info (e.g. author, date, document format, etc.):
+1. .hl[YAML header] (Yet Another Markdown Language). Specifies meta info (e.g., author, date, document format, etc.):
 
 ```{yaml, eval = FALSE}
 ---
@@ -492,17 +491,17 @@ output: html_document
 
 ```
 
-2\. .hl[Code chunks] sorrounded by ` ``` `. You can execute each chunk individually. 
+2\. .hl[Code chunks] surrounded by ` ``` `. You can execute each chunk individually. 
 
-3\. .hl[Plain text] formatted via Markdown, a markup language with very [easy syntax](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf).
+3\. .hl[Plain text] formatted via Markdown, a markup language with very [straightforward syntax](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf).
 
-Problem sets will come as pre-formatted `.rmd` files such that you can start working on excercises directly. 
+Problem sets will come as pre-formatted `.rmd` files such that you can start working on exercises directly. 
 
 ---
 
 # R projects
 
-- To keep our sanity when coding (and to produce something reproducible in the end), we want to keep all our data, analysis scripts, outputs (e.g. figures) etc. together.
+- To keep our sanity when coding (and to produce something reproducible in the end), we want to keep all our data, analysis scripts, outputs, etc. together.
 
 **Three approaches:**
 
@@ -510,7 +509,7 @@ Problem sets will come as pre-formatted `.rmd` files such that you can start wor
 
 **<span style="color: red;">Bad</span>**
 
-> Creating a folder in the explorer and dropping all files into it. Setting the working directory in the R script manually using, e.g., `setwd("C:/Users/XYZ/New Folder")`.
+> Creating a folder in the explorer, dropping all files into it, and manually setting the working directory in the R script using, e.g., `setwd("C:/Users/XYZ/New Folder")`.
 
 Just don't use `setwd()`. Ever.<sup>1</sup>
 
@@ -530,12 +529,12 @@ Why? Reproducibility.
 This creates a folder with an `.Rproj` file. 
 
 .font80[
-Whenever you open an R-project, a fresh instance of R starts and **the current 
+Whenever you open an R-project, a fresh instance of R starts, and **the current 
 working directory is set to the project directory.** You can then work with file 
 paths relative to the project directory: E.g. `"Figures/somepicture.png"`. 
 ]
 
-.font70[.hl[TIPP:] Future you should also check out the [`here`](https://github.com/jennybc/here_here) package to
+.font70[.hl[TIPP:] Future You should also check out the [`here`](https://github.com/jennybc/here_here) package to
 make relative file paths more robust.]
 
 
@@ -554,9 +553,9 @@ Having multiple scripts inside your project called, e.g., `thesis_analysis_final
 
 - Using Git(Hub) improves your workflow:
 
-    - helps with keeping track of the changes you do. 
-    - makes (code) collaboration with other researchers easy. 
-    - helps to make your research/code projects accessible/reproducible/open source.  
+    - Helps with keeping track of the changes you make. 
+    - Makes (code) collaboration with other researchers easy. 
+    - Helps to make your research/code projects accessible/reproducible/open source.  
 
 ---
 
@@ -567,9 +566,9 @@ What's that thing called "Git"?
 - It's a version control system:
 
 $$ \text{Git} \approx \text{MsOffice track changes and restore features} + \text{dropbox/google drive version history}$$
-- But it's better, especially for any kind of projects that involve code
+- But it's better, especially for any kind of projects that involve code.
 
-- You have to "commit" (i.e. save) actively, but that's a good thing (you could still have some sort of auto-save on you local machine)!
+- You have to "commit" ($\approx$ an additional save) actively, but that's a good thing!
 
 
 ---
@@ -590,9 +589,9 @@ GitHub to the rescue:
 
 - A kind of online cloud service that makes working with Git easier
 
-- again, no automated sync (but that's good!)
+- Again, no automated sync (but that's good!)
 
-- Instead of some folder, your project lives in a remote .hl2[repository.]
+- Instead of in some folder, your project lives in a remote .hl2[repository.]
 
 --
 
@@ -600,21 +599,21 @@ GitHub to the rescue:
 
 &#x2192; You can .hl2[clone] it from GitHub to create a local copy.
 
-&#x2192; You can .hl2[fork] some repo (including those of other users); i.e. create a copy of the repo under "your repositories". You can then **clone** this forked repo to get a local copy.
+&#x2192; You can .hl2[fork] some repo (including those of other users); i.e., create a repo copy under "your repositories". You can then **clone** this forked repo to get a local copy.
 
 ---
 
 # Your first repo
 
-1. Click [here](https://github.com/new) and create a new Git(Hub) repo. Call it "test", set it to .hl[private] and initialize with a readme file.
+1. Click [here](https://github.com/new) and create a new Git(Hub) repo. Call it "test", set it to .hl[private], and initialize with a readme file.
 
 2. In R-Studio, navigate to `File > New Project > Version Control > Git`.
 
-3. Paste the Repository URL, chose a name and project path and **clone** the thing.
+3. Paste the Repository URL, chose a name and project path, and **clone** the thing.
 
 4. You will be asked to provide a personal access token. Generate it [here](https://github.com/settings/tokens) using some name and check the "repo box".
 
-5. In the files tab, open README.md. Also click on the Git tab.
+5. In the files tab, open README.md. Also, click on the Git tab.
 
 Do this .hl[now]!
 
@@ -624,7 +623,7 @@ Do this .hl[now]!
 
 1. .hl[Stage] ("add")
 
-  - Tells Git which files u want to make changes (edits, deletes, etc.) to in the repo (simplification); in R-Studio this boils down to "selecting" files/changes to files by checking them.
+  - Tells Git which files u want to make changes (edits, deletes, etc.) to in the repo (simplification); in RStudio this boils down to "selecting" files/changes to files by checking them.
 
 2. .hl[Commit]
 
@@ -636,7 +635,7 @@ Do this .hl[now]!
   
 4. .hl[Push] (to origin)
 
-  - "uploads" all commits to GitHub; to the origin, i.e. your upstream remote repo.
+  - "uploads" all commits to GitHub; to the origin, i.e., your upstream remote repo.
 
 ---
 
@@ -660,11 +659,11 @@ knitr::include_graphics("Figs/git_commit.png")
 
 - Using version control really comes to shine when collaborating.
 
-- BUT: you are always collaborating. With your future self. Therefore, always use version control.
+- BUT: You are always collaborating with your future self. Therefore, always use version control.
 
 - To invite someone to a repo on GitHub, go to the repo `settings > manage access`.
 
-- Your collaborator can then clone the repo and contribute commits, push them etc.
+- Your collaborator can then clone the repo and contribute commits, push them, etc.
 
 
 ---
@@ -704,15 +703,15 @@ knitr::include_graphics("Figs/git_tree.png")
 
 # Branches
 
-- [Branches](https://git-scm.com/book/de/v2/Git-Branching-Branches-auf-einen-Blick) allow you to develop/test some idea without touching the main version of your code.
+- [Branches](https://git-scm.com/book/de/v2/Git-Branching-Branches-auf-einen-Blick) allow you to develop/test some ideas without touching the main version of your code.
 
-- Useful for larger projects. You get a full copy of the repo and you can commit/pull/push all you want. 
+- Useful for larger projects. You get a full copy of the repo, and you can commit/pull/push all you want. 
 
-- If your idea turned out not to work. Just delete the branch.
+- If your ideas turned out not to work. Just delete the branch.
 
 - In R-Studio, they can be created .hl2[via the little purple branch icon in the Git tab.]
 
-- If you want to integrate the feature/idea into the main branch, issue a [pull request](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) (easiest way is via GitHub).
+- If you want to integrate the feature/idea into the main branch, issue a [pull request](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) (the easiest way is via GitHub).
 
 
 ---
@@ -751,7 +750,7 @@ knitr::include_graphics("Figs/git_tree.png")
 
 --
 
-5. Stage, commit (with message), pull (esp. if u work with others/to avoid conflicts right away), push
+5. Stage, commit (with a message), pull (esp. if u work with others to avoid conflicts right away), push
 
 --
 
@@ -765,8 +764,8 @@ Yes, the order really is stage, commit, pull, push.
 
 .hl[Always commit first.]
 
-Pulling .hl[after] commiting does .hl[not] overwrite your work. If you committed, 
-what you pull get's compared to what you comitted. It's things conflict, it's up to you
+Pulling .hl[after] committing does .hl[not] overwrite your work. If you committed, 
+what you pull gets compared to what you committed. If things conflict, it's up to you
 to resolve. If things work fine, great!
 
 If you work alone, you don't really need to pull if you do not change stuff on the remote repo manually.
@@ -777,13 +776,13 @@ If you work alone, you don't really need to pull if you do not change stuff on t
 
 - .hl[Fork the course repo and clone it via R-Studio (that's perhaps a bit hacky but easy and does the job).]
 
-- You will need this to conveniently access the course materials/problem sets.
+- You will need this to access the course materials/problem sets conveniently.
 
 - As the fork is your own copy of the repo, feel free to commit and push all you want.
 
-- You could also use the [shell](https://happygitwithr.com/shell.html) to clone the repo or, alternatively, GitHub Desktop
+- You could also use the [shell](https://happygitwithr.com/shell.html) to clone the repo or, alternatively, GitHub Desktop.
 
-- For beginners, using a Git GUI (like GitHub Desktop) and R-Studio will cover well over 90% of the use cases imo
+- For beginners, using a Git GUI (like GitHub Desktop) and R-Studio will cover well over 90% of the use cases.
 
 See, e.g., [here](https://happygitwithr.com) for further reading.
 

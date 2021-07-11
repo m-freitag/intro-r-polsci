@@ -154,7 +154,7 @@ octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80
 
 - R was designed in 1993 by Ross Ihaka and Robert Gentleman.
 
-- Builds upon the S programming language by John Chambers.
+- It builds on the S programming language by John Chambers.
 
 ```{r, echo=FALSE, fig.align='center', out.width= "25%"}
 knitr::include_graphics("Figs/devs.png")
@@ -162,7 +162,7 @@ knitr::include_graphics("Figs/devs.png")
 .center[.font50[[Image source and more R-History
 trivia](https://rss.onlinelibrary.wiley.com/doi/epdf/10.1111/j.1740-9713.2018.01169.x)]]
 
-  - Named R as a play on S and bc of the first names of the authors.
+  - Was named R as a play on S and because of the first names of the authors.
 
 --
 
@@ -176,7 +176,8 @@ nb_pkgs <- nrow(CRANpackages)
 
 - There are `r nb_pkgs` packages available on [CRAN](https://cran.r-project.org/) as of `r Sys.Date()`.
 
-- [R-Studio](https://www.rstudio.com/about/) $\neq$ [R-Core Team](https://www.r-project.org/contributors.html); the former is a mix of a for-profit and a non-profit company; highly committed to produce free & open-source products; has some business solutions.
+- [R-Studio](https://www.rstudio.com/about/) $\neq$ [R-Core Team](https://www.r-project.org/contributors.html); 
+the former is a mix of a for-profit and a non-profit company; highly committed to producing free & open-source products; has some business solutions.
 
 
 ---
@@ -188,13 +189,13 @@ nb_pkgs <- nrow(CRANpackages)
 
 - Navigate to `Session Scripts > Session 2` and open `Session_2_script.R`.
 
-- You will see a pre-formatted Script containing some useful information on comments and formatting.
+- You will see a pre-formatted Script containing some helpful information on comments and formatting.
 
 - The script contains everything I do on the slides.
 
 --
   
-- Make comments for yourself. Explore as you follow. Stage, commit and push.
+- Make comments for yourself. Explore as you follow. Stage, commit, and push.
 
 - Hopefully not you &rightarrow; <img src= "https://www.cs.cmu.edu/~cangiuli/img/angry.gif" ALIGN=”right”>
 
@@ -317,7 +318,7 @@ class: inverse, center, middle name: intro
 
 # Object Oriented Programming
 
-> Everything is an object and everything has a name.
+> Everything is an object, and everything has a name.
 
 ```{r, echo=FALSE, fig.align='center', out.width= "80%"}
 knitr::include_graphics("Classes1.svg")
@@ -342,28 +343,32 @@ knitr::include_graphics("Classes.svg")
 
 - For now, just think of them in the usual mathematical sense, where we pass some argument and get back a value. E.g. $f(x) = \frac{2x + 3}{\sqrt{3}}$.
 
-- In R, one or multiple arguments get passed to the function body (where the function is defined) and you get back some results.
+- In R, one or multiple arguments (separated by commas) get passed to the function body (where the function is defined), and you get back some results.
 
 --
 
 - For instance, to define the above function and call it, we specify the following:
+
+.code70[
 ```{r}
 f <- function(x) {
   (2 * x + 3) / sqrt(3)
 }
 
-f(3)
+f(x = 3) # omitting argument names, e.g. f(3), works too. But we then need to pay attention to the order in which we pass the values!
 ```
+
+]
 
 ---
 
 # Functions
 
-- There are many functions in R, some are written by users and scientists and put into some package, some are built-in functions of "base" R.<sup>.font70[[1]]</sup>
+- There are many functions in R; some are written by users and scientists and were put into some package, some are built-in functions of "base" R.<sup>.font70[[1]]</sup>
 
 - A really helpful built-in function - in the literal sense - is the... `help()` function.
 
-- Gives you more information about the usage and arguments of a built-in/user-written function.
+- It gives you more information about the usage and arguments of a built-in/user-written function.
 
 --
   
@@ -396,7 +401,7 @@ a <- 3 # Or a = 3; under the hood, assignment works more like a -> 3
 ]
 
 assigns the name `x` to an object of type/mode numeric holding the value 3.
-I.e. binds an object to a name.
+I.e., binds an object to a name.
 
 Simplification:
 > creates an object named `a`, containing the value `3`.
@@ -432,7 +437,7 @@ player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
 encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen></iframe></center>
 
-- But there are also some sensible arguments to stick mostly to `<-` (e.g. readability: easier to discriminate from function arguments)
+- But there are also some sensible arguments to stick mostly to `<-` (e.g., readability: easier to discriminate from function arguments)
 
 - Bottom line: .hl[be consistent].
 
@@ -444,21 +449,21 @@ allowfullscreen></iframe></center>
 
 - Pretty easy to do when working with "real" data; laziness pretty much the only obstacle ;)
 
-- There are several naming conventions. I like `snake_case` and `camelCase` the most. We will use snake cases in this course.
+- There are several naming conventions. Most common are `snake_case` and `camelCase`. We will use `snake_case` in this course.
 
 - .hl[Be consistent].
 
 - There are some ["forbidden"/"reserved" words](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html)
-that cannot be assigned as names. E.g. `NA` (logical constant indicating
+that cannot be assigned as names. E.g., `NA` (logical constant indicating
 missing values), `if`, `else`, `break`.
 
 ---
 
 # Workspace/Environment
 
-- In contrast to Stata, R can hold multiple objects at a time.
+- In contrast to Stata (< version 16), R can hold multiple objects at a time.
 
-- This is very convenient; you can copy, modify etc. R also copies .hl2[ALOT] internally (one reason why its sort of a slow language).
+- This is very convenient; you can copy objects, modify them, etc. R also copies .hl2[ALOT] internally (one reason why it's sort of a slow language).
 
 - The global environment is the interactive workspace you usually work with.
 
@@ -469,7 +474,7 @@ missing values), `if`, `else`, `break`.
 - We won't go into the details of environments but see [here](https://adv-r.hadley.nz/environments.html)
 for an advanced treatment.
 
-- This will get more intuitive soon (e.g. when we take on different data structures on the next few slided)
+- This will get more intuitive soon (e.g., when we take on different data structures on the next few slided)
 
 ---
 
@@ -478,7 +483,7 @@ for an advanced treatment.
 
 - Vectors are the most fundamental data structure in R (actually, .hl2[everything is a vector]).
 
-- As vectors in R have to be of the same type (e.g. numeric), they
+- As vectors in R have to be of the same type (e.g., numeric), they
 are often called .hl2[atomic] vectors.
 
 - If you type a number, R "sees" it as double-width floating-point atomic vector of length one.
@@ -486,7 +491,7 @@ are often called .hl2[atomic] vectors.
 .font80[
 - *[Technical Fine Point:](https://adv-r.hadley.nz/vectors-chap.html)* Vectors have attributes, importantly dimension and class.
 With the dimension attribute, vectors can become arrays and matrices. With the
-class attribute, we can built an S3 object on top of the base type (see e.g.
+class attribute, we can build an S3 object on top of the base type (see e.g.
 factor type).
 ]
 
@@ -530,8 +535,8 @@ list_a <- list(
 ```
 constructs a list using the function `list()`.
 
-.font70[<sup>[2]</sup>.hl[Fine Point:] A list does not store objects of
-different types, it references to them. As you may have inferred yourself, the 
+.font70[<sup>[2]</sup>.hl[Fine Point:] A list does not *store* objects of
+different types. Instead, it references to them. As you may have inferred yourself, the 
 `:` operator makes sequences. In this case, a numeric vector.]
 
 ---
@@ -590,7 +595,7 @@ list_a$e <- c("R", "is fun")
   
 # Factors
 
-- To represent categorical variables, we often use factor objects in R (e.g. 
+- To represent categorical variables, we often use factor objects in R (e.g., 
 makes it easier to get counts of all categories).
 
 - They are build on top of integer vectors and come with a levels attribute.
@@ -725,7 +730,7 @@ $$
 
 # Data Frames
 
-- When passing columns of a data frame (or lists etc.) we need need to take care that the
+- When passing columns of a data frame (or lists etc.), we need need to take care that the
 named references to them "live" inside the data frame and not in the global
 environment.
 
@@ -763,7 +768,7 @@ type "language" and important for many stats applications.]
 
 - Makes perfectly formated regression tables/coef. plots for HTML/MD/LaTeX/Word/etc. a one-liner.
 
-- Also has nice data summary functions which we will use next session. 
+- I also has nice data summary functions, which we will use next session. 
 
 ---
 
@@ -861,7 +866,7 @@ You should definitely use it if you work on a larger project.]
   # Loading/Installing Packages: Namespace Conflicts
 
   - As we assign names to objects and there are as many packages (and many more functions) 
-  as a native english speaker has in his [vocabulary](https://en.wikipedia.org/wiki/Vocabulary#Vocabulary_size),
+  as a native english speaker has in her [vocabulary](https://en.wikipedia.org/wiki/Vocabulary#Vocabulary_size),
   we naturally get some overlap.
 
   - Diving deep into environments, package [namespaces](https://r-pkgs.org/namespace.html), etc. can take you down a 
@@ -871,7 +876,7 @@ You should definitely use it if you work on a larger project.]
 
 --
 
-  - R warns you about namespace conflicts when loading some package, e.g. by telling you that 
+  - R warns you about namespace conflicts when loading some package, e.g., by telling you that 
   some objects are `masked from package: base`.
 
   - .hl[The package loaded last "wins"], i.e. function `a()` of package 2 masks function 
@@ -891,16 +896,16 @@ design philosophy, grammar, and data structures." [tidyverse website](https://ww
 
 - Developed by [Hadley Wickham](https://en.wikipedia.org/wiki/Hadley_Wickham), supported by RStudio...
 
-  - Packages that are easy to learn, that have a similar syntax, and are convenient.
+  - Packages that are easy to learn, have similar syntax, and are convenient.
 
 --
 
 - There are alternatives... base R is still stable and useful; data.table is fast; 
 [collapse](https://raw.githubusercontent.com/SebKrantz/cheatsheets/master/collapse.pdf) (brand new) is even faster.
 
-- In my opinion, the tidyverse is a bit verbose/wordy. Alot of functions doing one particular thing.
+- In my opinion, the tidyverse is a bit verbose/wordy: A lot of functions doing one particular thing.
 
-- You will always end up googling alot. But that's something you will do alot anyways
+- You will always end up googling a lot. But that's something you will do a lot anyways
 (I do too!).
 
 ---
