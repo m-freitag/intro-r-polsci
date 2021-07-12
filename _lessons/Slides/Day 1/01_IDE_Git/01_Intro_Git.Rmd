@@ -568,7 +568,7 @@ What's that thing called "Git"?
 $$ \text{Git} \approx \text{MsOffice track changes and restore features} + \text{dropbox/google drive version history}$$
 - But it's better, especially for any kind of projects that involve code.
 
-- You have to "commit" ($\approx$ an additional save) actively, but that's a good thing!
+- You have to "commit" ($$ \approx$$ an additional save) actively, but that's a good thing!
 
 
 ---
