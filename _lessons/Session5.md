@@ -33,7 +33,7 @@ Please fork and clone [this](https://github.com/m-freitag/R2021_materials) repo 
 
 If you are not a course participant or want to access the tasks and solutions directly:
 
-[`session_4_data_viz_challenge.html`](https://raw.githack.com/m-freitag/R2021_materials/master/Problem%20Sets/session_5_data_viz_challenge.html)
+[`session_5_data_viz_challenge.html`](https://raw.githack.com/m-freitag/R2021_materials/master/Problem%20Sets/session_5_data_viz_challenge.html)
 
 <br/>
 
