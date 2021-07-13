@@ -24,6 +24,5 @@ The course will take the format of an intense 2 day workshop with "chalk and tal
 |                                                                                                             | *breakout session 1* |                   |
 | [Writing Functions](https://m-freitag.github.io/intro-r-polsci/Session5/)                                   |                      |                   |
 |                                                                                                             | *breakout session 2* |                   |
-| A complete scientific workflow with R                                                                       |                      |                   |
 |                                                                                                             | *Wrap-up*            | End: 16:15        |
 
