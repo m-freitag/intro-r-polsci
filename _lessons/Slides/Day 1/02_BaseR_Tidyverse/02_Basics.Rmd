@@ -141,13 +141,13 @@ octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80
 
 2. .hl[Base R & Tidyverse Basics]
 
-3. Data Wrangling
+3. Data Wrangling I
 
-4. Data Viz
+4. Data Wrangling II
 
-5. Writing Functions
+5. Data Viz
 
-6. A complete scientific workflow with R
+6. Writing Functions
 
 ---
 # Trivia

@@ -177,13 +177,13 @@ This will also be your team for the problem sets.
 
 2.  Base R & Tidyverse Basics
 
-3.  Data Wrangling 
+3.  Data Wrangling I
 
-4.  Data Viz
+4.  Data Wrangling II
 
-5.  Writing Functions
+5.  Data Viz
 
-6.  A complete scientific workflow with R
+6.  Writing Functions
 
 ---
 
