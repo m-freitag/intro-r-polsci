@@ -15,5 +15,4 @@ has_toc: false
 |                                                                                                             | *breakout session 1* |                   |
 | [Writing Functions](https://m-freitag.github.io/intro-r-polsci/Session5/)                                   |                      |                   |
 |                                                                                                             | *breakout session 2* |                   |
-| A complete scientific workflow with R                                                                       |                      |                   |
 |                                                                                                             | *Wrap-up*            | End: 16:15        |
