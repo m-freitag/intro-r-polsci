@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Session 5: Writing Functions</title>
+    <title>Session 6: Writing Functions</title>
     <meta charset="utf-8" />
     <meta name="author" content="Markus Freitag" />
     <meta name="date" content="2021-07-13" />
-    <script src="05_Functions_files/header-attrs-2.8/header-attrs.js"></script>
-    <link href="05_Functions_files/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <script src="05_Functions_files/fabric-4.3.1/fabric.min.js"></script>
-    <link href="05_Functions_files/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
-    <script src="05_Functions_files/xaringanExtra-scribble-0.0.1/scribble.js"></script>
+    <script src="06_Functions_files/header-attrs-2.8/header-attrs.js"></script>
+    <link href="06_Functions_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="06_Functions_files/fabric-4.3.1/fabric.min.js"></script>
+    <link href="06_Functions_files/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
+    <script src="06_Functions_files/xaringanExtra-scribble-0.0.1/scribble.js"></script>
     <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#644155"],"pen_size":3,"eraser_size":30}) })</script>
-    <script src="05_Functions_files/clipboard-2.0.6/clipboard.min.js"></script>
-    <link href="05_Functions_files/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
-    <script src="05_Functions_files/shareon-1.4.1/shareon.min.js"></script>
-    <link href="05_Functions_files/xaringanExtra-shareagain-0.2.6/shareagain.css" rel="stylesheet" />
-    <script src="05_Functions_files/xaringanExtra-shareagain-0.2.6/shareagain.js"></script>
-    <link href="05_Functions_files/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
-    <script src="05_Functions_files/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
+    <script src="06_Functions_files/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="06_Functions_files/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
+    <script src="06_Functions_files/shareon-1.4.1/shareon.min.js"></script>
+    <link href="06_Functions_files/xaringanExtra-shareagain-0.2.6/shareagain.css" rel="stylesheet" />
+    <script src="06_Functions_files/xaringanExtra-shareagain-0.2.6/shareagain.js"></script>
+    <link href="06_Functions_files/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="06_Functions_files/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
     <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
     <link rel="stylesheet" href="helpers/lys.css" type="text/css" />
     <link rel="stylesheet" href="helpers/lys-fonts.css" type="text/css" />
@@ -46,7 +46,7 @@ class: inverse, center, title-slide, middle
 
 &lt;br /&gt;
 
-## .header-fancy[Session 5: Writing Functions]
+## .header-fancy[Session 6: Writing Functions]
 
 ### Markus Freitag
 
@@ -660,7 +660,7 @@ penguin_scatter(penguins,
 ]
 .pull-right[
 
-&lt;img src="05_Functions_files/figure-html/funp-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+&lt;img src="06_Functions_files/figure-html/funp-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
 
 ]
 
@@ -738,7 +738,7 @@ plots &lt;- pmap(combs, function(x,y) penguin_scatter(penguins,
 patchwork::wrap_plots(plots) # wrap_plots makes it easy to take a list of plots and add them into one composition, along with layout specifications.
 ```
 
-&lt;img src="05_Functions_files/figure-html/unnamed-chunk-20-1.png" width="1224" style="display: block; margin: auto;" /&gt;
+&lt;img src="06_Functions_files/figure-html/unnamed-chunk-20-1.png" width="1224" style="display: block; margin: auto;" /&gt;
 ]
 
 ---

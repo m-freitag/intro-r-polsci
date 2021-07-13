@@ -1,5 +1,5 @@
 ---
-title: "Session 4: Data Viz"
+title: "Session 5: Data Viz"
 author:
   - "Markus Freitag"
 date: '`r Sys.Date()`'
@@ -117,7 +117,7 @@ class: inverse, center, title-slide, middle
 
 <br />
 
-## .header-fancy[Session 4: Data Visualization]
+## .header-fancy[Session 5: Data Visualization]
 
 ### Markus Freitag
 

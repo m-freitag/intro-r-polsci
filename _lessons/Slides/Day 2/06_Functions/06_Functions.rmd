@@ -1,5 +1,5 @@
 ---
-title: "Session 5: Writing Functions"
+title: "Session 6: Writing Functions"
 author:
   - "Markus Freitag"
 date: '`r Sys.Date()`'
@@ -104,7 +104,7 @@ class: inverse, center, title-slide, middle
 
 <br />
 
-## .header-fancy[Session 5: Writing Functions]
+## .header-fancy[Session 6: Writing Functions]
 
 ### Markus Freitag
 
