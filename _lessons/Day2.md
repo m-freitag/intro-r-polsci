@@ -7,13 +7,13 @@ has_toc: false
 
 # Day 2
 
-| **Topics**                            |                                                | **Time-Schedule** |
-|---------------------------------------|------------------------------------------------|-------------------|
-| **Day 2 (19.07.2021)**                |                                                |                   |
-| [Data Visualization](https://m-freitag.github.io/intro-r-polsci/Session4/)                    |                                                | 09:00 - 10:30     |
-|                                       | *breakout session 1*                           | 10:30 - 12:15     |
-| *Break*                               |                                                | 12:15 - 12:45     |
-| [Writing Functions](https://m-freitag.github.io/intro-r-polsci/Session5/)    |                                                | 12:45 - 13:45     |
-|                                       | *breakout session 2*                           | 13:45 - 15:00     |
-| A complete scientific workflow with R |                                                | 15:00 - 16:15     |
-|                                       | *Wrap-up*                                      |                   |
+| **Topics**                                                                                                  |                      | **Time-Schedule** |
+|-------------------------------------------------------------------------------------------------------------|----------------------|-------------------|
+| **Day 2 (19.07.2021)**                                                                                      |                      | Start: 9:00       |
+| [Data Wrangling II](https://m-freitag.github.io/intro-r-polsci/Session3/)                                   |                      |                   |
+| [Data Visualization](https://m-freitag.github.io/intro-r-polsci/Session4/)                                  |                      |                   |
+|                                                                                                             | *breakout session 1* |                   |
+| [Writing Functions](https://m-freitag.github.io/intro-r-polsci/Session5/)                                   |                      |                   |
+|                                                                                                             | *breakout session 2* |                   |
+| A complete scientific workflow with R                                                                       |                      |                   |
+|                                                                                                             | *Wrap-up*            | End: 16:15        |
