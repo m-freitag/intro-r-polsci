@@ -210,14 +210,15 @@ knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/9/
 .hl[Communication]
 
 - Useful for...
-    - exploring data structure/cleaning data (e.g. spotting missing or outliers)
+    - exploring data structure/cleaning data (e.g., spotting missing or outliers)
     - identifying trends, clusters, descriptive patterns
     - descriptive as well as for statistical and causal inference 
 
-.hl2[BUT:] Visual Inferences can also mis-guide in several ways (for one perspective on this, 
-see e.g. [here](https://www.richardtraunmueller.com/wp-content/uploads/2019/01/Traunmueller-Visual-Inference-CCCP.pdf)).
+.hl2[BUT:] Visual Inferences can also misguide in several ways (for one perspective on this, 
+see, e.g., [here](https://www.richardtraunmueller.com/wp-content/uploads/2019/01/Traunmueller-Visual-Inference-CCCP.pdf)).
 
-- More generally, graphical abstractions can aid in other aspects when working with data (e.g. graphical representations of database structures or DAGs as a tool to see conditions for causal identification more easily).
+- More generally, graphical abstractions can aid in other aspects when working with data 
+(e.g., visual representations of database structures or DAGs as a tool to see conditions for causal identification more easily).
 
 
 ---
@@ -275,11 +276,11 @@ knitr::include_graphics("Figs/box.svg")
 # Useful for Statistical Inference...
 
 .font80[
-- Inferring the unkown (some population quantity/parameter, e.g. $E[Y|X]$) from the known (the data at hand). 
+- Inferring the unknown (some population quantity/parameter, e.g. $E[Y|X]$) from the known (the data at hand). 
 
 - Does what we see in the data accurately represent what we would see in the population we are interested in? How certain are we? 
 
-- Visualization is important to express our uncertainty about parameters...
+- Visualization is important for expressing our uncertainty about parameters...
 ]
 ```{r, echo = FALSE, results = "hide"}
 
@@ -367,8 +368,8 @@ plot(two.group.unpaired.meandiff)
 
 # Visualizations are also useful for Causal Inference...
 
-- We can represent our theoretical knowledge about (the absense) of causal 
-relationships between with  graphical models:
+- We can represent our theoretical knowledge about (the absence) of causal 
+relationships between variables with graphical models:
 
 ```{r dag, echo=FALSE, fig.cap = "A DAG."}
 
@@ -422,7 +423,7 @@ plot(sensitivity)
 
 # But beware...
 
-- If you conduct exploratory data analysis and plot relationships, e.g. in a scatter plot:
+- If you conduct exploratory data analysis and plot relationships, e.g., in a scatter plot:
 
 - What you see in the data does not tell you anything about causation. You need theory and assumptions. 
   
@@ -504,7 +505,7 @@ John Snow and Cholera in London:
 
 - John Snow did not and forensically identified contaminated water as the cause of infection.
 
-- During the pandemic, a water company moved their production up the Thames, resulting in a [natural 
+- A water company moved their production up the Thames during the pandemic, resulting in a [natural 
 experiment (diff-in-diff)](https://www.semanticscholar.org/paper/Causality-in-the-Time-of-Cholera%3A-John-Snow-As-a-Coleman/eec8864302732a862e614789767bb0edc068a2fe).
 
 - He also visualized that Cholera deaths were concentrated around a contaminated pump (from another company).
@@ -532,7 +533,7 @@ The principle of proportional ink (PPI):
 > The representation of numbers, as physically measured on the surface of the 
 graphic itself, should be directly proportional to the numerical quantities represented. ([Tufte, 1983](https://www.edwardtufte.com/tufte/books_vdqi))
 
-- Use color (incl. brightness, hue, saturation, etc.), but use it wise.
+- Use color (incl. brightness, hue, saturation, etc.), but use it wisely.
 
 - Most tables should be figures (except for the case when there is little data)
 
@@ -554,20 +555,20 @@ knitr::include_graphics("Figs/top10books.jpg")
 - [Gestalt psychology](https://en.wikipedia.org/wiki/Gestalt_psychology) is a somewhat antiquated school of perceptual theory
 
 - However, some of the "laws"/cognitive principles are pretty uncontroversial for [figure](https://www.researchgate.net/profile/Susan-Vanderplas/publication/338386060_Testing_Statistical_Charts_What_Makes_a_Good_Graph/links/600597e645851553a0522eef/Testing-Statistical-Charts-What-Makes-a-Good-Graph.pdf) 
-or webdesign:
+or web design:
 
     - Proximity: Objects or shapes that are spatially close appear to be related.
-    - Similarity: Humans group things that look alike (e.g. use of color in figures). 
+    - Similarity: Humans group things that look alike (e.g., use of color in figures). 
     - Change Blindness: We have a hard time comparing multiple visually similar plots or 
     facets of plots.
-    - Common region: Things in a common region are related, easy to grasp (e.g. confidence intervals)
+    - Common region: Things in a common region are related, easy to grasp (e.g., confidence intervals)
     
 
 ---
 
 # Some No-Noes
 
-Pie charts. Almost always bad (except for maybe dist. of seats in a parlianment with <= 4 parties). 
+Pie charts. Almost always bad (except for maybe dist. of seats in a parliament with <= 4 parties). 
 
 
 ```{r, echo = FALSE, out.width = "50%"}
@@ -580,7 +581,7 @@ Source: [https://www.dph.illinois.gov/covid19/location-exposure?regionID=0](http
   
 # Some No-Noes
 
-3D when there is no third dimensions. Also, avoid 3D charts in general and break them down into multiple 2D charts.
+3D when there is no third dimension. Also, avoid 3D charts in general and break them down into multiple 2D charts.
 
 ```{r, echo = FALSE, out.width = "70%"}
 knitr::include_graphics("Figs/3d.png")
@@ -602,15 +603,15 @@ Source: [https://xkcd.com/1138/](https://xkcd.com/1138/).
 
 [Grammar of Graphics](https://www.springer.com/de/book/9780387245447):
 
-- Data can come in many types: num. continious, num. discrete, categorical (ordered/unordered),
+- Data can come in many types: num. continuous, num. discrete, categorical (ordered/unordered),
 time/date, text, spatial.
 
-- In order to make a Figure, we need to map the data onto components of 
-graphical elements: onto .hl2[aesthetics] that form geometric geometric objects.
+- To make a Figure, we need to map the data onto components of 
+graphical elements: onto .hl2[aesthetics] that form geometric objects.
 
   > Some aesthetics are: coordinate positions, shapes, colors, line widths, etc.
 
-We need program which cells of our data correspond to which aesthetics values. I.e.
+We need to program which cells of our data correspond to which aesthetics values. I.e.,
 specify a .hl[scale] that connects those two "layers". 
 
 
@@ -618,22 +619,22 @@ specify a .hl[scale] that connects those two "layers".
 
 # Which Plot to Choose?
 
-- Depends, ofc., on your data (make sure you know it well) and the question you want to answer.
+- This depends, ofc., on your data (make sure you know it well) and the question you want to answer.
 
 - We will not go through types of charts systematically.
 
-- Take a look at [this](https://clauswilke.com/dataviz/index.html) book and this nice [descision tree](https://www.data-to-viz.com/)
+- Take a look at [this](https://clauswilke.com/dataviz/index.html) book and this nice [decision tree](https://www.data-to-viz.com/)
 with code examples!
 
 .font70[.hl[Some Tipps:] [Cleveland dot plots](https://edav.info/cleveland.html) are an often useful alternative to bar charts. 
-Line graphs need an ordered variable on the x axis. Scatter plots need cont. y 
-and x and can be hard to read with big data. For a single numeric or numeric x categorical variables
+Line graphs need an ordered variable on the x-axis. Scatter plots need cont. y 
+and x and can be hard to read with big data. For a single numeric or numeric x categorical variables,
 I like [raincloud plots](https://github.com/RainCloudPlots/RainCloudPlots).]
 
 Workflow:
 
 > Theory/understanding of the data &rightarrow; think about appropriate 
-aesthetics and tyes of geometric objects (i.e. plot type) &rightarrow; sketch it by hand! &rightarrow; compute it &rightarrow; detail last!!
+aesthetics, and types of geometric objects (i.e., plot type) &rightarrow; sketch it by hand! &rightarrow; compute it &rightarrow; details last!!
 
 
 ---
@@ -787,7 +788,7 @@ ggplot(data = ideal,
   
 ```
 
-If we dont want the size to map to our data, we can omit `aes()`and set to some value. 
+If we dont want the size to map to our data, we can omit `aes()`and set it to some value. 
 
 ]
 
@@ -1251,7 +1252,7 @@ ggplot(penguins, aes(x = island, fill = species)) +
 
 .font70[.hl[Fine Point]: `geom_bar()` automatically counts the number of cases and 
 displays the height of the bars accordingly. If you want the height to represent 
-other values in the data use `geom_col()`.]
+other values in the data, use `geom_col()`.]
 
 ]
 ]
@@ -1459,7 +1460,7 @@ Wrangling and visualizing spatial data (i.e. [GIS stuff](https://en.wikipedia.or
 You got to think of [projections](https://en.wikipedia.org/wiki/Map_projection),
 the [use of color](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3), [spurious/meaningless spatial correlations](https://xkcd.com/1138/), and a lot more... 
 
-We won't be able to dive into it but here are some pointers:
+We won't be able to dive into it, but here are some pointers:
 
   - [`sf`](https://github.com/r-spatial/sf) is probably the most complete package to do GIS stuff in R.
 
