@@ -155,7 +155,13 @@ octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80
 
 # Workflow
 
-- Navigate to `Session Scripts > Session 3` and open `Session_3_script.R`.
+- As I changed some file names and appended some things from last week, merging your forked
+version with mine will surely generate some merge conflicts. 
+
+- As we don't want to spend too much time on this, just download a `.zip` of the course repo and manually copy the files you want in your repo
+or initialize a new repo.
+
+- Navigate to `Session Scripts` and open `Session_3_script.R` (Same as Data Wrangling I).
 
 - You will see a pre-formatted Script with all the steps I do on the slides.
 

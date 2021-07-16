@@ -5,7 +5,7 @@ author:
 date: '`r Sys.Date()`'
 output:
   xaringan::moon_reader:
-    #self_contained: true  
+    self_contained: true  
     includes:
       after_body: "helpers/handw.js"
     css: ["default", "helpers/lys.css", "helpers/lys-fonts.css"]
@@ -158,7 +158,7 @@ octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80
 
 # Workflow
 
-- Navigate to `Session Scripts > Session 4` and open `Session_5_script.R`.
+- Navigate to `Session Scripts` and open `Session_6_script.R`.
 
 - You will see a pre-formatted Script with all the steps I do on the slides.
 
@@ -179,7 +179,7 @@ class: inverse, center, middle name: intro
 
 # A Primer on Functional Programming
 
-Even though not all functions are .hl[pure].font70[<sup>[1]</sup>], R is kind of a functional programming language as it has .hl2[first-class] functions.
+Even though not all functions are .hl[pure].font70[<sup>[1]</sup>], R is a kind of a functional programming language as it has .hl2[first-class] functions.
 
 >In general, programming languages impose restrictions on the ways in which computational 
 >elements can be manipulated. Elements with the fewest restrictions are said to have first-class status. 
@@ -237,13 +237,13 @@ defined within the function by default. But making explicit what gets returned i
 > is created, [...]. This new environment is initially populated with the unevaluated 
 > arguments to the function; as evaluation proceeds, local variables are created within it. ([R Language Definition](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Function-objects))
 
-- So what happens is that instead of in your global environment, objects you create within a funtion are
+- So what happens is that instead of in your global environment, objects you create within a function are
 local and only the output defined by `return` gets passed on. 
 
 --
 
 - [Lexical Scoping](https://adv-r.hadley.nz/functions.html#lexical-scoping)/How functions find values: The first place where
-functions "look" for values of named objects is in inside the function. It only then turns to the parent environments.
+functions "look" for values of named objects is inside the function. It only then turns to the parent environments.
 The function environment is fresh every call. 
 
 
@@ -402,17 +402,17 @@ nested(z = x)
 
 # Control Flow: Examples
 
-We already got introduced to .hl[vectorised] versions of if statements: `if_else()`/`ifelse()` and the more general `case_when()`:
+We already got introduced to .hl[vectorized] versions of if statements: `if_else()`/`ifelse()` and the more general `case_when()`:
 
 ```{r}
 
-vectorised <- function(z = NULL) { 
+vectorized <- function(z = NULL) { 
 
   ifelse(x < 0, "negative", "positive")
 
 }
 
-vectorised(z = x)
+vectorized(z = x)
 
 ```
 
@@ -420,18 +420,18 @@ That's much easier (and faster)!
 
 ---
 
-# Vectorisation
+# Vectorization
 
-- We already got introduced to vectorised versions of if statements: `if_else()`/`ifelse()` and the more general `case_when()`.
+- We already got introduced to vectorized versions of if statements: `if_else()`/`ifelse()` and the more general `case_when()`.
 
-What is meant by "vectorised"?
+What is meant by "vectorized"?
 
-- You often read the following: it means that the function is applied on every element of an vector/list at .hl2[once].
+- You often read the following: it means that the function is applied on every element of a vector/list at .hl2[once].
 
 
 ---
 
-# Vectorisation
+# Vectorization
 
 ```{r}
 
@@ -447,19 +447,19 @@ fun(c(1,2,3))
 
 ---
 
-# Vectorisation
+# Vectorization
 
 
-- We already got introduced to vectorised versions of if statements: `if_else()`/`ifelse()` and the more general `case_when()`.
+- We already got introduced to vectorized versions of if statements: `if_else()`/`ifelse()` and the more general `case_when()`.
 
-What is meant by "vectorised"?
+What is meant by "vectorized"?
 
 - You often read the following: it means that the function is applied on every element of an vector/list at .hl2[once].
 
 - Except it's not literally doing that...
 
 .hl[Technical Fine Point:] At the core, everything you type in R is a vector. [Actually](https://www.r-bloggers.com/2014/04/vectorization-in-r-why/), 
-in vectorised functions, the vector get's just passed on to the compiled code of 
+in vectorized functions, the vector gets just passed on to the compiled code of 
 a lower-level language (e.g. C++) which itself consists of... loops.
 
 
@@ -695,7 +695,7 @@ plots <- pmap(combs, function(x,y) penguin_scatter(penguins,
 # Combining map() and ggplot()
 
 .code45[
-```{r, fig.width = 17, fig.height = 8}
+```{r, fig.width = 15, fig.height = 7}
 patchwork::wrap_plots(plots) # wrap_plots makes it easy to take a list of plots and add them into one composition, along with layout specifications.
 ```
 ]
@@ -707,11 +707,11 @@ patchwork::wrap_plots(plots) # wrap_plots makes it easy to take a list of plots 
 .font80[ 
 - On your way towards a proficient R user, you should try to integrate writing 
 functions in your workflow. Mastering functions (and OOP) also makes switching between 
-languages more easy!
+languages easier!
 
 .hl[When to write a function?]
 
-  - Whenver you copy some block of code a few times, there surely is a way to save
+  - Whenever you copy some block of code a few times, there surely is a way to save
 some lines with a function. This makes your code much more readable!
 
   - A typical application case in statistics is simulations.
@@ -725,11 +725,11 @@ some lines with a function. This makes your code much more readable!
 .hl2[Stylistic Rules]
 
   - To make your functions readable for your future self, name them and their arguments
-  properly. Specifity > brevity.
+  properly. Specificity > brevity.
 
   - Comment more complex functions extensively or you will be doomed!
 
-You wrote a neat function you need alot in your daily workflow? Consider [packaging it](https://www.mzes.uni-mannheim.de/socialsciencedatalab/article/r-package/)!
+You wrote a neat function you need a lot in your daily workflow? Consider [packaging it](https://www.mzes.uni-mannheim.de/socialsciencedatalab/article/r-package/)!
 ]
 
 ---
@@ -747,7 +747,7 @@ When writing a function, avoid this by writing several small functions instead o
   they arise.
 
 You can also use [R-Studios debugging tool](https://support.rstudio.com/hc/en-us/articles/205612627-Debugging-with-the-RStudio-IDE) 
-to peek under the hood of a function, execute it line by line and spot the error.
+to peek under the hood of a function, execute it line by line, and spot the error.
 
 I mostly enter the debugging mode with: 
 
@@ -786,6 +786,92 @@ class: inverse, center, middle name: intro
 ### If you want to master functions there is only one way...
 <br/>
 ## Get your hands dirty!
+
+
+---
+
+class: inverse, center, middle name: intro
+
+
+# A (Scientific) Worflow with R: A Few Pointers
+
+
+---
+
+# Workflow
+
+Ideally, we want every single piece of our (scientific) work to be reproducible.
+
+This includes:
+
+  - Having clean scripts that are readable, and purpose specific (i.e., one for 
+  data wrangling, one for the analysis, etc.)
+
+  - Using things like `R projects` and the `here` package.
+
+  - Using a version control system (e.g., Git) to track changes to scripts and data.
+
+  - Making the text documents fully reproducible, e.g., using Rmarkdown rather than word or LaTeX.
+
+  - Keeping all your package and software dependencies stable (`renv` and [docker](https://docs.docker.com/get-started/overview/) containers).
+
+---
+
+# Workflow
+
+This is a long list, but after this course, we could check almost any item on it.
+
+Except, the last point. Unfortunately, this is perhaps the most demading thing to do.
+
+While using `renv` is fairly [simple](https://rstudio.github.io/renv/articles/renv.html), I would recommend [combining it with docker](https://rstudio.github.io/renv/articles/docker.html)
+only in larger projects. 
+
+I am, however, pretty sure, that in 3-5 years, submitting replication materials
+will have to be done via a Docker container by default.
+
+---
+
+# Pointers:
+
+Here is a collection of useful links for further reading.
+
+  - [Rmarkdown](https://rmarkdown.rstudio.com/): See, e.g., [this](https://bookdown.org/yihui/rmarkdown/) 
+  and [this](https://bookdown.org/yihui/rmarkdown-cookbook/) book. But I recommend
+  just learning by doing, and consulting the books or google on the fly.
+
+  - For a nice and super easy to use "template" for paper drafts or submission-ready
+  papers, see the new [`reproducr`](https://jschultecloos.github.io/reproducr/) package by Julia Schulte-Cloos (GSI).
+
+  - Git(Hub): For learning Git, I highly recommend [getting a bit more familiar with the shell first](https://swcarpentry.github.io/shell-novice/) (or [here](https://www.datascienceatthecommandline.com/1e/)).
+  After this, go, e.g., on [this](https://www.katacoda.com/courses/git) site and practice/learn Git with a simulator. See also [here](https://happygitwithr.com/), [here](https://git-scm.com/book/en/v2), [here](https://docs.github.com/en/get-started/quickstart/set-up-git),
+  [here](https://git-scm.com/docs).
+
+  - For using docker and R, take, e.g., [this](https://journal.r-project.org/archive/2017/RJ-2017-065/RJ-2017-065.pdf), [this](https://ro.uow.edu.au/cgi/viewcontent.cgi?article=6445&context=smhpapers), or [this](https://journals.sagepub.com/doi/full/10.1177/25152459211017853) article as starting point.
+
+
+---
+
+# Other Pointers
+
+- Data Viz: for a very exhaustive list of pointers, see [here](https://github.com/krzjoa/awesome-r-dataviz).
+
+The great [CRAN Task View](https://cran.r-project.org/web/views/) collections. A few examples:
+
+- [Machine Learning](https://cran.r-project.org/web/views/MachineLearning.html)
+
+- [Econometrics](https://cran.r-project.org/web/views/Econometrics.html)
+
+- [Bayesian Inference](https://cran.r-project.org/web/views/Bayesian.html)
+
+
+---
+
+class: inverse, center, middle name: intro
+
+
+# Q & A
+
+
 
 
 ```{r print pdf, include=FALSE}

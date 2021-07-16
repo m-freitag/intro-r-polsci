@@ -171,7 +171,7 @@ octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80
 
 # Workflow
 
-- Navigate to `Session Scripts > Session 4` and open `Session_4_script.R`.
+- Navigate to `Session Scripts` and open `Session_5_script.R`.
 
 - You will see a pre-formatted Script with all the steps I do on the slides.
 
