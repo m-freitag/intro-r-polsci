@@ -33,8 +33,9 @@ Please fork and clone [this](https://github.com/m-freitag/R2021_materials) repo 
 
 If you are not a course participant or want to access the tasks and solutions directly:
 
-[`problem_set_6.html`](https://raw.githack.com/m-freitag/R2021_materials/master/Problem%20Sets/session_6_problem_set.html)
+[`Session 6: Problem Set`](https://raw.githack.com/m-freitag/R2021_materials/master/Problem%20Sets/session_6_problem_set.html)
 
+Solutions will be uploaded after the course.
 
 
 <br/>

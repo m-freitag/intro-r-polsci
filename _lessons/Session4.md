@@ -33,7 +33,7 @@ Please fork and clone [this](https://github.com/m-freitag/R2021_materials) repo 
 
 If you are not a course participant or want to access the tasks and solutions directly:
 
-[`problem_set_4.html`](https://raw.githack.com/m-freitag/R2021_materials/master/Problem%20Sets/homework_day_02.html)
+[`Session 4: Problem Set/Homework`](https://raw.githack.com/m-freitag/R2021_materials/master/Problem%20Sets/homework_day_02.html)
 
 Solutions will be uploaded after the course.
 
