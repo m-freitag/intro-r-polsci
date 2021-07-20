@@ -35,7 +35,7 @@ If you are not a course participant or want to access the tasks and solutions di
 
 [`Session 6: Problem Set`](https://raw.githack.com/m-freitag/R2021_materials/master/Problem%20Sets/session_6_problem_set.html)
 
-Solutions will be uploaded after the course.
+[`Solution`](https://raw.githack.com/m-freitag/R2021_materials/master/Problem%20Sets_solutions/session_6_problem_set_solutions.html)
 
 
 <br/>

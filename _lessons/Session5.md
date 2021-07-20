@@ -35,7 +35,7 @@ If you are not a course participant or want to access the tasks and solutions di
 
 [`Data Viz Challenge`](https://raw.githack.com/m-freitag/R2021_materials/master/Problem%20Sets/session_5_data_viz_challenge.html)
 
-An example will be uploaded after the course.
+[`Solution`](https://raw.githack.com/m-freitag/R2021_materials/master/Problem%20Sets_solutions/session_5_data_viz_challenge_solution.html)
 
 <br/>
 

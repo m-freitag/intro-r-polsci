@@ -31,11 +31,10 @@ You can download the .pdf [here](https://github.com/m-freitag/intro-r-polsci/raw
 
 Please fork and clone [this](https://github.com/m-freitag/R2021_materials) repo to get all the materials.
 
-If you are not a course participant or want to access the tasks and solutions directly:
+If you are not a course participant or want to access the task directly:
 
 [`Session 4: Problem Set/Homework`](https://raw.githack.com/m-freitag/R2021_materials/master/Problem%20Sets/homework_day_02.html)
 
-Solutions will be uploaded after the course.
 
 <br/>
 
